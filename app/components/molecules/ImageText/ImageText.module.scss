@@ -1,0 +1,27 @@
+.ImageText {
+  position: relative;
+  width: 100%;
+}
+
+.Image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 1.5rem;
+  transition: transform 0.3s;
+
+  &:hover {
+    opacity: 0.8;
+    cursor: pointer;
+    transform: scale(1.01);
+  }
+}
+
+.TextMain {
+  position: absolute;
+  bottom: 40px;
+  left: 30px;
+  color: aliceblue;
+  font-size: var(--font-size-p-mid);
+  font-weight: 700;
+}

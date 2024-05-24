@@ -1,0 +1,25 @@
+.Heading {
+  &__Intro {
+    padding: var(--section-content-margin-vertical-mobile) 0
+      var(--section-margin-vertical) 0;
+
+    .pre {
+      color: #afaeae;
+      font-size: var(--font-size-p-mid);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__Text {
+    font-size: var(--font-size-h3);
+    width: 100%;
+  }
+
+  &__Description {
+    font-size: var(--font-size-p-mid);
+    color: #afaeae;
+    line-height: 1.5;
+    max-width: 500px;
+  }
+}

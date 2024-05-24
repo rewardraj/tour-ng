@@ -1,0 +1,74 @@
+.Heading {
+  margin: 0;
+  letter-spacing: 0.1rem;
+  overflow-wrap: break-word;
+  max-width: 800px;
+  padding-bottom: 2rem;
+}
+
+.Heading--primary {
+  color: #fff;
+  font-weight: var(--font-weight-bold);
+}
+
+.Heading--secondary {
+  color: var(--color-text-secondary);
+}
+
+.Heading--tertiary {
+  color: var(--color-text-tertiary);
+}
+
+.Heading--center {
+  text-align: center;
+}
+
+.Heading--left {
+  text-align: left;
+}
+
+.Heading--right {
+  text-align: right;
+}
+
+/* TYPE */
+h1.Heading {
+  font-size: var(--font-size-h1);
+}
+
+h2.Heading {
+  font-size: var(--font-size-h2);
+}
+
+h3.Heading {
+  font-size: var(--font-size-h3);
+}
+
+h4.Heading {
+  font-size: var(--font-size-h4);
+}
+
+h5.Heading {
+  font-size: var(--font-size-h5);
+}
+
+h6.Heading {
+  font-size: var(--font-size-h6);
+}
+
+/* WEIGHT */
+.Heading--bold {
+  font-weight: var(--font-weight-bold);
+}
+
+.Heading--normal {
+  font-weight: var(--font-weight-normal);
+}
+
+.Heading--light {
+  font-weight: var(--font-weight-light);
+}
+
+.Heading--thin {
+  font-weight: var(--font-weight-thin);
+}

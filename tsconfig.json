@@ -1,0 +1,45 @@
+{
+  "display": "App",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ES2020",
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "@app/*": ["app/*"],
+      "@atoms/*": ["app/components/atoms/*"],
+      "@molecules/*": ["app/components/molecules/*"],
+      "@organisms/*": ["app/components/organisms/*"],
+      "@shared/*": ["app/shared/*"],
+      "@utils/*": ["app/shared/utils/*"],
+      "@assets/*": ["app/assets/*"],
+      "@styles/*": ["app/assets/styles/*"],
+      "@fonts/*": ["app/assets/fonts/*"],
+      "@icons/*": ["app/assets/icons/*"],
+      "@images/*": ["app/assets/images/*"],
+      "@pages/*": ["app/pages/*"],
+      "@routes/*": ["app/routes/*"],
+      "@lib/*": ["app/lib/*"]
+    }
+  },
+  "include": ["**/*.d.ts", "**/*.ts", "**/*.js", "**/*.tsx"],
+  "exclude": ["node_modules", "dist", "dist_node", "**/*.ignore.*"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
