@@ -1,20 +1,24 @@
 .ImageText {
   position: relative;
   width: 100%;
+  border-radius: 1.5rem;
+  overflow: hidden;
+
+  &:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+    .Image {
+      cursor: pointer;
+      transform: scale(1.05);
+    }
+  }
 }
 
 .Image {
   width: 100%;
   height: auto;
   object-fit: cover;
-  border-radius: 1.5rem;
   transition: transform 0.3s;
-
-  &:hover {
-    opacity: 0.8;
-    cursor: pointer;
-    transform: scale(1.01);
-  }
 }
 
 .TextMain {

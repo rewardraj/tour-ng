@@ -1,15 +1,15 @@
 import Grid from "@app/components/layouts/Grid/Grid";
 import { Featured } from "@app/components/molecules/Featured/Featured";
-import styles from "./Location.module.scss";
 import { Flex } from "@app/components/layouts/Flex/Flex";
 import { AlignItems, JustifyContent } from "@app/shared/Layout/Layout";
 import ImageText from "@app/components/molecules/ImageText/ImageText";
 import { Columns } from "@app/components/layouts/Grid/Columns/Columns";
 import SectionHeading from "@app/components/molecules/SectionHeading/SectionHeading";
+import Container from "@app/components/layouts/Container/Container";
 
 const Location = () => {
   return (
-    <section className={styles.Featured}>
+    <Container>
       <Grid
         desktopColumns={4}
         tabletColumns={2}
@@ -66,7 +66,7 @@ const Location = () => {
           </Columns>
         </Grid>
       </Flex>
-    </section>
+    </Container>
   );
 };
 

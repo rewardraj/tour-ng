@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import { MaxSize } from "@shared/Sizes/Sizes";
 import {
   AlignItems,
   FlexDirection,
@@ -14,7 +13,7 @@ interface FlexProps {
   justify?: JustifyContent;
   gap?: FlexGap;
   align?: AlignItems;
-  width?: MaxSize;
+  width?: number | string;
   wrap?: FlexWrap;
   margin?: string;
   children?: React.ReactNode;
@@ -29,7 +28,7 @@ export const Flex: FC<FlexProps> = ({
   align = AlignItems.CENTER,
   margin = "0",
   zIndex = 0,
-  width = MaxSize.DEFAULT,
+  width,
   children,
   className,
 }) => {
@@ -38,7 +37,7 @@ export const Flex: FC<FlexProps> = ({
     justifyContent: justify,
     gap: gap,
     alignItems: align,
-    maxWidth: width,
+    width,
     margin: margin,
     flexWrap: FlexWrap.WRAP,
   };

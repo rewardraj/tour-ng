@@ -23,3 +23,16 @@
     max-width: 500px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .Heading {
+    &__Intro {
+      padding: var(--section-content-margin-vertical-mobile) 0
+        var(--section-content-margin-vertical-mobile) 0;
+    }
+
+    &__Description {
+      margin-bottom: var(--section-content-margin-vertical-mobile);
+    }
+  }
+}
