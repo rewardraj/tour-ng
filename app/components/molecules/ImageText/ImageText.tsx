@@ -1,7 +1,11 @@
 import React from "react";
 import styles from "./ImageText.module.scss";
 import { Flex } from "@app/components/layouts/Flex/Flex";
-import { AlignItems, FlexDirection } from "@app/shared/Layout/Layout";
+import {
+  AlignItems,
+  FlexDirection,
+  JustifyContent,
+} from "@app/shared/Layout/Layout";
 
 interface ImageTextProps {
   src: string;
@@ -19,6 +23,7 @@ const ImageText: React.FC<ImageTextProps> = ({ src, alt, text, subtext }) => {
       <Flex
         direction={FlexDirection.COLUMN}
         gap={8}
+        justify={JustifyContent.CENTER}
         className={styles.TextMain}
         align={AlignItems.START}
       >

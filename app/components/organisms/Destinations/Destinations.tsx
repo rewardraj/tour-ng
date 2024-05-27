@@ -36,7 +36,11 @@ const destinations = [
 const Destinations = () => {
   return (
     <Container>
-      <Flex align={AlignItems.CENTER} justify={JustifyContent.SPACE_BETWEEN}>
+      <Flex
+        align={AlignItems.CENTER}
+        justify={JustifyContent.SPACE_BETWEEN}
+        className={styles.Layout}
+      >
         <SectionHeading
           preText="Tour packages"
           mainText="Our Tourist Destination"
@@ -48,6 +52,7 @@ const Destinations = () => {
         tabletColumns={2}
         mobileColumns={1}
         aria-labelledby="featured-heading"
+        className={styles.Layout}
       >
         {destinations.map((destination, index) => (
           <Card

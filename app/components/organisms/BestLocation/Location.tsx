@@ -6,6 +6,7 @@ import ImageText from "@app/components/molecules/ImageText/ImageText";
 import { Columns } from "@app/components/layouts/Grid/Columns/Columns";
 import SectionHeading from "@app/components/molecules/SectionHeading/SectionHeading";
 import Container from "@app/components/layouts/Container/Container";
+import styles from "./Location.module.scss";
 
 const Location = () => {
   return (
@@ -22,7 +23,11 @@ const Location = () => {
         <Featured number="5.0" description="Average Rating" />
       </Grid>
 
-      <Flex align={AlignItems.CENTER} justify={JustifyContent.SPACE_BETWEEN}>
+      <Flex
+        align={AlignItems.CENTER}
+        justify={JustifyContent.SPACE_BETWEEN}
+        className={styles.LocationGrid}
+      >
         <SectionHeading
           preText="Best Locations"
           mainText=" Nigerian Touristic Attraction"
@@ -33,31 +38,31 @@ const Location = () => {
           desktopColumns={5}
           tabletColumns={2}
           mobileColumns={1}
-          gridGap="2rem"
+          gridGap="3rem"
           align={AlignItems.CENTER}
         >
-          <Columns span={3}>
+          <Columns span={3} mobileSpan={1}>
             <ImageText
               src="https://picsum.photos/900/500"
               text="Kilimanjaro mountain"
               subtext="Tanzania"
             />
           </Columns>
-          <Columns span={1}>
+          <Columns span={2} mobileSpan={1}>
             <ImageText
               src="https://picsum.photos/900/755"
               text="Victoria Falls"
               subtext="Zimbabwe"
             />
           </Columns>
-          <Columns span={1}>
+          <Columns span={2} mobileSpan={1}>
             <ImageText
               src="https://picsum.photos/950/900"
               text="Obudu Cattle Ranch"
               subtext="Cross Rivers, Nigeria"
             />
           </Columns>
-          <Columns span={3}>
+          <Columns span={3} mobileSpan={1}>
             <ImageText
               src="https://picsum.photos/900/560"
               text="Sambissa Forest"

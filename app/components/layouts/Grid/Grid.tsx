@@ -10,6 +10,7 @@ interface GridProps {
   gridGap?: string;
   labelledBy?: string;
   align?: AlignItems;
+  className?: string;
 }
 
 const Grid: React.FC<GridProps> = ({
@@ -20,6 +21,7 @@ const Grid: React.FC<GridProps> = ({
   gridGap,
   labelledBy,
   align = AlignItems.START,
+  className,
 }) => {
   const gridClass = `${styles.grid} ${styles["desktop-" + desktopColumns]} ${
     styles["tablet-" + tabletColumns]
@@ -27,7 +29,7 @@ const Grid: React.FC<GridProps> = ({
 
   return (
     <section
-      className={gridClass}
+      className={`${gridClass} ${className}`}
       style={{ gap: gridGap }}
       aria-labelledby={labelledBy}
     >
