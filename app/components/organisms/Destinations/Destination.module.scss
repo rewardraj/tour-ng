@@ -1,5 +1,5 @@
 .ViewMore {
-  margin-top: var(--section-margin-vertical-desktop);
+  margin-top: var(--section-margin-vertical-tablet);
   padding: 2rem 3rem;
   border: none;
   background-color: #333;
@@ -9,12 +9,5 @@
 
   &:hover {
     background-color: #444;
-  }
-}
-
-.Layout {
-  @media screen and (max-width: 768px) {
-    padding: 0 1rem;
-    margin: auto;
   }
 }

@@ -2,6 +2,7 @@ import { Flex } from "@app/components/layouts/Flex/Flex";
 import {
   AlignItems,
   FlexDirection,
+  FlexGap,
   JustifyContent,
 } from "@app/shared/Layout/Layout";
 import React from "react";
@@ -14,6 +15,7 @@ interface CardProps {
   alt?: string;
   location?: string;
   price?: number;
+  icon?: string;
 }
 
 const Card: React.FC<CardProps> = ({
@@ -22,6 +24,7 @@ const Card: React.FC<CardProps> = ({
   src,
   alt,
   location,
+  icon,
   price,
 }) => {
   return (
@@ -42,7 +45,15 @@ const Card: React.FC<CardProps> = ({
           width="100%"
         >
           <span>{days}</span>
-          <span>{stars}</span>
+          <Flex
+            justify={JustifyContent.CENTER}
+            align={AlignItems.CENTER}
+            gap={FlexGap.MEDIUM}
+            className={styles.stars}
+          >
+            <i className={icon} style={{ color: "gold" }}></i>
+            {stars}
+          </Flex>
         </Flex>
         <Flex
           justify={JustifyContent.SPACE_BETWEEN}

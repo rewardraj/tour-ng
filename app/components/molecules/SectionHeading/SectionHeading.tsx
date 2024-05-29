@@ -7,7 +7,8 @@ import React from "react";
 interface SectionHeadingProps {
   preText: string;
   mainText: string;
-  description: string;
+  description?: string;
+  isDescription?: boolean;
 }
 
 const SectionHeading: React.FC<SectionHeadingProps> = ({
@@ -25,7 +26,12 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
         width={MaxSize.DEFAULT}
       >
         <span className={styles.pre}>{preText}</span>
-        <span className={styles.Heading__Text}>{mainText}</span>
+        <span
+          className={styles.Heading__Text}
+          style={{ maxHeight: description ? "auto" : "0" }}
+        >
+          {mainText}
+        </span>
       </Flex>
       <article className={styles.Heading__Description}>
         <span>{description}</span>

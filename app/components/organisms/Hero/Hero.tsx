@@ -15,42 +15,41 @@ import { useEffect, useState } from "react";
 import Heading from "@app/components/atoms/Typography/Heading";
 import styles from "./Hero.module.scss";
 import Icon from "@app/components/atoms/IconButton/Icon";
-import React from "react";
+
+const images = [
+  {
+    src: image2,
+    heading: "Welcome to Nigeria",
+    location: "Lotus Temple",
+  },
+  {
+    src: image2,
+    heading: "Extraordinary Natural And Cultural Beauty",
+    location: "Loften Islands, Norway",
+  },
+  {
+    src: image3,
+    heading: "Experience the Adventure",
+    location: "Mount Everest, Nepal",
+  },
+  {
+    src: image4,
+    heading: "Enjoy the Scenic Beauty",
+    location: "Loften Islands, Norway",
+  },
+  {
+    src: image5,
+    heading: "Experience the Adventure",
+    location: "Mount Everest, Nepal",
+  },
+  {
+    src: image6,
+    heading: "Welcome to Nigeria",
+    location: "Lotus Temple",
+  },
+];
 
 const Hero = () => {
-  let images = [
-    {
-      src: image2,
-      heading: "Welcome to Nigeria",
-      location: "Lotus Temple",
-    },
-    {
-      src: image2,
-      heading: "Extraordinary Natural And Cultural Beauty",
-      location: "Loften Islands, Norway",
-    },
-    {
-      src: image3,
-      heading: "Experience the Adventure",
-      location: "Mount Everest, Nepal",
-    },
-    {
-      src: image4,
-      heading: "Enjoy the Scenic Beauty",
-      location: "Loften Islands, Norway",
-    },
-    {
-      src: image5,
-      heading: "Experience the Adventure",
-      location: "Mount Everest, Nepal",
-    },
-    {
-      src: image6,
-      heading: "Welcome to Nigeria",
-      location: "Lotus Temple",
-    },
-  ];
-
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrevClick = () => {
@@ -86,8 +85,7 @@ const Hero = () => {
         >
           {images[currentIndex].heading}
         </Heading>
-
-        <React.Fragment>
+        <>
           <Flex gap={16} margin="12px 0">
             <Icon
               size={Size.LARGE}
@@ -104,7 +102,7 @@ const Hero = () => {
               className={styles.Icon}
             ></Icon>
           </Flex>
-        </React.Fragment>
+        </>
       </Flex>
     </main>
   );

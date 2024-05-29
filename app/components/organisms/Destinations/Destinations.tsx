@@ -63,6 +63,7 @@ const Destinations = () => {
             alt={destination.alt}
             location={destination.location}
             price={destination.price}
+            icon="dripicons dripicons-star"
           />
         ))}
       </Grid>

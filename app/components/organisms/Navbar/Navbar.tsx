@@ -25,7 +25,12 @@ const Navbar = () => {
             Travel
           </a>
         </Flex>
-        <Flex align={AlignItems.CENTER} className={styles.Navigation__Lang}>
+        <Flex
+          align={AlignItems.CENTER}
+          justify={JustifyContent.SPACE_BETWEEN}
+          gap={FlexGap.MEDIUM}
+          className={styles.Navigation__Lang}
+        >
           <button type="button">PL</button>
           <button type="button">EN</button>
         </Flex>

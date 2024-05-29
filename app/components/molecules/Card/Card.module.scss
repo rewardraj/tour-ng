@@ -42,14 +42,15 @@
     color: #f1f1f1;
     text-align: center;
     font-size: var(--font-size-p-small);
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 25px;
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
+    border-radius: 15px;
   }
 
-  .topGroup span {
+  .topGroup .stars,
+  span {
     @extend .glassEffect;
   }
 

@@ -11,6 +11,7 @@ interface ColumnsProps {
   maxheight?: number;
   size?: ScreenSize;
   children?: React.ReactNode;
+  className?: string;
 }
 
 export const Columns: FC<ColumnsProps> = ({
@@ -23,6 +24,7 @@ export const Columns: FC<ColumnsProps> = ({
   maxheight,
   size = ScreenSize.DESKTOP,
   children,
+  className,
 }) => {
   const [currentSize, setCurrentSize] = useState(size);
 
@@ -62,5 +64,9 @@ export const Columns: FC<ColumnsProps> = ({
     }`,
   };
 
-  return <div style={style}>{children}</div>;
+  return (
+    <div style={style} className={className}>
+      {children}
+    </div>
+  );
 };

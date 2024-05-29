@@ -9,26 +9,43 @@ import {
 
 interface ImageTextProps {
   src: string;
+  height?: string;
+  width?: string;
+  maxWidth?: string;
   alt?: string;
   text?: string;
   subtext?: string;
+  className?: string;
 }
 
-const ImageText: React.FC<ImageTextProps> = ({ src, alt, text, subtext }) => {
+const ImageText: React.FC<ImageTextProps> = ({
+  src,
+  alt,
+  text,
+  subtext,
+  height,
+  width,
+  maxWidth,
+}) => {
   return (
     <Flex direction={FlexDirection.COLUMN} className={styles.ImageText}>
       <>
-        <img src={src} alt={alt} className={styles.Image} />
+        <img
+          src={src}
+          alt={alt}
+          style={{ height: height, width: width, maxWidth: maxWidth }}
+          className={`${styles.Image} {className}`}
+        />
       </>
       <Flex
         direction={FlexDirection.COLUMN}
         gap={8}
-        justify={JustifyContent.CENTER}
+        justify={JustifyContent.START}
         className={styles.TextMain}
         align={AlignItems.START}
       >
         <span>{text}</span>
-        <span>{subtext}</span>
+        <span className={styles.subText}>{subtext}</span>
       </Flex>
     </Flex>
   );

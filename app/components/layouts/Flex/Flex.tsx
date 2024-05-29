@@ -11,7 +11,7 @@ import styles from "./Flex.module.scss";
 interface FlexProps {
   direction?: FlexDirection;
   justify?: JustifyContent;
-  gap?: FlexGap;
+  gap?: FlexGap | string;
   align?: AlignItems;
   width?: number | string;
   wrap?: FlexWrap;
