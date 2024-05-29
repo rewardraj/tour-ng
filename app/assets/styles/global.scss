@@ -83,17 +83,17 @@
   --color-warning: var(--color-secondary-yellow);
 
   /* FONT - SIZE */
-  --font-size-h1-large: clamp(3rem, 8vw, 12rem);
-  --font-size-h1: clamp(2.5rem, 6vw, 9rem);
-  --font-size-h2: clamp(2rem, 5vw, 7.5rem);
-  --font-size-h3: clamp(1.5rem, 4vw, 5rem);
-  --font-size-h4: clamp(1.25rem, 3.5vw, 4.5rem);
-  --font-size-h5: clamp(1rem, 3vw, 4rem);
-  --font-size-p-xlarge: clamp(0.875rem, 2.5vw, 3.5rem);
-  --font-size-p-large: clamp(0.75rem, 2vw, 3rem);
-  --font-size-p-mid: clamp(0.625rem, 1.5vw, 2.5rem);
-  --font-size-p-small: clamp(0.5rem, 1vw, 2rem);
-  --font-size-p-xsmall: clamp(0.45rem, 0.9vw, 1.8rem);
+  --font-size-h1-large: 12rem;
+  --font-size-h1: 9rem;
+  --font-size-h2: 7rem;
+  --font-size-h3: 5rem;
+  --font-size-h4: 4.5rem;
+  --font-size-h5: 4rem;
+  --font-size-p-xlarge: 3.5rem;
+  --font-size-p-large: 3rem;
+  --font-size-p-mid: 2.5rem;
+  --font-size-p-small: 2rem;
+  --font-size-p-xsmall: 1.8rem;
 
   /* FONT - WEIGHT */
   --font-weight-ultralight: 100;
