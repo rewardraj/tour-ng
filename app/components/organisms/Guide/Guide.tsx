@@ -46,7 +46,7 @@ const Guide = () => {
         className={styles.Guides__main}
         margin=" 10rem 0"
         wrap={FlexWrap.NO_WRAP}
-        justify={JustifyContent.END}
+        justify={JustifyContent.CENTER}
       >
         <Flex
           className={styles.stepsContainer}
