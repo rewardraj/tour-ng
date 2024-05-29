@@ -10,8 +10,6 @@ import {
   JustifyContent,
 } from "@app/shared/Layout/Layout";
 import styles from "./Guide.module.scss";
-import Heading from "@app/components/atoms/Typography/Heading";
-import { Headings } from "@app/components/atoms/Typography/Typography";
 
 const steps = [
   {
