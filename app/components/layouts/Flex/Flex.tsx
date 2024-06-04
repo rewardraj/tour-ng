@@ -19,6 +19,7 @@ interface FlexProps {
   children?: React.ReactNode;
   zIndex?: number;
   className?: string;
+  onClick?: () => void;
 }
 
 export const Flex: FC<FlexProps> = ({

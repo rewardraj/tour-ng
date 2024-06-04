@@ -10,6 +10,7 @@ interface IconProps {
   hoverColor?: TextColorVariant;
   onClick?: () => void;
   className?: string;
+  disabled?: boolean;
 }
 
 const Icon: React.FC<IconProps> = ({
@@ -18,18 +19,21 @@ const Icon: React.FC<IconProps> = ({
   color = TextColorVariant.PRIMARY,
   hoverColor = color,
   onClick = () => {},
+  disabled = false,
 }) => {
-  const hoverStyle = `${hoverColor}Hover`;
+  const colorStyle = disabled ? "Disabled" : color;
+  const hoverStyle = disabled ? "Disabled" : hoverColor;
 
   return (
     <button
       title="icon"
       type="button"
       className={`${styles.Icon} ${styles[`Icon--${size}`]} ${
-        styles[`Icon--${color}`]
-      } ${styles[`Icon--${hoverStyle}`]} dripicons dripicons-${icon}`}
+        styles[`Icon--${colorStyle}`]
+      } ${styles[`Icon--${hoverStyle}Hover`]} dripicons dripicons-${icon}`}
       onClick={onClick}
       tabIndex={0}
+      disabled={disabled}
     />
   );
 };

@@ -57,10 +57,9 @@
 .Icon--transparentHover:hover {
   color: var(--color-text-transparent);
   background-color: transparent;
-
   width: 48px;
   height: 48px;
-  border-radius: 50%;
+  border-radius: 15px;
   color: #333;
   background-color: aliceblue;
 }

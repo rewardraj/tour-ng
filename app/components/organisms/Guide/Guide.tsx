@@ -10,8 +10,9 @@ import {
   JustifyContent,
 } from "@app/shared/Layout/Layout";
 import styles from "./Guide.module.scss";
+import { useState } from "react";
 
-const steps = [
+export const steps = [
   {
     icon: "dripicons dripicons-search",
     main: "Find your destination",
@@ -39,6 +40,11 @@ const steps = [
 ];
 
 const Guide = () => {
+  const [activeStep, setActiveStep] = useState(null);
+
+  const handleStepClick = (index: any) => {
+    setActiveStep(index);
+  };
   return (
     <Container className={styles.Layout}>
       <Flex
@@ -54,7 +60,7 @@ const Guide = () => {
           align={AlignItems.START}
           justify={JustifyContent.SPACE_BETWEEN}
           gap={FlexGap.MEDIUM}
-          margin="0 0 2rem 0"
+          margin="1rem 0"
         >
           <SectionHeading preText="How it works" mainText="One click for you" />
           {steps.map((step, index) => (
@@ -62,7 +68,11 @@ const Guide = () => {
               key={index}
               justify={JustifyContent.START}
               gap={FlexGap.MEDIUM}
-              className={styles.step}
+              margin="1rem 0"
+              className={`${styles.step} ${
+                activeStep === index ? styles.active : ""
+              }`}
+              onClick={() => handleStepClick(index)}
             >
               <i className={`${step.icon} ${styles.iconGuide}`}></i>
               <Flex

@@ -24,7 +24,7 @@ const images = [
   },
   {
     src: image2,
-    heading: "Extraordinary Natural And Cultural Beauty",
+    heading: "Natural And Cultural Beauty",
     location: "Loften Islands, Norway",
   },
   {

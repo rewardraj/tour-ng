@@ -1,13 +1,48 @@
 .ViewMore {
   margin-top: var(--section-margin-vertical-tablet);
-  padding: 2rem 3rem;
+  padding: 18px 24px;
   border: none;
   background-color: #333;
   color: #fff;
   border-radius: 15px;
   cursor: pointer;
+  font-size: var(--font-size-p-small);
 
   &:hover {
     background-color: #444;
   }
+}
+
+.more {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 15px;
+  border: none;
+  background-color: #0f0f0f;
+  color: #fff;
+
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    color: #fff !important;
+    border: none;
+  }
+
+  i {
+    font-size: 2.5rem;
+  }
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
