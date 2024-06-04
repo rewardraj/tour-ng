@@ -8,13 +8,13 @@ import image3 from "@assets/images/hero/3.jpg";
 import image4 from "@assets/images/hero/4.jpg";
 import image5 from "@assets/images/hero/5.jpg";
 import image6 from "@assets/images/hero/6.jpg";
-import { FlexDirection } from "@app/shared/Layout/Layout";
-import { Size } from "@app/shared/Sizes/Sizes";
+import { FlexDirection, FlexGap } from "@app/shared/Layout/Layout";
 import { TextColorVariant } from "@app/shared/Variants/variants";
 import { useEffect, useState } from "react";
 import Heading from "@app/components/atoms/Typography/Heading";
 import styles from "./Hero.module.scss";
-import Icon from "@app/components/atoms/IconButton/Icon";
+
+import { ArrowButton } from "@app/components/atoms/IconButton/ArrowButton";
 
 const images = [
   {
@@ -87,20 +87,20 @@ const Hero = () => {
         </Heading>
         <>
           <Flex gap={16} margin="12px 0">
-            <Icon
-              size={Size.LARGE}
-              icon="arrow-thin-left"
-              color={TextColorVariant.TRANSPARENT}
-              onClick={handlePrevClick}
-              className={styles.Icon}
-            ></Icon>
-            <Icon
-              size={Size.LARGE}
-              icon="arrow-thin-right"
-              color={TextColorVariant.TRANSPARENT}
-              onClick={handleNextClick}
-              className={styles.Icon}
-            ></Icon>
+            <Flex gap={FlexGap.LARGE} margin="2rem 0">
+              <ArrowButton
+                direction="left"
+                onClick={handlePrevClick}
+                disabled={currentIndex === 0}
+                ariaLabel="Show previous places"
+              />
+              <ArrowButton
+                direction="right"
+                onClick={handleNextClick}
+                disabled={currentIndex === images.length - 3}
+                ariaLabel="Show next projects"
+              />
+            </Flex>
           </Flex>
         </>
       </Flex>

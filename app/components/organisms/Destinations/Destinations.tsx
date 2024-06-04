@@ -4,8 +4,9 @@ import SectionHeading from "@app/components/molecules/SectionHeading/SectionHead
 import Container from "@app/components/layouts/Container/Container";
 import Card from "@app/components/molecules/Card/Card";
 import Grid from "@app/components/layouts/Grid/Grid";
-import styles from "./Destination.module.scss";
+
 import { useState } from "react";
+import { ArrowButton } from "@app/components/atoms/IconButton/ArrowButton";
 
 const destinations = [
   {
@@ -75,11 +76,7 @@ const Destinations = () => {
 
   return (
     <Container>
-      <Flex
-        align={AlignItems.CENTER}
-        justify={JustifyContent.SPACE_BETWEEN}
-        className={styles.Layout}
-      >
+      <Flex align={AlignItems.CENTER} justify={JustifyContent.SPACE_BETWEEN}>
         <SectionHeading
           preText="Tour packages"
           mainText="Our Tourist Destination"
@@ -91,7 +88,6 @@ const Destinations = () => {
         tabletColumns={2}
         mobileColumns={1}
         aria-labelledby="featured-heading"
-        className={styles.Layout}
       >
         {allPlaces
           .slice(currentPlace, currentPlace + 3)
@@ -108,27 +104,21 @@ const Destinations = () => {
             />
           ))}
       </Grid>
-      <div className={styles.more}>
+      <div>
         <Flex justify={JustifyContent.START} align={AlignItems.END}>
           <Flex gap={FlexGap.LARGE} margin="2rem 0">
-            <button
-              className={styles.button}
+            <ArrowButton
+              direction="left"
               onClick={handlePrevious}
               disabled={currentPlace === 0}
-              aria-label="Show previous places"
-              role="button"
-            >
-              <i className="dripicons dripicons-arrow-thin-left" />
-            </button>
-            <button
-              className={styles.button}
+              ariaLabel="Show previous places"
+            />
+            <ArrowButton
+              direction="right"
               onClick={handleNext}
               disabled={currentPlace === allPlaces.length - 3}
-              aria-label="Show next projects"
-              role="button"
-            >
-              <i className="dripicons dripicons-arrow-thin-right" />
-            </button>
+              ariaLabel="Show next projects"
+            />
           </Flex>
         </Flex>
       </div>
