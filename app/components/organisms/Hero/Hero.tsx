@@ -87,18 +87,22 @@ const Hero = () => {
         </Heading>
         <>
           <Flex gap={16} margin="12px 0">
-            <Flex gap={FlexGap.LARGE} margin="2rem 0">
+            <Flex gap={FlexGap.LARGE}>
               <ArrowButton
                 direction="left"
                 onClick={handlePrevClick}
                 disabled={currentIndex === 0}
                 ariaLabel="Show previous places"
+                backgroundColor="aliceblue"
+                color="black"
               />
               <ArrowButton
                 direction="right"
                 onClick={handleNextClick}
                 disabled={currentIndex === images.length - 3}
                 ariaLabel="Show next projects"
+                backgroundColor="aliceblue"
+                color="#000"
               />
             </Flex>
           </Flex>

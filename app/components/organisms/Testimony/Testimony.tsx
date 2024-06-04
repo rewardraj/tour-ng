@@ -8,6 +8,7 @@ import {
 } from "@app/shared/Layout/Layout";
 import { useEffect, useState } from "react";
 import styles from "./Testimony.module.scss";
+import Grid from "@app/components/layouts/Grid/Grid";
 
 const Testimony = () => {
   const reviews = [
@@ -53,26 +54,19 @@ const Testimony = () => {
   }, [review]);
   return (
     <Container>
-      <Flex
-        align={AlignItems.CENTER}
-        justify={JustifyContent.SPACE_BETWEEN}
-        margin="20rem 0"
-      >
+      <Grid desktopColumns={1} tabletColumns={1} mobileColumns={1}>
         {reviews.map((currentReview, index) => {
           if (index !== review) return null;
           return (
-            <Flex
-              align={AlignItems.START}
-              justify={JustifyContent.SPACE_BETWEEN}
-              gap={FlexGap.LARGE}
-            >
-              <Flex align={AlignItems.START} justify={JustifyContent.START}>
+            <Flex align={AlignItems.START} justify={JustifyContent.START}>
+              <Flex align={AlignItems.START}>
                 <p className={styles.ReviewText}>{currentReview.review}</p>
               </Flex>
               <Flex
                 direction={FlexDirection.COLUMN}
                 justify={JustifyContent.END}
                 align={AlignItems.END}
+                className={styles.reviewDetails}
               >
                 <Flex gap={FlexGap.LARGE}>
                   <img
@@ -84,8 +78,8 @@ const Testimony = () => {
                     direction={FlexDirection.COLUMN}
                     align={AlignItems.END}
                     justify={JustifyContent.END}
-                    width={250}
                     gap={FlexGap.MEDIUM}
+                    width={200}
                   >
                     <span className={styles.reviewName}>
                       {currentReview.name}
@@ -119,7 +113,7 @@ const Testimony = () => {
             </Flex>
           );
         })}
-      </Flex>
+      </Grid>
     </Container>
   );
 };

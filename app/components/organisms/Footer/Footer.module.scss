@@ -1,0 +1,102 @@
+.footer {
+  background-color: var(--color-background-dark);
+  padding: var(--section-margin-horizontal-mobile)
+    var(--section-margin-vertical-desktop);
+
+  .footerContainer {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--grid-gap);
+
+    .footerSections {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: var(--grid-gap);
+    }
+
+    .section {
+      .sectionTitle {
+        font-size: var(--font-size-p-xlarge);
+        color: var(--color-text-primary);
+        margin-bottom: 2rem;
+      }
+
+      .links {
+        list-style: none;
+        padding: 0;
+
+        .link {
+          color: var(--color-text-secondary);
+          text-decoration: none;
+          font-size: 2rem;
+          line-height: 2;
+          transition: color 0.3s;
+
+          &:hover {
+            color: var(--color-text-primary);
+          }
+        }
+      }
+
+      .newsletterForm {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        input {
+          padding: 0.75rem;
+          border: none;
+          border-radius: var(--border-radius-small);
+          font-size: var(--font-size-p-mid);
+        }
+
+        button {
+          padding: 0.75rem;
+          background-color: var(--color-primary);
+          color: var(--color-text-primary);
+          border: none;
+          border-radius: var(--border-radius-small);
+          font-size: var(--font-size-p-mid);
+          cursor: pointer;
+          transition: background-color 0.3s;
+
+          &:hover {
+            background-color: var(--color-primary-dark);
+          }
+        }
+      }
+    }
+
+    .footerBottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      border-top: 1px solid var(--color-secondary);
+      padding-top: 3rem;
+
+      p {
+        margin: 0;
+        font-size: var(--font-size-p-mid);
+        color: var(--color-text-secondary);
+      }
+
+      .socialIcons {
+        display: flex;
+        gap: 1rem;
+
+        a {
+          color: var(--color-text-secondary);
+          font-size: 2.5rem;
+          transition: color 0.3s;
+
+          &:hover {
+            color: var(--color-text-primary);
+          }
+        }
+      }
+    }
+  }
+}

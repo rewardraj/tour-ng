@@ -25,25 +25,40 @@
 
 .BlogDate {
   font-size: 1.8rem;
-  color: #333;
+  color: #afaeae;
 }
 
 .BlogTitle {
-  font-size: 3rem;
   color: #333;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   text-align: left;
   line-height: 1.5;
-  font-weight: 700;
+  font-weight: 550;
+  font-size: 2.7rem;
 }
 
 .BlogSubtitle {
-  font-size: 1.9rem;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  line-height: 1.8;
+  line-height: 1.2;
   overflow: hidden;
+  color: #afaeae;
+  font-size: var(--font-size-p-small);
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: var(--font-size-h3);
+  margin-bottom: 2rem;
+}
+
+.subtitle {
+  color: #afaeae;
+  font-size: var(--font-size-p-mid);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
 }

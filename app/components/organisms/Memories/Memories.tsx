@@ -4,7 +4,7 @@ import Grid from "@app/components/layouts/Grid/Grid";
 import Container from "@app/components/layouts/Container/Container";
 import { ArrowButton } from "@app/components/atoms/IconButton/ArrowButton";
 import { Flex } from "@app/components/layouts/Flex/Flex";
-import { FlexGap } from "@app/shared/Layout/Layout";
+import { FlexDirection, FlexGap } from "@app/shared/Layout/Layout";
 
 interface BlogProps {
   date: string;
@@ -91,12 +91,20 @@ const Memories = () => {
   };
   return (
     <Container>
+      <Flex
+        direction={FlexDirection.COLUMN}
+        gap={FlexGap.MEDIUM}
+        margin="3rem 0"
+      >
+        <span className={styles.subtitle}>Our Blog</span>
+        <span className={styles.title}>Our Travel Memories</span>
+      </Flex>
       <Grid desktopColumns={2} tabletColumns={2}>
         {allPosts.slice(currentPost, currentPost + 2).map((project, index) => (
           <BlogCard key={index} {...project} />
         ))}
       </Grid>
-      <Flex gap={FlexGap.LARGE}>
+      <Flex gap={FlexGap.LARGE} margin="4rem 0">
         <ArrowButton
           direction="left"
           onClick={showPrevious}

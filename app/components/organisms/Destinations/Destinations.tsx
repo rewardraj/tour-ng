@@ -106,7 +106,7 @@ const Destinations = () => {
       </Grid>
       <div>
         <Flex justify={JustifyContent.START} align={AlignItems.END}>
-          <Flex gap={FlexGap.LARGE} margin="2rem 0">
+          <Flex gap={FlexGap.LARGE} margin="4rem 0">
             <ArrowButton
               direction="left"
               onClick={handlePrevious}
