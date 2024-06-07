@@ -20,6 +20,7 @@ interface FlexProps {
   zIndex?: number;
   className?: string;
   onClick?: () => void;
+  flex?: number;
 }
 
 export const Flex: FC<FlexProps> = ({
@@ -29,6 +30,7 @@ export const Flex: FC<FlexProps> = ({
   align = AlignItems.CENTER,
   margin = "0",
   zIndex = 0,
+  flex,
   width,
   children,
   className,
@@ -41,11 +43,12 @@ export const Flex: FC<FlexProps> = ({
     width,
     margin: margin,
     flexWrap: FlexWrap.WRAP,
+    flex,
   };
 
   return (
     <div
-      style={{ ...baseStyle, zIndex }}
+      style={{ ...baseStyle, zIndex, flex }}
       className={`${styles.Flex} ${className}`}
     >
       {children}

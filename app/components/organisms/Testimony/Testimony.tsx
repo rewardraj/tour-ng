@@ -15,7 +15,7 @@ const Testimony = () => {
     {
       name: "John Doe",
       position: "CEO",
-      image: "https://picsum.photos/200/300",
+      image: "https://picsum.photos/900/300",
       review:
         "John has been a transformative force in our company. His innovative approach and relentless work ethic have propelled our business to new heights. We couldn't have asked for a better CEO. John has been a transformative force in our company. His innovative approach and relentless work ethic have propelled our business to new heights. We couldn't have asked for a better CEO.",
     },
@@ -58,8 +58,8 @@ const Testimony = () => {
         {reviews.map((currentReview, index) => {
           if (index !== review) return null;
           return (
-            <Flex align={AlignItems.START} justify={JustifyContent.START}>
-              <Flex align={AlignItems.START}>
+            <Flex align={AlignItems.START}>
+              <Flex align={AlignItems.START} flex={1}>
                 <p className={styles.ReviewText}>{currentReview.review}</p>
               </Flex>
               <Flex

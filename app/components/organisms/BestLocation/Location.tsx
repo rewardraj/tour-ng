@@ -38,7 +38,6 @@ const Location = () => {
           desktopColumns={5}
           tabletColumns={2}
           mobileColumns={1}
-          gridGap="3rem"
           align={AlignItems.CENTER}
         >
           <Columns span={3} mobileSpan={1}>

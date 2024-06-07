@@ -46,7 +46,7 @@ const Guide = () => {
     setActiveStep(index);
   };
   return (
-    <Container className={styles.Layout}>
+    <Container>
       <Flex
         align={AlignItems.END}
         className={styles.Guides__main}
