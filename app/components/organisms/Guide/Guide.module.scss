@@ -1,10 +1,10 @@
 .stepsContainer,
 .imageContainer {
   width: 50%;
-
   @media screen and (max-width: 768px) {
+    padding: 0 1rem;
+    margin: auto;
     width: 100%;
-    margin-top: 2rem;
   }
 }
 
@@ -34,7 +34,7 @@
   }
 
   @media screen and (max-width: 768px) {
-    padding: 2rem;
+    padding: 2rem 0;
     width: 100%;
   }
 }

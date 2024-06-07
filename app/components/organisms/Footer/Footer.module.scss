@@ -1,7 +1,7 @@
 .footer {
   background-color: var(--color-background-dark);
   padding: var(--section-margin-horizontal-mobile)
-    var(--section-margin-vertical-desktop);
+    var(--section-margin-vertical);
 
   .footerContainer {
     max-width: var(--content-max-width);
@@ -98,5 +98,10 @@
         }
       }
     }
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: var(--section-margin-horizontal-mobile)
+      var(--section-margin-vertical-mobile);
   }
 }

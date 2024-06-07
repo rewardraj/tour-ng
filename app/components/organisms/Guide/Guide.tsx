@@ -58,11 +58,15 @@ const Guide = () => {
           className={styles.stepsContainer}
           direction={FlexDirection.COLUMN}
           align={AlignItems.START}
-          justify={JustifyContent.SPACE_BETWEEN}
+          justify={JustifyContent.START}
           gap={FlexGap.MEDIUM}
           margin="1rem 0"
         >
-          <SectionHeading preText="How it works" mainText="One click for you" />
+          <SectionHeading
+            preText="How it works"
+            mainText="One click for you"
+            isDescription={false}
+          />
           {steps.map((step, index) => (
             <Flex
               key={index}
@@ -90,7 +94,7 @@ const Guide = () => {
         </Flex>
         <Flex className={styles.imageContainer} justify={JustifyContent.END}>
           <ImageText
-            src="https://picsum.photos/900/950"
+            src="https://picsum.photos/900/990"
             subtext="Embark on a journey to find your dream destination where adventure and relaxation awaits."
             className={styles.imageGuide}
           />

@@ -15,6 +15,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
   preText,
   mainText,
   description,
+  isDescription = description ? true : false,
 }) => {
   return (
     <>
@@ -28,7 +29,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
         <span className={styles.pre}>{preText}</span>
         <span
           className={styles.Heading__Text}
-          style={{ maxHeight: description ? "auto" : "0" }}
+          style={{ maxHeight: isDescription ? "auto" : "0" }}
         >
           {mainText}
         </span>
