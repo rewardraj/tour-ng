@@ -9,7 +9,37 @@
   },
   "destination": {
     "title": "Destinations",
-    "selectCity": "Select a city",
-    "attractions": "Tourist Attractions"
+    "selectCity": "Select City",
+    "attractions": "Tourist Attractions",
+    "cities": {
+      "1": {
+        "name": "Lagos",
+        "description": "The largest city in Nigeria and a major financial center."
+      },
+      "2": {
+        "name": "Abuja",
+        "description": "The capital city of Nigeria."
+      },
+      "3": {
+        "name": "Kano",
+        "description": "One of the oldest cities in Nigeria, known for its historical sites."
+      },
+      "4": {
+        "name": "Jos",
+        "description": "Known for its scenic plateau and cooler climate."
+      },
+      "5": {
+        "name": "Port Harcourt",
+        "description": "A port city known for its oil industry and beautiful scenery."
+      },
+      "6": {
+        "name": "Enugu",
+        "description": "Known for its coal mining industry and vibrant culture."
+      },
+      "7": {
+        "name": "Cross River",
+        "description": "A state known for its natural beauty and diverse wildlife."
+      }
+    }
   }
 }

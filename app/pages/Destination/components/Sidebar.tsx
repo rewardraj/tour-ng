@@ -13,6 +13,7 @@ import {
 import styles from "./Sidebar.module.scss";
 import classNames from "classnames";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 interface SidebarProps {
   cities: City[];
@@ -22,6 +23,7 @@ interface SidebarProps {
 
 const Sidebar = ({ cities, selectedCity, onCitySelect }: SidebarProps) => {
   const sortedCities = cities.sort((a, b) => a.name.localeCompare(b.name));
+  const { t } = useTranslation();
 
   return (
     <div className={styles.sidebarContainer}>
@@ -47,7 +49,7 @@ const Sidebar = ({ cities, selectedCity, onCitySelect }: SidebarProps) => {
             >
               <FaMapMarkerAlt className={styles.icon} />
               <Heading type={Headings.H3} weight={TextWeight.BOLD}>
-                {t('destination.title')}
+                {t("destination.title")}
               </Heading>
             </Flex>
             <p className={styles.description}>{city.description}</p>

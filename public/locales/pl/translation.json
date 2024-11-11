@@ -7,9 +7,39 @@
     "en": "Angielski",
     "pl": "Polski"
   },
-  "destination": {
+  "destination_pl": {
     "title": "Cele podróży",
     "selectCity": "Wybierz miasto",
-    "attractions": "Atrakcje turystyczne"
+    "attractions": "Atrakcje turystyczne",
+    "cities": {
+      "1": {
+        "name": "Lagos",
+        "description": "Największe miasto w Nigerii i ważne centrum finansowe."
+      },
+      "2": {
+        "name": "Abuja",
+        "description": "Stolica Nigerii."
+      },
+      "3": {
+        "name": "Kano",
+        "description": "Jedno z najstarszych miast w Nigerii, znane z historycznych miejsc."
+      },
+      "4": {
+        "name": "Jos",
+        "description": "Znane z malowniczego plateau i chłodniejszego klimatu."
+      },
+      "5": {
+        "name": "Port Harcourt",
+        "description": "Miasto portowe, znane z przemysłu naftowego i pięknych krajobrazów."
+      },
+      "6": {
+        "name": "Enugu",
+        "description": "Znane z przemysłu węglowego i żywej kultury."
+      },
+      "7": {
+        "name": "Cross River",
+        "description": "Stan znany z naturalnego piękna i różnorodnej fauny."
+      }
+    }
   }
 }
