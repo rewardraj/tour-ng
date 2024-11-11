@@ -14,13 +14,11 @@ const Map = ({
   selectedAttraction,
   onAttractionSelect,
 }: MapProps) => {
-  const mapRef = useRef<google.maps.Map | null>(null);
-  const markersRef = useRef<google.maps.marker.AdvancedMarkerElement[]>([]);
   const onLoad = useCallback((map: google.maps.Map) => {
-    mapRef.current = map;
+    // Map loaded callback if needed
   }, []);
 
-  const center = selectedCity?.location || { lat: 6.5244, lng: 3.3792 }; // Default to Abuja
+  const center = selectedCity?.location || { lat: 6.5244, lng: 3.3792 }; // Default to Lagos
 
   return (
     <div className={styles.mapContainer}>
