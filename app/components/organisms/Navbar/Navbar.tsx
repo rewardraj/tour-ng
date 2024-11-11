@@ -1,38 +1,70 @@
-import { AlignItems, FlexGap, JustifyContent } from "@app/shared/Layout/Layout";
+import { useState, useEffect, FC } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import styles from "./Navbar.module.scss";
 import { Flex } from "@app/components/layouts/Flex/Flex";
 
-const Navbar = () => {
+const Navbar: FC = () => {
+  const [scrolled, setScrolled] = useState<boolean>(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 80); // Smaller scroll threshold for activation
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navigationBg =
+    location.pathname !== "/home" ? styles.darkMode : styles.lightMode;
+
   return (
-    <nav className={styles.Navigation}>
-      <div className={styles.Navigation__Inner}>
-        <div className={styles.Logo}>
-          <a className={styles.Logo__Link}>Tour. NG</a>
+    <nav
+      className={`${styles.navbar} ${
+        scrolled ? styles.navbarScrolled : ""
+      } ${navigationBg}`}
+      role="navigation"
+      aria-label="Main Navigation"
+    >
+      <div className={styles.container}>
+        <div className={styles.logo}>
+          <NavLink to="/" className={styles.logoLink}>
+            Tour<span className={styles.logoHighlight}>.NG</span>
+          </NavLink>
         </div>
-        <Flex
-          align={AlignItems.CENTER}
-          gap={FlexGap.LARGE}
-          justify={JustifyContent.CENTER}
-          className={styles.Navigation__Links}
-        >
-          <a className={styles.Logo__Link} href="/about">
-            About
-          </a>
-          <a className={styles.Logo__Link} href="/explore">
-            Explore
-          </a>
-          <a className={styles.Logo__Link} href="/travel">
-            Travel
-          </a>
-        </Flex>
-        <Flex
-          align={AlignItems.CENTER}
-          justify={JustifyContent.SPACE_BETWEEN}
-          gap={FlexGap.MEDIUM}
-          className={styles.Navigation__Lang}
-        >
-          <button type="button">PL</button>
-          <button type="button">EN</button>
+        <Flex>
+          <div className={styles.links}>
+            <NavLink
+              to="/destinations"
+              className={({ isActive }) =>
+                `${styles.link} ${isActive ? styles.active : ""}`
+              }
+            >
+              Destinations
+            </NavLink>
+            <NavLink
+              to="/activities"
+              className={({ isActive }) =>
+                `${styles.link} ${isActive ? styles.active : ""}`
+              }
+            >
+              Activities
+            </NavLink>
+          </div>
+          <div className={styles.languageButtons}>
+            <button
+              aria-label="Switch to Polish"
+              className={styles.languageButton}
+            >
+              PL
+            </button>
+            <button
+              aria-label="Switch to English"
+              className={styles.languageButton}
+            >
+              EN
+            </button>
+          </div>
         </Flex>
       </div>
     </nav>
