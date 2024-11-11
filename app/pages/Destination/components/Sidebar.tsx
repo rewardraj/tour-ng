@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { City } from "../types";
 import { Flex } from "@app/components/layouts/Flex/Flex";
 import {
@@ -8,28 +7,8 @@ import {
 } from "@app/components/atoms/Typography/Typography";
 import Heading from "@app/components/atoms/Typography/Heading";
 import { FlexDirection } from "@app/shared/Layout/Layout";
-
-const SidebarContainer = styled.div`
-  width: 300px;
-  height: 100%;
-  background-color: #fff;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  overflow-y: auto;
-`;
-
-const CityItem = styled.div<{ isSelected: boolean }>`
-  padding: 15px;
-  margin: 10px 0;
-  border-radius: 8px;
-  cursor: pointer;
-  background-color: ${(props) => (props.isSelected ? "#e6f7ff" : "#f5f5f5")};
-  transition: all 0.3s ease;
-
-  &:hover {
-    background-color: #e6f7ff;
-  }
-`;
+import styles from './Sidebar.module.scss';
+import classNames from 'classnames';
 
 interface SidebarProps {
   cities: City[];
@@ -39,7 +18,7 @@ interface SidebarProps {
 
 const Sidebar = ({ cities, selectedCity, onCitySelect }: SidebarProps) => {
   return (
-    <SidebarContainer>
+    <div className={styles.sidebarContainer}>
       <Heading
         type={Headings.H2}
         weight={TextWeight.BOLD}
@@ -49,9 +28,11 @@ const Sidebar = ({ cities, selectedCity, onCitySelect }: SidebarProps) => {
       </Heading>
       <Flex direction={FlexDirection.COLUMN} gap={8}>
         {cities.map((city) => (
-          <CityItem
+          <div
             key={city.id}
-            isSelected={selectedCity?.id === city.id}
+            className={classNames(styles.cityItem, {
+              [styles.selected]: selectedCity?.id === city.id
+            })}
             onClick={() => onCitySelect(city)}
           >
             <Heading type={Headings.H3} weight={TextWeight.BOLD}>
@@ -63,10 +44,10 @@ const Sidebar = ({ cities, selectedCity, onCitySelect }: SidebarProps) => {
             >
               {city.description}
             </Heading>
-          </CityItem>
+          </div>
         ))}
       </Flex>
-    </SidebarContainer>
+    </div>
   );
 };
 

@@ -1,12 +1,7 @@
 import { useCallback, useRef } from 'react';
-import { GoogleMap, Marker, InfoWindow } from '@react-google-maps/api';
+import { GoogleMap, InfoWindow } from '@react-google-maps/api';
 import { City, TouristAttraction } from '../types';
-import styled from 'styled-components';
-
-const MapContainer = styled.div`
-  width: 100%;
-  height: 100%;
-`;
+import styles from './Map.module.scss';
 
 interface MapProps {
   selectedCity: City | null;
@@ -24,7 +19,7 @@ const Map = ({ selectedCity, selectedAttraction, onAttractionSelect }: MapProps)
   const center = selectedCity?.location || { lat: 9.0765, lng: 7.3986 }; // Default to Abuja
 
   return (
-    <MapContainer>
+    <div className={styles.mapContainer}>
       <GoogleMap
         mapContainerStyle={{ width: '100%', height: '100%' }}
         center={center}
@@ -37,27 +32,30 @@ const Map = ({ selectedCity, selectedAttraction, onAttractionSelect }: MapProps)
           fullscreenControl: true,
         }}
       >
-        {selectedCity?.attractions.map((attraction) => (
-          <Marker
-            key={attraction.id}
-            position={attraction.location}
-            onClick={() => onAttractionSelect(attraction)}
-          />
-        ))}
+        {selectedCity?.attractions.map((attraction) => {
+          const { AdvancedMarkerElement } = google.maps.marker;
+          return (
+            <AdvancedMarkerElement
+              key={attraction.id}
+              position={attraction.location}
+              onClick={() => onAttractionSelect(attraction)}
+            />
+          );
+        })}
         
         {selectedAttraction && (
           <InfoWindow
             position={selectedAttraction.location}
             onCloseClick={() => onAttractionSelect(null)}
           >
-            <div>
+            <div className={styles.infoWindow}>
               <h3>{selectedAttraction.name}</h3>
               <p>{selectedAttraction.description}</p>
             </div>
           </InfoWindow>
         )}
       </GoogleMap>
-    </MapContainer>
+    </div>
   );
 };
 
