@@ -6,5 +6,10 @@
   "languages": {
     "en": "Angielski",
     "pl": "Polski"
+  },
+  "destination": {
+    "title": "Cele podróży",
+    "selectCity": "Wybierz miasto",
+    "attractions": "Atrakcje turystyczne"
   }
 }

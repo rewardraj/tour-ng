@@ -6,5 +6,10 @@
   "languages": {
     "en": "English",
     "pl": "Polish"
+  },
+  "destination": {
+    "title": "Destinations",
+    "selectCity": "Select a city",
+    "attractions": "Tourist Attractions"
   }
 }
