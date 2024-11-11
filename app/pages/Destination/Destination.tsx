@@ -14,6 +14,8 @@ const Destination = () => {
   const [selectedAttraction, setSelectedAttraction] =
     useState<TouristAttraction | null>(null);
 
+  const { t } = useTranslation();
+  
   return (
     <div className={styles.container}>
       <MapLoader>

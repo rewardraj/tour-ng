@@ -47,7 +47,7 @@ const Sidebar = ({ cities, selectedCity, onCitySelect }: SidebarProps) => {
             >
               <FaMapMarkerAlt className={styles.icon} />
               <Heading type={Headings.H3} weight={TextWeight.BOLD}>
-                {city.name}
+                {t('destination.title')}
               </Heading>
             </Flex>
             <p className={styles.description}>{city.description}</p>
