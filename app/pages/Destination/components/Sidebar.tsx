@@ -1,7 +1,13 @@
-import styled from 'styled-components';
-import { City } from '../types';
-import { Flex } from '@app/components/layouts/Flex/Flex';
-import { Text, TextWeight } from '@app/components/atoms/Typography/Typography';
+import styled from "styled-components";
+import { City } from "../types";
+import { Flex } from "@app/components/layouts/Flex/Flex";
+import {
+  Headings,
+  Text,
+  TextWeight,
+} from "@app/components/atoms/Typography/Typography";
+import Heading from "@app/components/atoms/Typography/Heading";
+import { FlexDirection } from "@app/shared/Layout/Layout";
 
 const SidebarContainer = styled.div`
   width: 300px;
@@ -17,7 +23,7 @@ const CityItem = styled.div<{ isSelected: boolean }>`
   margin: 10px 0;
   border-radius: 8px;
   cursor: pointer;
-  background-color: ${props => props.isSelected ? '#e6f7ff' : '#f5f5f5'};
+  background-color: ${(props) => (props.isSelected ? "#e6f7ff" : "#f5f5f5")};
   transition: all 0.3s ease;
 
   &:hover {
@@ -34,22 +40,29 @@ interface SidebarProps {
 const Sidebar = ({ cities, selectedCity, onCitySelect }: SidebarProps) => {
   return (
     <SidebarContainer>
-      <Text as="h2" weight={TextWeight.BOLD} style={{ marginBottom: '20px' }}>
+      <Heading
+        type={Headings.H2}
+        weight={TextWeight.BOLD}
+        style={{ marginBottom: "20px" }}
+      >
         Nigerian Cities
-      </Text>
-      <Flex direction="column" gap={8}>
-        {cities.map(city => (
+      </Heading>
+      <Flex direction={FlexDirection.COLUMN} gap={8}>
+        {cities.map((city) => (
           <CityItem
             key={city.id}
             isSelected={selectedCity?.id === city.id}
             onClick={() => onCitySelect(city)}
           >
-            <Text as="h3" weight={TextWeight.BOLD}>
+            <Heading type={Headings.H3} weight={TextWeight.BOLD}>
               {city.name}
-            </Text>
-            <Text as="p" style={{ marginTop: '8px', fontSize: '14px' }}>
+            </Heading>
+            <Heading
+              type={Headings.H5}
+              style={{ marginTop: "8px", fontSize: "14px" }}
+            >
               {city.description}
-            </Text>
+            </Heading>
           </CityItem>
         ))}
       </Flex>
