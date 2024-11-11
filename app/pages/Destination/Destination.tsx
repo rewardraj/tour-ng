@@ -1,43 +1,39 @@
-import { useState } from 'react';
-import { LoadScript } from '@react-google-maps/api';
-import styled from 'styled-components';
-import { City, TouristAttraction } from './types';
-import { nigerianCities } from './data';
-import Sidebar from './components/Sidebar';
-import Map from './components/Map';
-
-const PageContainer = styled.div`
-  display: flex;
-  height: calc(100vh - 64px); // Adjust based on your navbar height
-  width: 100%;
-`;
-
-const MapContainer = styled.div`
-  flex: 1;
-  height: 100%;
-`;
+import { useState } from "react";
+import { City, TouristAttraction } from "./types";
+import { nigerianCities } from "./data";
+import Sidebar from "./components/Sidebar";
+import Map from "./components/Map";
+import styles from "./Destination.module.scss";
+import MapLoader from "./components/MapLoader";
 
 const Destination = () => {
-  const [selectedCity, setSelectedCity] = useState<City | null>(null);
-  const [selectedAttraction, setSelectedAttraction] = useState<TouristAttraction | null>(null);
+  const [selectedCity, setSelectedCity] = useState<City | null>(
+    nigerianCities[0]
+  );
+  const [selectedAttraction, setSelectedAttraction] =
+    useState<TouristAttraction | null>(null);
 
   return (
-    <LoadScript googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY">
-      <PageContainer>
-        <Sidebar
-          cities={nigerianCities}
-          selectedCity={selectedCity}
-          onCitySelect={setSelectedCity}
-        />
-        <MapContainer>
-          <Map
+    <div className={styles.container}>
+      <MapLoader>
+        <div className={styles.pageContainer}>
+          <Sidebar
+            cities={nigerianCities}
             selectedCity={selectedCity}
-            selectedAttraction={selectedAttraction}
-            onAttractionSelect={setSelectedAttraction}
+            onCitySelect={setSelectedCity}
           />
-        </MapContainer>
-      </PageContainer>
-    </LoadScript>
+          <div className={styles.mapContainer}>
+            {selectedCity && (
+              <Map
+                selectedCity={selectedCity}
+                selectedAttraction={selectedAttraction}
+                onAttractionSelect={setSelectedAttraction}
+              />
+            )}
+          </div>
+        </div>
+      </MapLoader>
+    </div>
   );
 };
 
