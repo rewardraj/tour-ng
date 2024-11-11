@@ -111,28 +111,37 @@
   align-items: center;
   gap: 0.5rem;
   height: 100%;
+  
   .languageButton {
     background: none;
-    border: 2px solid transparent;
-    font-size: 16px; // Updated font size
-    padding: 0.5rem 0.75rem; // Adjusted padding for better touch target
-    border-radius: 0.25rem;
-    color: inherit;
+    border: none;
+    padding: 0.25rem;
     cursor: pointer;
-    transition: color var(--transition-speed),
-      background-color var(--transition-speed);
-
-    &:hover,
+    border-radius: 0.25rem;
+    transition: transform var(--transition-speed),
+                opacity var(--transition-speed);
+    
+    &:hover {
+      transform: scale(1.1);
+    }
+    
     &:focus-visible {
-      color: var(--highlight-color);
-      background-color: rgba(45, 116, 19, 0.1);
       outline: 2px solid var(--focus-outline);
       outline-offset: 2px;
     }
-
+    
     &.active {
-      color: var(--highlight-color);
-      background-color: rgba(45, 116, 19, 0.15);
+      opacity: 1;
+    }
+    
+    &:not(.active) {
+      opacity: 0.6;
+    }
+    
+    .flag {
+      width: 24px;
+      height: auto;
+      border-radius: 2px;
     }
   }
 }

@@ -1,7 +1,9 @@
 import { useState, useEffect, FC } from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 import styles from "./Navbar.module.scss";
 import { Flex } from "@app/components/layouts/Flex/Flex";
+import { GB, PL } from 'country-flag-icons/react/3x2';
 
 const Navbar: FC = () => {
   const [scrolled, setScrolled] = useState<boolean>(false);
@@ -40,7 +42,7 @@ const Navbar: FC = () => {
                 `${styles.link} ${isActive ? styles.active : ""}`
               }
             >
-              Destinations
+              {t('nav.destinations')}
             </NavLink>
             <NavLink
               to="/activities"
@@ -48,21 +50,23 @@ const Navbar: FC = () => {
                 `${styles.link} ${isActive ? styles.active : ""}`
               }
             >
-              Activities
+              {t('nav.activities')}
             </NavLink>
           </div>
           <div className={styles.languageButtons}>
             <button
-              aria-label="Switch to Polish"
-              className={styles.languageButton}
+              aria-label={t('languages.pl')}
+              className={`${styles.languageButton} ${currentLanguage === 'pl' ? styles.active : ''}`}
+              onClick={() => changeLanguage('pl')}
             >
-              PL
+              <PL title="Polski" className={styles.flag} />
             </button>
             <button
-              aria-label="Switch to English"
-              className={styles.languageButton}
+              aria-label={t('languages.en')}
+              className={`${styles.languageButton} ${currentLanguage === 'en' ? styles.active : ''}`}
+              onClick={() => changeLanguage('en')}
             >
-              EN
+              <GB title="English" className={styles.flag} />
             </button>
           </div>
         </Flex>
