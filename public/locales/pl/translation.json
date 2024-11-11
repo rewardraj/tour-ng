@@ -1,45 +1,61 @@
 {
   "nav": {
     "destinations": "Cele podróży",
-    "activities": "Aktywności"
+    "activities": "Aktywności",
+    "about": "O nas"
   },
   "languages": {
     "en": "Angielski",
     "pl": "Polski"
   },
-  "destination_pl": {
-    "title": "Cele podróży",
+  "destination": {
+    "title": "Odkryj miejsca",
     "selectCity": "Wybierz miasto",
     "attractions": "Atrakcje turystyczne",
+    "viewMap": "Zobacz na mapie",
     "cities": {
-      "1": {
+      "lagos": {
         "name": "Lagos",
-        "description": "Największe miasto w Nigerii i ważne centrum finansowe."
+        "description": "Największe miasto w Nigerii i ważne centrum finansowe"
       },
-      "2": {
+      "abuja": {
         "name": "Abuja",
-        "description": "Stolica Nigerii."
+        "description": "Stolica Nigerii"
       },
-      "3": {
+      "kano": {
         "name": "Kano",
-        "description": "Jedno z najstarszych miast w Nigerii, znane z historycznych miejsc."
+        "description": "Jedno z najstarszych miast w Nigerii, znane z historycznych miejsc"
       },
-      "4": {
+      "jos": {
         "name": "Jos",
-        "description": "Znane z malowniczego plateau i chłodniejszego klimatu."
+        "description": "Znane z malowniczego plateau i chłodniejszego klimatu"
       },
-      "5": {
+      "portHarcourt": {
         "name": "Port Harcourt",
-        "description": "Miasto portowe, znane z przemysłu naftowego i pięknych krajobrazów."
+        "description": "Miasto portowe, znane z przemysłu naftowego i pięknych krajobrazów"
       },
-      "6": {
+      "enugu": {
         "name": "Enugu",
-        "description": "Znane z przemysłu węglowego i żywej kultury."
+        "description": "Znane z przemysłu węglowego i żywej kultury"
       },
-      "7": {
+      "crossRiver": {
         "name": "Cross River",
-        "description": "Stan znany z naturalnego piękna i różnorodnej fauny."
+        "description": "Stan znany z naturalnego piękna i różnorodnej fauny"
       }
+    }
+  },
+  "attractions": {
+    "types": {
+      "monument": "Zabytek",
+      "park": "Park",
+      "museum": "Muzeum",
+      "landmark": "Punkt orientacyjny",
+      "hiking": "Szlak turystyczny",
+      "mountain": "Góra",
+      "resort": "Kurort",
+      "festival": "Festiwal",
+      "wildlife": "Dzika przyroda",
+      "beach": "Plaża"
     }
   }
 }
