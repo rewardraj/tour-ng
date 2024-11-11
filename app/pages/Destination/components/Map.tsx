@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useRef } from "react";
 import { GoogleMap, InfoWindow, Marker } from "@react-google-maps/api";
 import { City, TouristAttraction } from "../types";
 import styles from "./Map.module.scss";
@@ -14,23 +14,25 @@ const Map = ({
   selectedAttraction,
   onAttractionSelect,
 }: MapProps) => {
+  const mapRef = useRef<google.maps.Map | null>(null);
+  const markersRef = useRef<google.maps.marker.AdvancedMarkerElement[]>([]);
   const onLoad = useCallback((map: google.maps.Map) => {
-    // Map loaded callback if needed
+    mapRef.current = map;
   }, []);
 
-  const center = selectedCity?.location || { lat: 9.0765, lng: 7.3986 }; // Default to Abuja
+  const center = selectedCity?.location || { lat: 6.5244, lng: 3.3792 }; // Default to Abuja
 
   return (
     <div className={styles.mapContainer}>
       <GoogleMap
         mapContainerStyle={{ width: "100%", height: "100%" }}
         center={center}
-        zoom={12}
+        zoom={10}
         onLoad={onLoad}
         options={{
           zoomControl: true,
           streetViewControl: false,
-          mapTypeControl: false,
+          mapTypeControl: true,
           fullscreenControl: true,
         }}
       >
