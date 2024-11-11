@@ -1,5 +1,5 @@
 import { useCallback, useRef } from 'react';
-import { GoogleMap, InfoWindow } from '@react-google-maps/api';
+import { GoogleMap, InfoWindow, Marker } from '@react-google-maps/api';
 import { City, TouristAttraction } from '../types';
 import styles from './Map.module.scss';
 
@@ -32,16 +32,13 @@ const Map = ({ selectedCity, selectedAttraction, onAttractionSelect }: MapProps)
           fullscreenControl: true,
         }}
       >
-        {selectedCity?.attractions.map((attraction) => {
-          const { AdvancedMarkerElement } = google.maps.marker;
-          return (
-            <AdvancedMarkerElement
-              key={attraction.id}
-              position={attraction.location}
-              onClick={() => onAttractionSelect(attraction)}
-            />
-          );
-        })}
+        {selectedCity?.attractions.map((attraction) => (
+          <Marker
+            key={attraction.id}
+            position={attraction.location}
+            onClick={() => onAttractionSelect(attraction)}
+          />
+        ))}
         
         {selectedAttraction && (
           <InfoWindow
