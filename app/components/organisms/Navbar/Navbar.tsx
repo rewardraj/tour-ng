@@ -1,6 +1,6 @@
 import { useState, useEffect, FC } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 import styles from "./Navbar.module.scss";
 import { Flex } from "@app/components/layouts/Flex/Flex";
 import { GB, PL } from 'country-flag-icons/react/3x2';
@@ -8,6 +8,12 @@ import { GB, PL } from 'country-flag-icons/react/3x2';
 const Navbar: FC = () => {
   const [scrolled, setScrolled] = useState<boolean>(false);
   const location = useLocation();
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language;
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
