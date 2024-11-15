@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
 import { City, TouristAttraction } from "./types";
 import { nigerianCities } from "./data";
 import Sidebar from "./components/Sidebar";
@@ -14,8 +13,6 @@ const Destination = () => {
   const [selectedAttraction, setSelectedAttraction] =
     useState<TouristAttraction | null>(null);
 
-  const { t } = useTranslation();
-  
   return (
     <div className={styles.container}>
       <MapLoader>

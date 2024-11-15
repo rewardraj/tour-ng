@@ -1,64 +1,94 @@
-.Blog {
-  margin-bottom: 2rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-  border-radius: 10px;
-  border: 1px solid #f1f1f1;
-  overflow: hidden;
-}
-
-.BlogImage {
-  width: 100%;
-  height: 300px;
-
-  img.imgResponsive {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
-.BlogInfo {
-  padding: 4rem 2rem 2rem 2rem;
-  text-align: left;
-}
-
-.BlogDate {
-  font-size: 1.8rem;
-  color: #afaeae;
-}
-
-.BlogTitle {
-  color: #333;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  text-align: left;
-  line-height: 1.5;
-  font-weight: 550;
-  font-size: 2.7rem;
-}
-
-.BlogSubtitle {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  line-height: 1.2;
-  overflow: hidden;
-  color: #afaeae;
-  font-size: var(--font-size-p-small);
-  font-weight: 500;
-  margin-bottom: 2rem;
+.subtitle {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
 }
 
 .title {
-  font-size: var(--font-size-h3);
-  margin-bottom: 2rem;
+  font-size: 3rem;
+  color: var(--color-text-primary);
+  font-weight: 700;
+  margin-bottom: 3rem;
 }
 
-.subtitle {
-  color: #afaeae;
-  font-size: var(--font-size-p-mid);
-  font-weight: 500;
-  margin-bottom: 1.5rem;
+.activityCard {
+  background: var(--color-background-light);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  height: 100%;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.imageContainer {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.1);
+  }
+}
+
+.content {
+  padding: 2rem;
+}
+
+.duration {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-primary);
+  color: white;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #ffb800;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1rem 0;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &::before {
+    content: "$";
+    font-size: 1rem;
+  }
 }

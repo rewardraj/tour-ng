@@ -4,20 +4,31 @@
   align-items: center;
   width: 48px;
   height: 48px;
-  border-radius: 15px;
-  border: none;
-  background-color: #0f0f0f;
-  color: #fff;
-
+  border-radius: var(--border-radius-large);
+  border: 2px solid transparent;
+  background-color: var(--color-background-light);
+  color: var(--color-text-primary);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, border 0.3s ease;
 
   i {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
+    color: inherit;
   }
 }
 
 .button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+  background-color: var(--color-disabled);
+  color: var(--color-text-disabled);
+}
+
+.button:not(:disabled):hover {
+  background-color: var(--color-primary);
+}
+
+.button:not(:disabled):focus {
+  outline: var(--outline-style-focus);
+  background-color: var(--color-primary-dark);
 }

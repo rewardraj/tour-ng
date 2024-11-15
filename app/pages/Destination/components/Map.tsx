@@ -1,7 +1,8 @@
-import { useCallback, useRef } from "react";
-import { GoogleMap, InfoWindow, Marker } from "@react-google-maps/api";
+import { GoogleMap, Marker } from "@react-google-maps/api";
 import { City, TouristAttraction } from "../types";
 import styles from "./Map.module.scss";
+import { useState } from "react";
+import AttractionModal from "@app/components/molecules/AttractionModal/AttractionModal";
 
 interface MapProps {
   selectedCity: City | null;
@@ -14,22 +15,28 @@ const Map = ({
   selectedAttraction,
   onAttractionSelect,
 }: MapProps) => {
-  const onLoad = useCallback((map: google.maps.Map) => {
-    // Map loaded callback if needed
-  }, []);
+  const center = selectedCity?.location || { lat: 6.5244, lng: 3.3792 };
+  const [showModal, setShowModal] = useState(false);
 
-  const center = selectedCity?.location || { lat: 6.5244, lng: 3.3792 }; // Default to Lagos
+  const handleMarkerClick = (attraction: TouristAttraction) => {
+    onAttractionSelect(attraction);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    onAttractionSelect(null);
+  };
 
   return (
     <div className={styles.mapContainer}>
       <GoogleMap
-        mapContainerStyle={{ width: "100%", height: "100%" }}
+        mapContainerStyle={{ width: "100%", height: "100dvh" }}
         center={center}
         zoom={10}
-        onLoad={onLoad}
         options={{
           zoomControl: true,
-          streetViewControl: false,
+          streetViewControl: true,
           mapTypeControl: true,
           fullscreenControl: true,
         }}
@@ -38,22 +45,18 @@ const Map = ({
           <Marker
             key={attraction.id}
             position={attraction.location}
-            onClick={() => onAttractionSelect(attraction)}
+            onClick={() => handleMarkerClick(attraction)}
             title={attraction.name}
           />
         ))}
-        {selectedAttraction && (
-          <InfoWindow
-            position={selectedAttraction.location}
-            onCloseClick={() => onAttractionSelect(null)}
-          >
-            <div className={styles.infoWindow}>
-              <h3>{selectedAttraction.name}</h3>
-              <p>{selectedAttraction.description}</p>
-            </div>
-          </InfoWindow>
-        )}
       </GoogleMap>
+
+      {selectedAttraction && showModal && (
+        <AttractionModal
+          attraction={selectedAttraction}
+          onClose={handleCloseModal}
+        />
+      )}
     </div>
   );
 };

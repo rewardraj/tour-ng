@@ -39,7 +39,13 @@
       "@lib/*": ["app/lib/*"]
     }
   },
-  "include": ["**/*.d.ts", "**/*.ts", "**/*.js", "**/*.tsx"],
+  "include": [
+    "**/*.d.ts",
+    "**/*.ts",
+    "**/*.js",
+    "**/*.tsx",
+    "app/pages/Destination/DestinationTest"
+  ],
   "exclude": ["node_modules", "dist", "dist_node", "**/*.ignore.*"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -30,3 +30,11 @@ dist-ssr
 
 # Misc
 .hintrc
+.aider*
+
+# Aider
+.aider.tags.cache.v3
+*.chat.history.md
+*.input.history
+*.llm.history
+*.cursorrules

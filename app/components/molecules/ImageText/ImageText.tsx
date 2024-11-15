@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 import styles from "./ImageText.module.scss";
 import { Flex } from "@app/components/layouts/Flex/Flex";
 import {
@@ -18,7 +18,7 @@ interface ImageTextProps {
   className?: string;
 }
 
-const ImageText: React.FC<ImageTextProps> = ({
+const ImageText: FC<ImageTextProps> = ({
   src,
   alt,
   text,
@@ -26,15 +26,16 @@ const ImageText: React.FC<ImageTextProps> = ({
   height,
   width,
   maxWidth,
+  className,
 }) => {
   return (
-    <Flex direction={FlexDirection.COLUMN} className={styles.ImageText}>
+    <Flex direction={FlexDirection.COLUMN} className={`${styles.ImageText} `}>
       <>
         <img
           src={src}
           alt={alt}
           style={{ height: height, width: width, maxWidth: maxWidth }}
-          className={`${styles.Image} {className}`}
+          className={`${styles.Image} ${className}`}
         />
       </>
       <Flex

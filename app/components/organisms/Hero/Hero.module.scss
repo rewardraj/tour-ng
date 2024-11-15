@@ -1,24 +1,86 @@
-.Hero {
+.heroContainer {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 80dvh;
+  overflow: hidden;
 
-  .bg {
+  &::before {
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
+    z-index: 1;
+  }
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  color: var(--color-text-primary);
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  transform: translateY(-50%);
+  top: 45%;
+
+  .heroSpan {
+    font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    display: block;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  .heroHeading {
+    font-size: clamp(3.6rem, 6vw, 7.2rem);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.1;
+    margin: 0 0 1rem;
     width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-    transition: opacity 1s ease-in-out;
-    &.fade {
-      opacity: 0;
-    }
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 0.8s ease-out 0.2s backwards;
+  }
+
+  .heroSubheading {
+    font-size: clamp(1.6rem, 2vw, 2rem);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.6;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 0.8s ease-out 0.4s backwards;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .heroContainer {
+    height: 100vh;
+  }
+
+  .heroContent {
+    padding: 0 1rem;
   }
 }

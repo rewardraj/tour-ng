@@ -1,4 +1,5 @@
 :root {
+  --navbar-height: 64px;
   /* BREAKPOINTS */
   --breakpoint-mobile: 30rem;
   --breakpoint-tablet: 60rem;
@@ -38,88 +39,93 @@
   --grid-gap--mobile: 3rem;
   --grid-gap: var(--gap-grid--desktop);
 
-  /* COLORS - THEME */
-  --color-primary: #61a653;
-  --color-primary-light: #76b469;
-  --color-primary-dark: #569249;
-  --color-nav-links: #bebebe;
+  /* WCAG ACCESSIBLE COLORS */
 
-  --color-secondary: #2a3c3b;
-  --color-secondary-light: #34514f;
-  --color-secondary-dark: #233332;
+  /* Primary colors - meets the 4.5:1 ratio for text */
+  --color-primary: #00796b; /* Darker teal */
+  --color-primary-light: #48a999;
+  --color-primary-dark: #004d40;
 
-  --color-primary-white: #f9f9f9;
-  --color-secondary-white: #cecece;
+  /* Secondary colors */
+  --color-secondary: #1d3b3a; /* Dark muted green */
+  --color-secondary-light: #2d4e4d;
+  --color-secondary-dark: #122827;
 
-  --color-primary-black: #070707;
-  --color-secondary-black: #1c1c1c;
+  /* Whites and blacks - adjusted for contrast */
+  --color-primary-white: #f2f2f2; /* Slightly off-white for less eye strain */
+  --color-secondary-white: #d9d9d9;
+  --color-primary-black: #121212; /* Deep black for strong contrast */
+  --color-secondary-black: #1a1a1a;
 
-  --color-secondary-yellow: #e9e985;
+  /* Highlight colors */
+  --color-secondary-yellow: #ffdd57; /* Accessible yellow for warning states */
 
-  --color-error: #b14848;
-  --color-error-light: #bb5858;
-  --color-error-dark: #9f4141;
+  /* Error colors - adjusted for better readability */
+  --color-error: #b71c1c; /* Darker red for better text readability */
+  --color-error-light: #e57373;
+  --color-error-dark: #7f0000;
 
-  --color-disabled: #505454;
-  --color-disabled-dark: #4b4b4b;
+  /* Disabled states - made lighter for accessibility */
+  --color-disabled: #9e9e9e; /* Lighter for better distinction */
+  --color-disabled-dark: #757575;
 
+  /* Focus and outline */
   --color-focus-outline: var(--color-secondary-yellow);
   --color-warning: var(--color-secondary-yellow);
 
-  /* COLORS - BACKGROUND */
-  --color-background: #081112;
-  --color-background-light: #182224;
-  --color-background-dark: #050b0b;
-  --color-highlights: #172b29;
+  /* Background colors */
+  --color-background: #0e1414; /* Dark background for good contrast */
+  --color-background-light: #1c2626; /* Slightly lighter background for sections */
+  --color-background-dark: #0a0e0e;
+  --color-highlights: #1b2928;
 
-  /* COLORS - TEXT */
-  --color-text-primary: var(--color-primary-white);
-  --color-text-secondary: var(--color-secondary-white);
-  --color-text-disabled: var(--color-secondary-white);
-  --color-text-dark: var(--color-secondary-black);
+  /* Text colors */
+  --color-text-primary: var(
+    --color-primary-white
+  ); /* White for text on dark backgrounds */
+  --color-text-secondary: var(
+    --color-secondary-white
+  ); /* Slightly darker white for secondary text */
+  --color-text-disabled: var(--color-disabled);
+  --color-text-dark: var(
+    --color-primary-black
+  ); /* Dark text on lighter backgrounds */
   --color-text-highlight: var(--color-primary);
-  --color-text-tertiary: #6c7a79;
-  --color-text-placeholder: #589d97;
+  --color-text-tertiary: #a1b1af; /* Muted grayish-green for tertiary text */
+  --color-text-placeholder: #80cbc4; /* Lighter teal for placeholder text */
   --color-warning: var(--color-secondary-yellow);
 
-  /* FONT - SIZE */
-  --font-size-h1-large: 12rem;
-  --font-size-h1: 9rem;
-  --font-size-h2: 7rem;
-  --font-size-h3: 5rem;
-  --font-size-h4: 4.5rem;
-  --font-size-h5: 4rem;
-  --font-size-p-xlarge: 3.5rem;
-  --font-size-p-large: 3rem;
-  --font-size-p-mid: 2.5rem;
-  --font-size-p-small: 2rem;
-  --font-size-p-xsmall: 1.8rem;
+  /* Font Sizes */
+  --font-size-h1: 4.8rem;
+  --font-size-h2: 3.6rem;
+  --font-size-h3: 3rem;
+  --font-size-h4: 2.4rem;
+  --font-size-h5: 2rem;
+  --font-size-p-xlarge: 2rem;
+  --font-size-p-large: 1.8rem;
+  --font-size-p-mid: 1.6rem;
+  --font-size-p-small: 1.4rem;
+  --font-size-p-xsmall: 1.2rem;
 
-  /* FONT - WEIGHT */
-  --font-weight-ultralight: 100;
-  --font-weight-thin: 300;
-  --font-weight-light: lighter;
-  --font-weight-normal: normal;
-  --font-weight-semibold: 700;
-  --font-weight-bold: bold;
-  --font-weight-heavy: bolder;
-  --font-weight-black: 900;
+  /* Font weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 
-  /* OUTLINE STYLE */
-  --outline-style-focus: 1px var(--color-focus-outline) solid;
+  /* Outline and border */
+  --outline-style-focus: 2px var(--color-focus-outline) solid;
+  --border-primary: 2px var(--color-primary) solid;
+  --border-secondary: 2px var(--color-secondary) solid;
 
-  /* BORDER STYLE */
-  --border-primary: 1px var(--color-primary) solid;
-  --border-secondary: 1px var(--color-secondary) solid;
-
-  /* BOX SHADOW */
-  --box-shadow-small: 0 1 2 -1 rgba(0, 0, 0, 0.25);
-  --box-shadow-medium: 0 6 4 -4 rgba(0, 0, 0, 0.25);
-  --box-shadow-large: -4 8 8 -4 rgba(0, 0, 0, 0.25);
+  /* Box shadows - for focus and card elements */
+  --box-shadow-small: 0 1px 2px rgba(0, 0, 0, 0.25);
+  --box-shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.25);
+  --box-shadow-large: 0 8px 16px rgba(0, 0, 0, 0.25);
 }
 
 html {
-  font-size: 8px;
   line-height: normal;
   font-family: "Aileron", sans-serif;
   font-weight: var(--font-weight-normal);
@@ -134,7 +140,6 @@ body {
 i {
   font-style: normal;
 }
-
 * {
   /* stops ability to select text unless specified */
   -webkit-user-select: none; /* Chrome/Safari/Opera */
@@ -146,19 +151,21 @@ i {
   box-sizing: border-box;
 }
 
+* {
+  -webkit-user-select: none;
+  user-select: none;
+  max-width: 100%;
+  -webkit-tap-highlight-color: transparent;
+  -moz-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
 p,
 input,
 textarea {
-  -webkit-user-select: text; /* Chrome/Safari/Opera */
+  -webkit-user-select: text;
   user-select: text;
   cursor: text;
-}
-
-/* SCROLLBAR */
-
-* {
-  scrollbar-width: auto;
-  scrollbar-color: var(--color-background-dark);
 }
 
 *::-webkit-scrollbar {
@@ -201,53 +208,27 @@ textarea {
   resize: none;
 }
 
+@media (max-width: 768px) {
+  :root {
+    --navbar-height: 80px;
+  }
+}
+
 /* TABLET */
 .Tablet {
-  /* SECTION MARGIN - LEFT, RIGHT */
   --section-margin-horizontal: var(--section-margin-horizontal-tablet);
-
-  /* SECTION MARGIN - TOP, BOTTOM */
   --section-margin-vertical: var(--section-margin-vertical-tablet);
-
-  /* SECTION CONTENT MARGIN - TOP, BOTTOM */
   --section-content-margin-vertical: var(
     --section-content-margin-vertical-tablet
   );
-
-  /* FONT - SIZE */
-  --font-size-h1: 7rem;
-  --font-size-h2: 6rem;
-  --font-size-h3: 4.5rem;
-  --font-size-h4: 4rem;
-  --font-size-h5: 3rem;
-  --font-size-p-xlarge: 2.5rem;
-  --font-size-p-large: 2.5rem;
-  --font-size-p-mid: 2rem;
 }
 
 /* MOBILE */
 .Mobile {
-  /* GAP GRID */
   --gap-grid: var(--gap-grid--mobile);
-
-  /* SECTION MARGIN - LEFT, RIGHT */
   --section-margin-horizontal: var(--section-margin-horizontal-mobile);
-
-  /* SECTION MARGIN - TOP, BOTTOM */
   --section-margin-vertical: var(--section-margin-vertical-mobile);
-
-  /* SECTION CONTENT MARGIN - TOP, BOTTOM */
   --section-content-margin-vertical: var(
     --section-content-margin-vertical-mobile
   );
-
-  /* FONT - SIZE */
-  --font-size-h1: 5.5rem;
-  --font-size-h2: 4.5rem;
-  --font-size-h3: 3.5rem;
-  --font-size-h4: 3.5rem;
-  --font-size-h5: 3rem;
-  --font-size-p-xlarge: 2.5rem;
-  --font-size-p-large: 2.5rem;
-  --font-size-p-mid: 2rem;
 }

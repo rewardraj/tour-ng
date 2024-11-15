@@ -28,7 +28,7 @@ export const Flex: FC<FlexProps> = ({
   justify = JustifyContent.START,
   gap = 0,
   align = AlignItems.CENTER,
-  margin = "0",
+  margin,
   zIndex = 0,
   flex,
   width,

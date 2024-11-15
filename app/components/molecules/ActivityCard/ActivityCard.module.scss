@@ -1,0 +1,60 @@
+.Card {
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  border: 1px solid #f1f1f1;
+  width: auto;
+  height: 460px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+    img {
+      cursor: pointer;
+      transform: scale(1.05);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+
+  .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+  }
+
+  .glassEffect {
+    color: #000;
+    text-align: center;
+    font-size: var(--font-size-body);
+    padding: 1rem 2rem;
+    background: #ffffff;
+    border: 1px solid grey;
+    -webkit-backdrop-filter: blur(50px);
+    backdrop-filter: blur(50px);
+    border-radius: 15px;
+  }
+
+  .topGroup .stars,
+  span {
+    @extend .glassEffect;
+  }
+
+  .bottomGroup {
+    @extend .glassEffect;
+  }
+}

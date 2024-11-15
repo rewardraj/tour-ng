@@ -2,16 +2,16 @@ import { Flex } from "@app/components/layouts/Flex/Flex";
 import { AlignItems, FlexDirection, FlexGap } from "@app/shared/Layout/Layout";
 import { MaxSize } from "@app/shared/Sizes/Sizes";
 import styles from "./Heading.module.scss";
-import React from "react";
+import { FC } from "react";
 
 interface SectionHeadingProps {
-  preText: string;
+  preText?: string;
   mainText: string;
   description?: string;
   isDescription?: boolean;
 }
 
-const SectionHeading: React.FC<SectionHeadingProps> = ({
+const SectionHeading: FC<SectionHeadingProps> = ({
   preText,
   mainText,
   description,

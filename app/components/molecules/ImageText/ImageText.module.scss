@@ -4,20 +4,28 @@
   border-radius: 1.5rem;
   overflow: hidden;
 
-  &:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  &.clickable {
+    cursor: pointer;
+    transition: all 0.3s ease;
 
-    .Image {
-      cursor: pointer;
-      transform: scale(1.05);
-      position: relative;
+    &:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      transform: translateY(-4px);
+
+      .Image {
+        transform: scale(1.05);
+      }
+
+      .TextMain {
+        color: var(--color-primary);
+      }
     }
   }
 
   .subText {
     line-height: 1.5;
     text-align: left;
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 
@@ -33,6 +41,6 @@
   bottom: 40px;
   left: 20px;
   color: aliceblue;
-  font-size: var(--font-size-p-large);
-  font-weight: 700;
+  font-size: 24px;
+  font-weight: Bold;
 }

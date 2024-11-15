@@ -9,6 +9,7 @@ import {
 import { useEffect, useState } from "react";
 import styles from "./Testimony.module.scss";
 import Grid from "@app/components/layouts/Grid/Grid";
+import { ArrowButton } from "@app/components/atoms/IconButton/ArrowButton";
 
 const Testimony = () => {
   const reviews = [
@@ -89,25 +90,19 @@ const Testimony = () => {
                     </p>
                   </Flex>
                 </Flex>
-                <Flex gap={FlexGap.LARGE} margin="7rem 0">
-                  <button
+                <Flex gap={FlexGap.LARGE} margin="4rem 0">
+                  <ArrowButton
+                    direction="left"
                     onClick={handlePrevious}
                     disabled={review === 0}
-                    aria-label="Show previous reviews"
-                    role="button"
-                    className={styles.button}
-                  >
-                    <i className="dripicons dripicons-arrow-thin-left" />
-                  </button>
-                  <button
+                    ariaLabel="Show previous reviews"
+                  />
+                  <ArrowButton
+                    direction="right"
                     onClick={handleNext}
                     disabled={review === allReviews.length - 1}
-                    aria-label="Show next reviews"
-                    role="button"
-                    className={styles.button}
-                  >
-                    <i className="dripicons dripicons-arrow-thin-right" />
-                  </button>
+                    ariaLabel="Show next reviews"
+                  />
                 </Flex>
               </Flex>
             </Flex>

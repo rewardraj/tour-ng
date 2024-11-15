@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 import styles from "./ArrowButton.module.scss";
 
 interface ArrowButtonProps {
@@ -9,19 +9,21 @@ interface ArrowButtonProps {
   backgroundColor?: string;
   color?: string;
   margin?: string;
+  className?: string;
 }
 
-export const ArrowButton: React.FC<ArrowButtonProps> = ({
+export const ArrowButton: FC<ArrowButtonProps> = ({
   direction,
   onClick,
   disabled,
   ariaLabel,
-  color,
-  backgroundColor,
+  color = "var(--color-text-primary)",
+  backgroundColor = "var(--color-background-light)",
   margin,
+  className,
 }) => (
   <button
-    className={styles.button}
+    className={`${styles.button} ${className}`}
     onClick={onClick}
     disabled={disabled}
     aria-label={ariaLabel}

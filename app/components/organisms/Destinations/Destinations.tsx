@@ -2,86 +2,45 @@ import { Flex } from "@app/components/layouts/Flex/Flex";
 import { AlignItems, FlexGap, JustifyContent } from "@app/shared/Layout/Layout";
 import SectionHeading from "@app/components/molecules/SectionHeading/SectionHeading";
 import Container from "@app/components/layouts/Container/Container";
-import Card from "@app/components/molecules/Card/Card";
+import Card from "@app/components/molecules/ActivityCard/ActivityCard";
 import Grid from "@app/components/layouts/Grid/Grid";
-
 import { useState } from "react";
 import { ArrowButton } from "@app/components/atoms/IconButton/ArrowButton";
+import { nigerianCities } from "@app/pages/Destination/data";
+import { useTranslation } from "react-i18next";
 
-const destinations = [
-  {
-    days: "2 days",
-    stars: 4.5,
-    image: "https://picsum.photos/900/500",
-    alt: "place 1",
-    location: "Abuja",
-    price: 100,
-  },
-  {
-    days: "3 days",
-    stars: 4.5,
-    image: "https://picsum.photos/900/600",
-    alt: "place 2",
-    location: "Lagos",
-    price: 200,
-  },
-  {
-    days: "4 days",
-    stars: 4.5,
-    image: "https://picsum.photos/900/700",
-    alt: "place 3",
-    location: "Calabar",
-    price: 300,
-  },
-
-  {
-    days: "4 days",
-    stars: 4.5,
-    image: "https://picsum.photos/910/700",
-    alt: "place 3",
-    location: "Calabar",
-    price: 300,
-  },
-
-  {
-    days: "4 days",
-    stars: 4.5,
-    image: "https://picsum.photos/690/700",
-    alt: "place 3",
-    location: "Calabar",
-    price: 300,
-  },
-
-  {
-    days: "4 days",
-    stars: 4.5,
-    image: "https://picsum.photos/720/700",
-    alt: "place 3",
-    location: "Calabar",
-    price: 300,
-  },
-];
+export const cityImages = {
+  Lagos: "https://picsum.photos/800/500?random=1",
+  Abuja: "https://picsum.photos/800/500?random=2",
+  Kano: "https://picsum.photos/800/500?random=3",
+  Jos: "https://picsum.photos/800/500?random=4",
+  "Port Harcourt": "https://picsum.photos/800/500?random=5",
+  Enugu: "https://picsum.photos/800/500?random=6",
+} as const;
 
 const Destinations = () => {
   const [currentPlace, setCurrentPlace] = useState(0);
-  const allPlaces = [...destinations];
+  const { t } = useTranslation();
+  const bestCities = nigerianCities.slice(0, 6).map((city) => ({
+    days: "3 days",
+    stars: 4.5,
+    image: cityImages[city.name as keyof typeof cityImages],
+    alt: city.name,
+    location: city.location.city,
+  }));
 
   const handleNext = () => {
-    setCurrentPlace((currentPlace + 1) % allPlaces.length);
+    setCurrentPlace((currentPlace + 1) % bestCities.length);
   };
 
   const handlePrevious = () => {
-    setCurrentPlace((currentPlace - 1 + allPlaces.length) % allPlaces.length);
+    setCurrentPlace((currentPlace - 1 + bestCities.length) % bestCities.length);
   };
 
   return (
     <Container>
-      <Flex align={AlignItems.CENTER} justify={JustifyContent.SPACE_BETWEEN}>
-        <SectionHeading
-          preText="Tour packages"
-          mainText="Our Tourist Destination"
-          description="Our tourist destinations offers an unrivaled blend of natural beauty and cultural riches"
-        />
+      <Flex align={AlignItems.CENTER}>
+        <SectionHeading mainText={t("sectionHeadings.bestNature")} />
       </Flex>
       <Grid
         desktopColumns={3}
@@ -89,7 +48,7 @@ const Destinations = () => {
         mobileColumns={1}
         aria-labelledby="featured-heading"
       >
-        {allPlaces
+        {bestCities
           .slice(currentPlace, currentPlace + 3)
           .map((destination, index) => (
             <Card
@@ -99,7 +58,6 @@ const Destinations = () => {
               src={destination.image}
               alt={destination.alt}
               location={destination.location}
-              price={destination.price}
               icon="dripicons dripicons-star"
             />
           ))}
@@ -116,7 +74,7 @@ const Destinations = () => {
             <ArrowButton
               direction="right"
               onClick={handleNext}
-              disabled={currentPlace === allPlaces.length - 3}
+              disabled={currentPlace === bestCities.length - 3}
               ariaLabel="Show next projects"
             />
           </Flex>

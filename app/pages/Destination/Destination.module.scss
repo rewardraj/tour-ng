@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  height: 92dvh;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.pageContainer {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.mapContainer {
+  flex: 1;
+  display: flex;
+}

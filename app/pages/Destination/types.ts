@@ -1,6 +1,8 @@
 export interface Location {
   lat: number;
   lng: number;
+  city: string;
+  spot: string;
 }
 
 export interface City {
@@ -16,5 +18,15 @@ export interface TouristAttraction {
   name: string;
   location: Location;
   description: string;
-  type: 'monument' | 'park' | 'museum' | 'landmark';
+  type:
+    | "Monument"
+    | "Park"
+    | "Museum"
+    | "Landmark"
+    | "Hiking"
+    | "Mountain"
+    | "Resort"
+    | "Festival"
+    | "Wildlife"
+    | "Beach";
 }

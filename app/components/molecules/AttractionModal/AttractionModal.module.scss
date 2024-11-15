@@ -1,0 +1,126 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+.modalContent {
+  background: var(--color-background);
+  border-radius: var(--border-radius-large);
+  padding: 2rem;
+  max-width: 850px;
+  overflow-y: auto;
+  position: relative;
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+.closeButton {
+  position: relative;
+  bottom: 1rem;
+  left: 92%;
+  background: #fff;
+  border: none;
+  font-size: 1.5rem;
+  color: #000;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  z-index: 1001;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--border-radius-large);
+
+  &:hover {
+    color: var(--color-primary);
+  }
+}
+
+.carouselContainer {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  margin-bottom: 2rem;
+  border-radius: var(--border-radius-large);
+  overflow: hidden;
+}
+
+.carouselImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carouselControls {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+}
+
+.attractionInfo {
+  color: var(--color-text-primary);
+
+  h2 {
+    margin: 0 0 1rem;
+    font-size: var(--font-size-h3);
+  }
+
+  .description {
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+}
+
+.infoItem {
+  display: flex;
+  gap: 1rem;
+  width: 400px;
+  text-align: center;
+
+  .label {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+    min-width: 200px;
+    text-align: left;
+  }
+
+  .value {
+    color: var(--color-text-secondary);
+  }
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .modalContent {
+    width: 95%;
+    padding: 1rem;
+  }
+
+  .carouselContainer {
+    height: 300px;
+  }
+}

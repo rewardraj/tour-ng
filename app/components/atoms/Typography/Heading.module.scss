@@ -1,24 +1,26 @@
 .Heading {
   margin: 0;
-  letter-spacing: 0.1rem;
+  letter-spacing: var(--letter-spacing-heading);
   overflow-wrap: break-word;
-  max-width: 800px;
-  padding-bottom: 2rem;
+  max-width: 70ch; /* Optimal line length for readability */
+  padding-bottom: clamp(1.5rem, 1rem + 2vw, 2.5rem);
 }
 
+/* COLORS */
 .Heading--primary {
-  color: #fff;
+  color: var(--color-text-primary); /* Accessible primary color */
   font-weight: var(--font-weight-bold);
 }
 
 .Heading--secondary {
-  color: var(--color-text-secondary);
+  color: var(--color-text-secondary); /* Accessible secondary color */
 }
 
 .Heading--tertiary {
-  color: var(--color-text-tertiary);
+  color: var(--color-text-tertiary); /* Accessible tertiary color */
 }
 
+/* TEXT ALIGNMENT */
 .Heading--center {
   text-align: center;
 }
@@ -32,28 +34,34 @@
 }
 
 /* TYPE */
-h1.Heading {
+.Heading--H1 {
   font-size: var(--font-size-h1);
+  line-height: 1.2;
 }
 
-h2.Heading {
+.Heading--H2 {
   font-size: var(--font-size-h2);
+  line-height: 1.3;
 }
 
-h3.Heading {
+.Heading--H3 {
   font-size: var(--font-size-h3);
+  line-height: 1.3;
 }
 
-h4.Heading {
+.Heading--H4 {
   font-size: var(--font-size-h4);
+  line-height: 1.4;
 }
 
-h5.Heading {
+.Heading--H5 {
   font-size: var(--font-size-h5);
+  line-height: 1.4;
 }
 
-h6.Heading {
+.Heading--H6 {
   font-size: var(--font-size-h6);
+  line-height: 1.5;
 }
 
 /* WEIGHT */
@@ -71,4 +79,11 @@ h6.Heading {
 
 .Heading--thin {
   font-weight: var(--font-weight-thin);
+}
+
+/* Accessibility: ensuring strong contrast for dark backgrounds */
+.Heading--primary,
+.Heading--secondary,
+.Heading--tertiary {
+  text-shadow: 0.1rem 0.1rem 0.3rem rgba(0, 0, 0, 0.5); /* Adding subtle shadow for readability */
 }

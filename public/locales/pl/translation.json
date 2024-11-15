@@ -14,31 +14,31 @@
     "attractions": "Atrakcje turystyczne",
     "viewMap": "Zobacz na mapie",
     "cities": {
-      "lagos": {
+      "1": {
         "name": "Lagos",
         "description": "Największe miasto w Nigerii i ważne centrum finansowe"
       },
-      "abuja": {
+      "2": {
         "name": "Abuja",
         "description": "Stolica Nigerii"
       },
-      "kano": {
+      "3": {
         "name": "Kano",
         "description": "Jedno z najstarszych miast w Nigerii, znane z historycznych miejsc"
       },
-      "jos": {
+      "4": {
         "name": "Jos",
         "description": "Znane z malowniczego plateau i chłodniejszego klimatu"
       },
-      "portHarcourt": {
+      "5": {
         "name": "Port Harcourt",
         "description": "Miasto portowe, znane z przemysłu naftowego i pięknych krajobrazów"
       },
-      "enugu": {
+      "6": {
         "name": "Enugu",
         "description": "Znane z przemysłu węglowego i żywej kultury"
       },
-      "crossRiver": {
+      "7": {
         "name": "Cross River",
         "description": "Stan znany z naturalnego piękna i różnorodnej fauny"
       }
@@ -57,5 +57,46 @@
       "wildlife": "Dzika przyroda",
       "beach": "Plaża"
     }
-  }
+  },
+  "hero": {
+    "explore": "Odkrywaj",
+    "slides": {
+      "1": {
+        "heading": "Lagos",
+        "subHeading": "Miasto, które nigdy nie śpi"
+      },
+      "2": {
+        "heading": "Abuja",
+        "subHeading": "Serce dziedzictwa Nigerii"
+      },
+      "3": {
+        "heading": "Zdobywając nowe szczyty",
+        "subHeading": "Szczyty przygody"
+      },
+      "4": {
+        "heading": "Słoneczne wybrzeża",
+        "subHeading": "Odkryj nadmorskie skarby"
+      },
+      "5": {
+        "heading": "Urok wybrzeża",
+        "subHeading": "Fale, piasek i spokój"
+      },
+      "6": {
+        "heading": "Cross River",
+        "subHeading": "Nieujarzmiony raj natury"
+      }
+    }
+  },
+  "featured": {
+  "visitors": "Odwiedzający",
+  "beaches": "Plaże",
+  "destinations": "Łączna liczba miejsc",
+  "rating": "Średnia ocena"
+},
+"sectionHeadings": {
+  "topDestinations": "Najlepsze miejsca docelowe",
+  "bestNature": "Najlepsze miasta przyrodnicze",
+  "activities": "Polecane aktywności"
+}
+
 }

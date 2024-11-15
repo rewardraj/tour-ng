@@ -1,19 +1,23 @@
 .Heading {
   &__Intro {
-    padding: var(--section-content-margin-vertical-mobile) 0
-      var(--section-margin-vertical) 0;
+    padding: 0 0 var(--section-content-margin-vertical-mobile) 0;
+    width: 100%;
 
     .pre {
-      color: #afaeae;
-      font-size: var(--font-size-p-mid);
+      color: #474747;
+      font-size: 24px;
+      width: 100%;
       font-weight: 500;
-      margin-bottom: 1.5rem;
     }
   }
 
   &__Text {
-    font-size: var(--font-size-h3);
+    font-size: var(--font-size-h4);
     width: 100%;
+    text-align: center;
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-heading);
+    margin-bottom: 2rem;
   }
 
   &__Description {
@@ -27,8 +31,7 @@
 @media screen and (max-width: 768px) {
   .Heading {
     &__Intro {
-      padding: var(--section-content-margin-vertical-mobile) 0
-        var(--section-content-margin-vertical-mobile) 0;
+      padding: 0;
     }
 
     &__Description {

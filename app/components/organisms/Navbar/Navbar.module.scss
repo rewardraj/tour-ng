@@ -77,7 +77,6 @@
 
 .links {
   display: flex;
-  gap: 1.5rem;
   margin-right: 2rem;
 }
 
@@ -111,7 +110,7 @@
   align-items: center;
   gap: 0.5rem;
   height: 100%;
-  
+
   .languageButton {
     background: none;
     border: none;
@@ -119,25 +118,25 @@
     cursor: pointer;
     border-radius: 0.25rem;
     transition: transform var(--transition-speed),
-                opacity var(--transition-speed);
-    
+      opacity var(--transition-speed);
+
     &:hover {
       transform: scale(1.1);
     }
-    
+
     &:focus-visible {
       outline: 2px solid var(--focus-outline);
       outline-offset: 2px;
     }
-    
+
     &.active {
       opacity: 1;
     }
-    
+
     &:not(.active) {
       opacity: 0.6;
     }
-    
+
     .flag {
       width: 24px;
       height: auto;

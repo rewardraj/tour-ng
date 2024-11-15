@@ -5,10 +5,16 @@ import { AlignItems, JustifyContent } from "@app/shared/Layout/Layout";
 import ImageText from "@app/components/molecules/ImageText/ImageText";
 import { Columns } from "@app/components/layouts/Grid/Columns/Columns";
 import SectionHeading from "@app/components/molecules/SectionHeading/SectionHeading";
-import Container from "@app/components/layouts/Container/Container";
 import styles from "./Location.module.scss";
+import Container from "@app/components/layouts/Container/Container";
+import { nigerianCities } from "@app/pages/Destination/data";
+import { useTranslation } from "react-i18next";
 
 const Location = () => {
+  const allAttractions = nigerianCities.flatMap((city) => city.attractions);
+  const firstFiveAttractions = allAttractions.slice(0, 5);
+  const { t } = useTranslation();
+
   return (
     <Container>
       <Grid
@@ -17,10 +23,10 @@ const Location = () => {
         mobileColumns={2}
         aria-labelledby="featured-heading"
       >
-        <Featured number="10M+" description="Visitors" />
-        <Featured number="50+" description="Beaches" />
-        <Featured number="12K" description="Total Destinations" />
-        <Featured number="5.0" description="Average Rating" />
+        <Featured number="10M+" description={t("featured.visitors")} />
+        <Featured number="50+" description={t("featured.beaches")} />
+        <Featured number="12K" description={t("featured.destinations")} />
+        <Featured number="5.0" description={t("featured.rating")} />
       </Grid>
 
       <Flex
@@ -28,12 +34,7 @@ const Location = () => {
         justify={JustifyContent.SPACE_BETWEEN}
         className={styles.LocationGrid}
       >
-        <SectionHeading
-          preText="Best Locations"
-          mainText=" Nigerian Touristic Attraction"
-          description=" Extraordinary natural beauty, enjoy the rich culture and experience
-          the friendliness of the local people"
-        />
+        <SectionHeading mainText={t("sectionHeadings.topDestinations")} />
         <Grid
           desktopColumns={5}
           tabletColumns={2}
@@ -43,29 +44,29 @@ const Location = () => {
           <Columns span={3} mobileSpan={1}>
             <ImageText
               src="https://picsum.photos/900/500"
-              text="Kilimanjaro mountain"
-              subtext="Tanzania"
+              text={firstFiveAttractions[0].name}
+              subtext={firstFiveAttractions[0].location.city}
             />
           </Columns>
           <Columns span={2} mobileSpan={1}>
             <ImageText
               src="https://picsum.photos/900/755"
-              text="Victoria Falls"
-              subtext="Zimbabwe"
+              text={firstFiveAttractions[1].name}
+              subtext={firstFiveAttractions[1].location.city}
             />
           </Columns>
           <Columns span={2} mobileSpan={1}>
             <ImageText
               src="https://picsum.photos/950/900"
-              text="Obudu Cattle Ranch"
-              subtext="Cross Rivers, Nigeria"
+              text={firstFiveAttractions[2].name}
+              subtext={firstFiveAttractions[2].location.city}
             />
           </Columns>
           <Columns span={3} mobileSpan={1}>
             <ImageText
               src="https://picsum.photos/900/560"
-              text="Sambissa Forest"
-              subtext="Chibok, Nigeria"
+              text={firstFiveAttractions[3].name}
+              subtext={firstFiveAttractions[3].location.city}
             />
           </Columns>
         </Grid>

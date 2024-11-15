@@ -1,27 +1,30 @@
 .Featured {
   text-align: center;
-  padding: 2rem;
   background-color: rgb(255, 255, 255);
   border-radius: 15px;
   position: relative;
-  top: -96px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  top: -60px;
+  z-index: 2;
   box-shadow: 0 10px 20px rgba(188, 188, 188, 0.19),
     0 6px 6px rgba(235, 235, 235, 0.23);
   border: 1px solid rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  margin-bottom: 3rem;
+  line-height: 1.5;
 
   span {
-    font-size: var(--font-size-p-large);
-    font-weight: 600;
+    font-size: 2rem;
+    font-weight: var(--font-weight-semibold);
     opacity: 1;
     position: relative;
     top: 10px;
-    color: #333;
+    color: #000;
   }
   p {
-    color: #4c4d4d;
-    font-size: var(--font-size-p-mid);
+    color: #000;
+    font-size: 1.2rem;
+    line-height: var(--line-height-body);
   }
 
   @media screen and (max-width: 768px) {

@@ -1,16 +1,16 @@
 .Container {
   margin: 0 auto;
-  max-width: 1300px;
-  padding: 5rem;
+  max-width: 1220px;
+  // padding: 5rem;
   height: 100%;
   width: 100%;
-  margin-bottom: 2rem;
+  // margin-bottom: 2rem;
 
   @media screen and (max-width: 768px) {
-    padding: 2rem;
+    padding: 1rem;
   }
 
   @media screen and (max-width: 992px) {
-    padding: 2rem;
+    padding: 1rem;
   }
 }

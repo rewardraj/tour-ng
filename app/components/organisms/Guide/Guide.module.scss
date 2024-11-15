@@ -8,6 +8,16 @@
   }
 }
 
+.imageWrapper {
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+  
+  &.fadeOut {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
 .step {
   position: relative;
   padding: 24px;
@@ -46,11 +56,11 @@
 }
 
 .main {
-  font-size: var(--font-size-p-mid);
+  font-size: 24px;
 }
 
 .description {
-  font-size: var(--font-size-p-small);
+  font-size: 16px;
   color: #afaeae;
   line-height: 1.5;
 }
