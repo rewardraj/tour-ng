@@ -2,7 +2,6 @@
 .imageContainer {
   width: 50%;
   @media screen and (max-width: 768px) {
-    padding: 0 1rem;
     margin: auto;
     width: 100%;
   }
@@ -11,7 +10,7 @@
 .imageWrapper {
   opacity: 1;
   transition: all 0.3s ease-in-out;
-  
+
   &.fadeOut {
     opacity: 0;
     transform: scale(0.95);
@@ -44,7 +43,7 @@
   }
 
   @media screen and (max-width: 768px) {
-    padding: 2rem 0;
+    // padding: 2rem 0;
     width: 100%;
   }
 }

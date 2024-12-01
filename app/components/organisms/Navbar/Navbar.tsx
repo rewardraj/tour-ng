@@ -1,46 +1,130 @@
-import { useState, useEffect, FC } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { FC, useState, useEffect, useRef } from "react";
+import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import styles from "./Navbar.module.scss";
-import { Flex } from "@app/components/layouts/Flex/Flex";
 import { GB, PL } from "country-flag-icons/react/3x2";
+import { IoChevronDown } from "react-icons/io5";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 const Navbar: FC = () => {
-  const [scrolled, setScrolled] = useState<boolean>(false);
-  const location = useLocation();
   const { t, i18n } = useTranslation();
   const currentLanguage = i18n.language;
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
+  const changeLanguage = async (lng: string) => {
+    try {
+      await i18n.changeLanguage(lng);
+      localStorage.setItem("preferredLanguage", lng);
+      setIsLangDropdownOpen(false);
+    } catch (error) {
+      console.error("Failed to change language:", error);
+    }
   };
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 80); // Smaller scroll threshold for activation
+      setIsScrolled(window.scrollY > 0);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
-  const navigationBg =
-    location.pathname !== "/home" ? styles.darkMode : styles.lightMode;
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsLangDropdownOpen(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <nav
-      className={`${styles.navbar} ${
-        scrolled ? styles.navbarScrolled : ""
-      } ${navigationBg}`}
+      className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""}`}
       role="navigation"
       aria-label="Main Navigation"
     >
       <div className={styles.container}>
         <div className={styles.logo}>
           <NavLink to="/" className={styles.logoLink}>
-            <img src="app/assets/images/N.jpg" alt="" height={60} width={80} />
+            <img
+              src="app/assets/images/logo.png"
+              alt="Logo"
+              height={48}
+              width={48}
+            />
           </NavLink>
         </div>
-        <Flex>
+
+        <div className={styles.mobileControls}>
+          <div
+            className={`${styles.languageSelector} ${styles.mobileLanguageSelector}`}
+            ref={dropdownRef}
+          >
+            <button
+              className={styles.languageToggle}
+              onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
+              aria-expanded={isLangDropdownOpen}
+            >
+              {currentLanguage === "en" ? (
+                <GB className={styles.flag} />
+              ) : (
+                <PL className={styles.flag} />
+              )}
+              <IoChevronDown
+                className={`${styles.chevron} ${
+                  isLangDropdownOpen ? styles.open : ""
+                }`}
+              />
+            </button>
+
+            {isLangDropdownOpen && (
+              <div className={styles.dropdown}>
+                <button
+                  className={`${styles.dropdownItem} ${
+                    currentLanguage === "en" ? styles.active : ""
+                  }`}
+                  onClick={() => changeLanguage("en")}
+                >
+                  <GB className={styles.flag} />
+                  <span>English</span>
+                </button>
+                <button
+                  className={`${styles.dropdownItem} ${
+                    currentLanguage === "pl" ? styles.active : ""
+                  }`}
+                  onClick={() => changeLanguage("pl")}
+                >
+                  <PL className={styles.flag} />
+                  <span>Polski</span>
+                </button>
+              </div>
+            )}
+          </div>
+
+          <button
+            className={styles.mobileMenuButton}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            <RxHamburgerMenu />
+          </button>
+        </div>
+
+        <div
+          className={`${styles.navContent} ${
+            isMobileMenuOpen ? styles.open : ""
+          }`}
+        >
           <div className={styles.links}>
             <NavLink
               to="/destinations"
@@ -59,27 +143,52 @@ const Navbar: FC = () => {
               {t("nav.activities")}
             </NavLink>
           </div>
-          <div className={styles.languageButtons}>
+
+          <div className={styles.languageSelector} ref={dropdownRef}>
             <button
-              aria-label={t("languages.pl")}
-              className={`${styles.languageButton} ${
-                currentLanguage === "pl" ? styles.active : ""
-              }`}
-              onClick={() => changeLanguage("pl")}
+              className={styles.languageToggle}
+              onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
+              aria-expanded={isLangDropdownOpen}
             >
-              <PL title="Polski" className={styles.flag} />
+              {currentLanguage === "en" ? (
+                <GB className={styles.flag} />
+              ) : (
+                <PL className={styles.flag} />
+              )}
+              <span className={styles.currentLanguage}>
+                {currentLanguage.toUpperCase()}
+              </span>
+              <IoChevronDown
+                className={`${styles.chevron} ${
+                  isLangDropdownOpen ? styles.open : ""
+                }`}
+              />
             </button>
-            <button
-              aria-label={t("languages.en")}
-              className={`${styles.languageButton} ${
-                currentLanguage === "en" ? styles.active : ""
-              }`}
-              onClick={() => changeLanguage("en")}
-            >
-              <GB title="English" className={styles.flag} />
-            </button>
+
+            {isLangDropdownOpen && (
+              <div className={styles.dropdown}>
+                <button
+                  className={`${styles.dropdownItem} ${
+                    currentLanguage === "en" ? styles.active : ""
+                  }`}
+                  onClick={() => changeLanguage("en")}
+                >
+                  <GB className={styles.flag} />
+                  <span>English</span>
+                </button>
+                <button
+                  className={`${styles.dropdownItem} ${
+                    currentLanguage === "pl" ? styles.active : ""
+                  }`}
+                  onClick={() => changeLanguage("pl")}
+                >
+                  <PL className={styles.flag} />
+                  <span>Polski</span>
+                </button>
+              </div>
+            )}
           </div>
-        </Flex>
+        </div>
       </div>
     </nav>
   );

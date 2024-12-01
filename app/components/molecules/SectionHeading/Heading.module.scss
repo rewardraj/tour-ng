@@ -28,14 +28,18 @@
   }
 }
 
-@media screen and (max-width: 768px) {
-  .Heading {
-    &__Intro {
-      padding: 0;
-    }
+// @media screen and (max-width: 768px) {
+//   .Heading {
+//     // &__Intro {
+//     //   padding: 0;
+//     // }
 
-    &__Description {
-      margin-bottom: var(--section-content-margin-vertical-mobile);
-    }
-  }
-}
+//     // &__Description {
+//     //   margin-bottom: var(--section-content-margin-vertical-mobile);
+//     // }
+
+//     // &__Text {
+//     //   margin-bottom: 1rem;
+//     // }
+//   }
+// }
