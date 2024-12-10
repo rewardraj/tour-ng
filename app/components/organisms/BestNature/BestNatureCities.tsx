@@ -6,28 +6,14 @@ import Card from "@app/components/molecules/ActivityCard/ActivityCard";
 import Grid from "@app/components/layouts/Grid/Grid";
 import { useState } from "react";
 import { ArrowButton } from "@app/components/atoms/IconButton/ArrowButton";
-import { nigerianCities } from "@app/pages/Destination/data";
 import { useTranslation } from "react-i18next";
+import { getBestNatureCities, nigerianCities } from "@app/shared/data/allData";
 
-export const cityImages = {
-  Lagos: "https://picsum.photos/800/500?random=1",
-  Abuja: "https://picsum.photos/800/500?random=2",
-  Kano: "https://picsum.photos/800/500?random=3",
-  Jos: "https://picsum.photos/800/500?random=4",
-  "Port Harcourt": "https://picsum.photos/800/500?random=5",
-  Enugu: "https://picsum.photos/800/500?random=6",
-} as const;
-
-const Destinations = () => {
+const BestNatureCities = () => {
   const [currentPlace, setCurrentPlace] = useState(0);
   const { t } = useTranslation();
-  const bestCities = nigerianCities.slice(0, 6).map((city) => ({
-    days: "3 days",
-    stars: 4.5,
-    image: cityImages[city.name as keyof typeof cityImages],
-    alt: city.name,
-    location: city.location.city,
-  }));
+
+  const bestCities = getBestNatureCities(nigerianCities);
 
   const handleNext = () => {
     setCurrentPlace((currentPlace + 1) % bestCities.length);
@@ -53,12 +39,9 @@ const Destinations = () => {
           .map((destination, index) => (
             <Card
               key={index}
-              days={destination.days}
-              stars={destination.stars}
               src={destination.image}
               alt={destination.alt}
               location={destination.location}
-              icon="dripicons dripicons-star"
             />
           ))}
       </Grid>
@@ -75,7 +58,7 @@ const Destinations = () => {
               direction="right"
               onClick={handleNext}
               disabled={currentPlace === bestCities.length - 3}
-              ariaLabel="Show next projects"
+              ariaLabel="Show next places"
             />
           </Flex>
         </Flex>
@@ -84,4 +67,4 @@ const Destinations = () => {
   );
 };
 
-export default Destinations;
+export default BestNatureCities;

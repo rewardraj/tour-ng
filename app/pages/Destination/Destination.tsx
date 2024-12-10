@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { City, TouristAttraction } from "./types";
-import { nigerianCities } from "./data";
 import Sidebar from "./components/Sidebar";
 import Map from "./components/Map";
 import styles from "./Destination.module.scss";
 import MapLoader from "./components/MapLoader";
+import {
+  City,
+  nigerianCities,
+  TouristAttraction,
+} from "@app/shared/data/allData";
 
 const Destination = () => {
   const [selectedCity, setSelectedCity] = useState<City | null>(

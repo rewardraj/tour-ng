@@ -59,7 +59,7 @@ const Testimony = () => {
         {reviews.map((currentReview, index) => {
           if (index !== review) return null;
           return (
-            <Flex align={AlignItems.START}>
+            <Flex key={index} align={AlignItems.START}>
               <Flex align={AlignItems.START} flex={1}>
                 <p className={styles.ReviewText}>{currentReview.review}</p>
               </Flex>

@@ -15,6 +15,7 @@ interface ImageTextProps {
   alt?: string;
   text?: string;
   subtext?: string;
+  onClick?: () => void;
   className?: string;
 }
 
@@ -27,14 +28,27 @@ const ImageText: FC<ImageTextProps> = ({
   width,
   maxWidth,
   className,
+  onClick,
 }) => {
   return (
-    <Flex direction={FlexDirection.COLUMN} className={`${styles.ImageText} `}>
+    <Flex
+      direction={FlexDirection.COLUMN}
+      className={`${styles.ImageText} `}
+      onClick={onClick}
+      role="button"
+      tabIndex={0}
+      onKeyPress={(e: any) => e.key === "Enter" && onClick?.()}
+    >
       <>
         <img
           src={src}
           alt={alt}
-          style={{ height: height, width: width, maxWidth: maxWidth }}
+          style={{
+            height: height,
+            width: width,
+            maxWidth: maxWidth,
+            cursor: "pointer",
+          }}
           className={`${styles.Image} ${className}`}
         />
       </>

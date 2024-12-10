@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import Container from "@app/components/layouts/Container/Container";
 import { Flex } from "@app/components/layouts/Flex/Flex";
 import ImageText from "@app/components/molecules/ImageText/ImageText";
@@ -9,85 +11,47 @@ import {
   JustifyContent,
 } from "@app/shared/Layout/Layout";
 import styles from "./Guide.module.scss";
-import { useState, useEffect } from "react";
-
-export const steps = [
-  {
-    icon: "dripicons dripicons-search",
-    main: "Find your destination",
-    description:
-      "Embark on a journey to discover your dream destination where adventure awaits",
-    image: "https://picsum.photos/900/990",
-  },
-  {
-    icon: "dripicons dripicons-message",
-    main: "Book a ticket",
-    description: "Secure your travel plans with our easy booking system",
-    image: "https://picsum.photos/900/991",
-  },
-  {
-    icon: "dripicons dripicons-conversation",
-    main: "Make Payment",
-    description: "Safe and secure payment options for your peace of mind",
-    image: "https://picsum.photos/900/992",
-  },
-  {
-    icon: "dripicons dripicons-location",
-    main: "Explore destination",
-    description: "Start your adventure and create unforgettable memories",
-    image: "https://picsum.photos/900/993",
-  },
-];
+import { getStepsConfig } from "@app/shared/data/allData";
 
 const Guide = () => {
+  const { t } = useTranslation();
+  const steps = getStepsConfig(t);
+
   const [activeStep, setActiveStep] = useState<number>(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const handleStepClick = (index: number) => {
     if (index !== activeStep) {
-      setIsTransitioning(true);
-      setActiveStep(index);
+      triggerTransition(index);
     }
   };
 
   useEffect(() => {
-    let autoAdvanceTimer: NodeJS.Timeout;
+    const autoAdvanceTimer = setInterval(() => {
+      triggerTransition((activeStep + 1) % steps.length);
+    }, 5000);
 
-    const startAutoAdvance = () => {
-      autoAdvanceTimer = setInterval(() => {
-        handleStepChange((activeStep + 1) % steps.length);
-      }, 5000);
-    };
+    return () => clearInterval(autoAdvanceTimer);
+  }, [activeStep, steps.length]);
 
-    startAutoAdvance();
-
-    return () => {
-      clearInterval(autoAdvanceTimer);
-    };
-  }, [activeStep]);
-
-  const handleStepChange = (index: number) => {
-    if (index !== activeStep) {
-      setIsTransitioning(true);
-      const timer = setTimeout(() => {
-        setActiveStep(index);
-        setTimeout(() => {
-          setIsTransitioning(false);
-        }, 300);
-      }, 300);
-      return () => clearTimeout(timer);
-    }
+  const triggerTransition = (index: number) => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setActiveStep(index);
+      setTimeout(() => setIsTransitioning(false), 300);
+    }, 300);
   };
 
   return (
     <Container>
       <Flex
         align={AlignItems.END}
-        className={styles.Guides__main}
-        margin=" 6rem 0"
+        className={styles.Guide__main}
+        margin="6rem 0"
         wrap={FlexWrap.NO_WRAP}
         justify={JustifyContent.CENTER}
       >
+        {/* Steps */}
         <Flex
           className={styles.stepsContainer}
           direction={FlexDirection.COLUMN}
@@ -121,6 +85,8 @@ const Guide = () => {
             </Flex>
           ))}
         </Flex>
+
+        {/* Image Display */}
         <Flex className={styles.imageContainer} justify={JustifyContent.END}>
           <div
             className={`${styles.imageWrapper} ${

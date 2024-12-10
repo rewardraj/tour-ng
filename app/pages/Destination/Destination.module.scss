@@ -1,7 +1,6 @@
 .container {
   display: flex;
-  height: 92dvh;
-  min-height: 100%;
+  height: calc(100dvh - 64px); /* Subtract navbar height */
   overflow: hidden;
 }
 

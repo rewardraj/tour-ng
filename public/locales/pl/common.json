@@ -1,0 +1,113 @@
+{
+  "nav": {
+    "destinations": "Cele podróży",
+    "activities": "Aktywności",
+    "about": "O nas"
+  },
+  "languages": {
+    "en": "Angielski",
+    "pl": "Polski"
+  },
+  "destination": {
+    "title": "Odkryj miejsca",
+    "selectCity": "Wybierz miasto",
+    "attractions": "Atrakcje turystyczne",
+    "viewMap": "Zobacz na mapie",
+    "cities": {
+      "1": {
+        "name": "Lagos",
+        "description": "Największe miasto w Nigerii i ważne centrum finansowe"
+      },
+      "2": {
+        "name": "Abuja",
+        "description": "Stolica Nigerii"
+      },
+      "3": {
+        "name": "Kano",
+        "description": "Jedno z najstarszych miast w Nigerii, znane z historycznych miejsc"
+      },
+      "4": {
+        "name": "Jos",
+        "description": "Znane z malowniczego plateau i chłodniejszego klimatu"
+      },
+      "5": {
+        "name": "Port Harcourt",
+        "description": "Miasto portowe, znane z przemysłu naftowego i pięknych krajobrazów"
+      },
+      "6": {
+        "name": "Enugu",
+        "description": "Znane z przemysłu węglowego i żywej kultury"
+      },
+      "7": {
+        "name": "Cross River",
+        "description": "Stan znany z naturalnego piękna i różnorodnej fauny"
+      }
+    }
+  },
+  "attractions": {
+    "types": {
+      "monument": "Zabytek",
+      "park": "Park",
+      "museum": "Muzeum",
+      "landmark": "Punkt orientacyjny",
+      "hiking": "Szlak turystyczny",
+      "mountain": "Góra",
+      "resort": "Kurort",
+      "festival": "Festiwal",
+      "wildlife": "Dzika przyroda",
+      "beach": "Plaża"
+    }
+  },
+  "hero": {
+    "explore": "Odkrywaj",
+    "slides": {
+      "1": {
+        "heading": "Lagos",
+        "subHeading": "Miasto, które nigdy nie śpi"
+      },
+      "2": {
+        "heading": "Abuja",
+        "subHeading": "Serce dziedzictwa Nigerii"
+      },
+      "3": {
+        "heading": "Zdobywając nowe szczyty",
+        "subHeading": "Szczyty przygody"
+      },
+      "4": {
+        "heading": "Słoneczne wybrzeża",
+        "subHeading": "Odkryj nadmorskie skarby"
+      },
+      "5": {
+        "heading": "Urok wybrzeża",
+        "subHeading": "Fale, piasek i spokój"
+      },
+      "6": {
+        "heading": "Cross River",
+        "subHeading": "Nieujarzmiony raj natury"
+      }
+    }
+  },
+  "featured": {
+    "visitors": "Odwiedzający",
+    "beaches": "Plaże",
+    "destinations": "Łączna liczba miejsc",
+    "rating": "Średnia ocena"
+  },
+  "sectionHeadings": {
+    "topAttractions": "Najważniejsze Atrakcje",
+    "bestNature": "Najlepsze miasta przyrodnicze",
+    "activities": "Polecane aktywności"
+  },
+  "guide": {
+    "steps": {
+      "findDestination": "Znajdź cel podróży",
+      "findDestinationDescription": "Rozpocznij podróż, aby odkryć swoje wymarzone miejsce, gdzie czeka przygoda",
+      "bookTicket": "Zarezerwuj bilet",
+      "bookTicketDescription": "Zabezpiecz swoje plany podróży dzięki naszemu prostemu systemowi rezerwacji",
+      "meetPeople": "Poznaj nowych ludzi",
+      "meetPeopleDescription": "Bezpieczne i pewne opcje płatności dla Twojego spokoju ducha",
+      "exploreNigeria": "Odkrywaj Nigerię!",
+      "exploreNigeriaDescription": "Rozpocznij swoją przygodę i twórz niezapomniane wspomnienia"
+    }
+  }
+}

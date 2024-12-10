@@ -1,6 +1,5 @@
 import { FC } from "react";
 import styles from "./AttractionModal.module.scss";
-import { TouristAttraction } from "@app/pages/Destination/types";
 import { ArrowButton } from "@app/components/atoms/IconButton/ArrowButton";
 import { useState } from "react";
 import { Flex } from "@app/components/layouts/Flex/Flex";
@@ -10,6 +9,7 @@ import {
   FlexGap,
   JustifyContent,
 } from "@app/shared/Layout/Layout";
+import { TouristAttraction } from "@app/shared/data/allData";
 
 interface AttractionModalProps {
   attraction: TouristAttraction;
@@ -19,12 +19,7 @@ interface AttractionModalProps {
 const AttractionModal: FC<AttractionModalProps> = ({ attraction, onClose }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // Mock images array - in production this would come from your API/data
-  const images = [
-    { url: "https://picsum.photos/800/500?random=1" },
-    { url: "https://picsum.photos/800/500?random=2" },
-    { url: "https://picsum.photos/800/500?random=3" },
-  ];
+  const images = attraction.images;
 
   const handlePrevious = () => {
     setCurrentImageIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
@@ -46,30 +41,36 @@ const AttractionModal: FC<AttractionModalProps> = ({ attraction, onClose }) => {
         </button>
 
         <div className={styles.carouselContainer}>
-          <img
-            src={images[currentImageIndex].url}
-            alt={`${attraction.name} view ${currentImageIndex + 1}`}
-            className={styles.carouselImage}
-          />
+          {images.length > 0 ? (
+            <>
+              <img
+                src={images[currentImageIndex]}
+                alt={`${attraction.name} view ${currentImageIndex + 1}`}
+                className={styles.carouselImage}
+              />
 
-          <Flex
-            className={styles.carouselControls}
-            justify={JustifyContent.SPACE_BETWEEN}
-            align={AlignItems.CENTER}
-          >
-            <ArrowButton
-              direction="left"
-              onClick={handlePrevious}
-              disabled={false}
-              ariaLabel="Previous image"
-            />
-            <ArrowButton
-              direction="right"
-              onClick={handleNext}
-              disabled={false}
-              ariaLabel="Next image"
-            />
-          </Flex>
+              <Flex
+                className={styles.carouselControls}
+                justify={JustifyContent.SPACE_BETWEEN}
+                align={AlignItems.CENTER}
+              >
+                <ArrowButton
+                  direction="left"
+                  onClick={handlePrevious}
+                  disabled={false}
+                  ariaLabel="Previous image"
+                />
+                <ArrowButton
+                  direction="right"
+                  onClick={handleNext}
+                  disabled={false}
+                  ariaLabel="Next image"
+                />
+              </Flex>
+            </>
+          ) : (
+            <p>No images available for this attraction.</p>
+          )}
         </div>
 
         <div className={styles.attractionInfo}>

@@ -21,6 +21,9 @@ interface FlexProps {
   className?: string;
   onClick?: () => void;
   flex?: number;
+  role?: string;
+  tabIndex?: number;
+  onKeyPress?: any;
 }
 
 export const Flex: FC<FlexProps> = ({
@@ -30,8 +33,12 @@ export const Flex: FC<FlexProps> = ({
   align = AlignItems.CENTER,
   margin,
   zIndex = 0,
+  role,
   flex,
   width,
+  tabIndex,
+  onClick,
+  onKeyPress,
   children,
   className,
 }) => {
@@ -50,6 +57,10 @@ export const Flex: FC<FlexProps> = ({
     <div
       style={{ ...baseStyle, zIndex, flex }}
       className={`${styles.Flex} ${className}`}
+      role={role}
+      tabIndex={tabIndex}
+      onClick={onClick} // Ensure this is here
+      onKeyPress={onKeyPress} // Ensure this is here
     >
       {children}
     </div>

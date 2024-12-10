@@ -1,8 +1,9 @@
 import { GoogleMap, Marker } from "@react-google-maps/api";
-import { City, TouristAttraction } from "../types";
 import styles from "./Map.module.scss";
 import { useState } from "react";
 import AttractionModal from "@app/components/molecules/AttractionModal/AttractionModal";
+import { City } from "@app/shared/data/allData";
+import { TouristAttraction } from "@app/shared/data/allData";
 
 interface MapProps {
   selectedCity: City | null;
@@ -31,7 +32,7 @@ const Map = ({
   return (
     <div className={styles.mapContainer}>
       <GoogleMap
-        mapContainerStyle={{ width: "100%", height: "100dvh" }}
+        mapContainerStyle={{ width: "100%", height: "100%" }}
         center={center}
         zoom={10}
         options={{

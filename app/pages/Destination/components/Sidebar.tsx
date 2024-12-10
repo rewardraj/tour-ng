@@ -1,4 +1,3 @@
-import { City } from "../types";
 import { Flex } from "@app/components/layouts/Flex/Flex";
 import {
   Headings,
@@ -14,6 +13,7 @@ import styles from "./Sidebar.module.scss";
 import classNames from "classnames";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
+import { City } from "@app/shared/data/allData";
 
 interface SidebarProps {
   cities: City[];

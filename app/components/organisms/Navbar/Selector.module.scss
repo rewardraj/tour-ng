@@ -1,27 +1,20 @@
-.flag {
-  border-radius: 2px;
-}
-
-.navbar {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  height: 64px;
-  z-index: 1000;
-  background: rgba(23, 23, 23, 0.95);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-  color: #fff;
-
-  &.scrolled {
-    background: rgba(18, 18, 18, 0.98);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  }
-}
-
 .languageSelector {
   position: relative;
+  font-family: "Inter", sans-serif;
+
+  &.desktopOnly {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &.mobileOnly {
+    display: none;
+
+    @media (max-width: 768px) {
+      display: block;
+    }
+  }
 
   .toggle {
     display: flex;

@@ -6,6 +6,7 @@ interface ColumnsProps {
   tablet?: number;
   mobile?: number;
   mobileSpan?: number;
+  tabletSpan?: number;
   span?: number;
   order?: number;
   maxheight?: number;

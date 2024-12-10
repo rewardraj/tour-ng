@@ -1,0 +1,87 @@
+.mobileControls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  @media (min-width: 769px) {
+    display: none;
+  }
+
+  .mobileMenuButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #343434, #1a1a1a);
+    border: none;
+    border-radius: 10px;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: linear-gradient(135deg, #444, #222);
+    }
+  }
+}
+
+.mobileMenu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #1a1a1a;
+  z-index: 1000;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+
+  &.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &.closed {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .navContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 0;
+    gap: 1rem;
+
+    .link {
+      padding: 1rem;
+      width: 100%;
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #ccc;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+      }
+
+      &.active {
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+    }
+
+    .languageSelector {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+}

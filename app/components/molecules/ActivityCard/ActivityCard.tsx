@@ -2,6 +2,7 @@ import { Flex } from "@app/components/layouts/Flex/Flex";
 import { FlexDirection, JustifyContent } from "@app/shared/Layout/Layout";
 import { FC } from "react";
 import styles from "./ActivityCard.module.scss";
+import { ActivityTypes } from "@app/shared/types/types";
 
 interface CardProps {
   days?: string;
@@ -11,14 +12,23 @@ interface CardProps {
   location?: string;
   price?: number;
   icon?: string;
+  activity?: ActivityTypes; // Make 'activity' optional
+  onClick?: (activity: ActivityTypes) => void; // Make 'onClick' optional
 }
 
-const Card: FC<CardProps> = ({ src, alt, location }) => {
+const Card: FC<CardProps> = ({ src, alt, location, activity, onClick }) => {
+  const handleClick = () => {
+    if (onClick && activity) {
+      onClick(activity);
+    }
+  };
+
   return (
     <Flex
       direction={FlexDirection.COLUMN}
       justify={JustifyContent.SPACE_BETWEEN}
       className={styles.Card}
+      onClick={handleClick}
     >
       <img src={src} alt={alt} />
       <Flex

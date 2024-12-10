@@ -1,24 +1,49 @@
-import { FC, useState, useEffect, useRef } from "react";
+import { FC, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import styles from "./Navbar.module.scss";
 import { GB, PL } from "country-flag-icons/react/3x2";
-import { IoChevronDown } from "react-icons/io5";
-import { RxHamburgerMenu } from "react-icons/rx";
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  IconButton,
+  Menu,
+  MenuItem,
+  Button,
+  Container,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+} from "@mui/material";
+import {
+  Menu as MenuIcon,
+  Language as LanguageIcon,
+  Map as MapIcon,
+  LocalActivity as ActivityIcon,
+} from "@mui/icons-material";
+import styles from "./Navbar.module.scss";
 
 const Navbar: FC = () => {
   const { t, i18n } = useTranslation();
-  const currentLanguage = i18n.language;
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [langAnchorEl, setLangAnchorEl] = useState<null | HTMLElement>(null);
+
+  const handleLangMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setLangAnchorEl(event.currentTarget);
+  };
+
+  const handleLangMenuClose = () => {
+    setLangAnchorEl(null);
+  };
 
   const changeLanguage = async (lng: string) => {
     try {
       await i18n.changeLanguage(lng);
       localStorage.setItem("preferredLanguage", lng);
-      setIsLangDropdownOpen(false);
+      handleLangMenuClose();
     } catch (error) {
       console.error("Failed to change language:", error);
     }
@@ -29,168 +54,192 @@ const Navbar: FC = () => {
       setIsScrolled(window.scrollY > 0);
     };
 
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setIsLangDropdownOpen(false);
-      }
-    };
-
     window.addEventListener("scroll", handleScroll);
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return (
-    <nav
-      className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""}`}
-      role="navigation"
-      aria-label="Main Navigation"
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
+  const drawer = (
+    <Box
+      onClick={handleDrawerToggle}
+      sx={{
+        textAlign: "right",
+        py: 2,
+        backgroundColor: "#1a1a1a",
+        color: "#fff",
+      }}
     >
-      <div className={styles.container}>
-        <div className={styles.logo}>
-          <NavLink to="/" className={styles.logoLink}>
-            <img
-              src="app/assets/images/logo.png"
-              alt="Logo"
-              height={48}
-              width={48}
-            />
-          </NavLink>
-        </div>
+      <List>
+        <ListItem component={NavLink} to="/destinations" sx={{ color: "#FFF" }}>
+          <ListItemIcon sx={{ color: "#FFF" }}>
+            <MapIcon />
+          </ListItemIcon>
+          <ListItemText
+            primary={t("nav.destinations")}
+            sx={{ color: "#FFF" }}
+          />
+        </ListItem>
+        <ListItem component={NavLink} to="/activities" sx={{ color: "#FFF" }}>
+          <ListItemIcon sx={{ color: "#FFF" }}>
+            <ActivityIcon />
+          </ListItemIcon>
+          <ListItemText primary={t("nav.activities")} sx={{ color: "#FFF" }} />
+        </ListItem>
+      </List>
+    </Box>
+  );
 
-        <div className={styles.mobileControls}>
-          <div
-            className={`${styles.languageSelector} ${styles.mobileLanguageSelector}`}
-            ref={dropdownRef}
-          >
-            <button
-              className={styles.languageToggle}
-              onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
-              aria-expanded={isLangDropdownOpen}
-            >
-              {currentLanguage === "en" ? (
-                <GB className={styles.flag} />
-              ) : (
-                <PL className={styles.flag} />
-              )}
-              <IoChevronDown
-                className={`${styles.chevron} ${
-                  isLangDropdownOpen ? styles.open : ""
-                }`}
-              />
-            </button>
-
-            {isLangDropdownOpen && (
-              <div className={styles.dropdown}>
-                <button
-                  className={`${styles.dropdownItem} ${
-                    currentLanguage === "en" ? styles.active : ""
-                  }`}
-                  onClick={() => changeLanguage("en")}
-                >
-                  <GB className={styles.flag} />
-                  <span>English</span>
-                </button>
-                <button
-                  className={`${styles.dropdownItem} ${
-                    currentLanguage === "pl" ? styles.active : ""
-                  }`}
-                  onClick={() => changeLanguage("pl")}
-                >
-                  <PL className={styles.flag} />
-                  <span>Polski</span>
-                </button>
-              </div>
-            )}
-          </div>
-
-          <button
-            className={styles.mobileMenuButton}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            <RxHamburgerMenu />
-          </button>
-        </div>
-
-        <div
-          className={`${styles.navContent} ${
-            isMobileMenuOpen ? styles.open : ""
-          }`}
+  return (
+    <>
+      <AppBar
+        position="fixed"
+        sx={{
+          bgcolor: isScrolled
+            ? "rgba(18, 18, 18, 0.98)"
+            : "rgba(23, 23, 23, 0.95)",
+          backdropFilter: "blur(10px)",
+          boxShadow: isScrolled ? 3 : 0,
+        }}
+      >
+        <Container
+          maxWidth="lg"
+          fixed
+          sx={{
+            padding: "0 !important",
+          }}
         >
-          <div className={styles.links}>
+          <Toolbar disableGutters>
             <NavLink
-              to="/destinations"
-              className={({ isActive }) =>
-                `${styles.link} ${isActive ? styles.active : ""}`
-              }
+              to="/"
+              style={{ display: "flex", alignItems: "center", flex: 1 }}
             >
-              {t("nav.destinations")}
-            </NavLink>
-            <NavLink
-              to="/activities"
-              className={({ isActive }) =>
-                `${styles.link} ${isActive ? styles.active : ""}`
-              }
-            >
-              {t("nav.activities")}
-            </NavLink>
-          </div>
-
-          <div className={styles.languageSelector} ref={dropdownRef}>
-            <button
-              className={styles.languageToggle}
-              onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
-              aria-expanded={isLangDropdownOpen}
-            >
-              {currentLanguage === "en" ? (
-                <GB className={styles.flag} />
-              ) : (
-                <PL className={styles.flag} />
-              )}
-              <span className={styles.currentLanguage}>
-                {currentLanguage.toUpperCase()}
-              </span>
-              <IoChevronDown
-                className={`${styles.chevron} ${
-                  isLangDropdownOpen ? styles.open : ""
-                }`}
+              <img
+                src="app/assets/images/logo.png"
+                alt="Logo"
+                height={60}
+                width={60}
+                style={{ marginRight: "1rem" }}
               />
-            </button>
+            </NavLink>
 
-            {isLangDropdownOpen && (
-              <div className={styles.dropdown}>
-                <button
-                  className={`${styles.dropdownItem} ${
-                    currentLanguage === "en" ? styles.active : ""
-                  }`}
-                  onClick={() => changeLanguage("en")}
-                >
-                  <GB className={styles.flag} />
-                  <span>English</span>
-                </button>
-                <button
-                  className={`${styles.dropdownItem} ${
-                    currentLanguage === "pl" ? styles.active : ""
-                  }`}
-                  onClick={() => changeLanguage("pl")}
-                >
-                  <PL className={styles.flag} />
-                  <span>Polski</span>
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </nav>
+            {/* Desktop Navigation */}
+            <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
+              <Button
+                component={NavLink}
+                to="/destinations"
+                sx={{
+                  color: "white",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 1,
+                  "&.active": {
+                    color: "primary.main",
+                    fontWeight: "bold",
+                  },
+                }}
+              >
+                <MapIcon />
+                {t("nav.destinations")}
+              </Button>
+              <Button
+                component={NavLink}
+                to="/activities"
+                sx={{
+                  color: "white",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 1,
+                  "&.active": {
+                    color: "primary.main",
+                    fontWeight: "bold",
+                  },
+                }}
+              >
+                <ActivityIcon />
+                {t("nav.activities")}
+              </Button>
+            </Box>
+
+            {/* Language Selector */}
+            <IconButton
+              onClick={handleLangMenuOpen}
+              sx={{ ml: 2, color: "white" }}
+            >
+              <LanguageIcon />
+            </IconButton>
+            <Menu
+              anchorEl={langAnchorEl}
+              open={Boolean(langAnchorEl)}
+              onClose={handleLangMenuClose}
+              sx={{
+                "& .MuiPaper-root": {
+                  bgcolor: "background.paper",
+                  mt: 1,
+                },
+              }}
+            >
+              <MenuItem onClick={() => changeLanguage("en")}>
+                <GB
+                  className={styles.flag}
+                  style={{ marginRight: "8px", width: "20px" }}
+                />
+                English
+              </MenuItem>
+              <MenuItem onClick={() => changeLanguage("pl")}>
+                <PL
+                  className={styles.flag}
+                  style={{ marginRight: "8px", width: "20px" }}
+                />
+                Polski
+              </MenuItem>
+            </Menu>
+
+            {/* Mobile Menu Button */}
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ ml: 2, display: { md: "none" } }}
+            >
+              <MenuIcon />
+            </IconButton>
+          </Toolbar>
+        </Container>
+      </AppBar>
+
+      {/* Mobile Navigation Drawer */}
+      <Box component="nav">
+        <Drawer
+          variant="temporary"
+          anchor="right"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+          sx={{
+            display: { xs: "block", md: "none" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: 240,
+              bgcolor: "background.paper",
+              height: "auto",
+              top: "64px", // Height of MUI AppBar
+              borderRadius: "0 0 0 8px",
+            },
+          }}
+        >
+          {drawer}
+        </Drawer>
+      </Box>
+
+      {/* Toolbar spacer */}
+      <Toolbar />
+    </>
   );
 };
 
