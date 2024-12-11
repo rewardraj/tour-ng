@@ -7,6 +7,31 @@ import heroImg5 from "@assets/images/hero/5.jpg";
 import heroImg6 from "@assets/images/hero/6.jpg";
 import { ActivityTypes } from "../types/types";
 
+// Nike Art Gallery
+import na1 from "@assets/images/places/Nike Art Gallery/1.jpg";
+import na2 from "@assets/images/places/Nike Art Gallery/2.jpg";
+import na3 from "@assets/images/places/Nike Art Gallery/3.jpg";
+import na4 from "@assets/images/places/Nike Art Gallery/4.jpg";
+
+// Lekki Conservation Center
+
+import lk1 from "@assets/images/places/Lekki Conservation Center/1.jpg";
+import lk2 from "@assets/images/places/Lekki Conservation Center/2.jpg";
+import lk3 from "@assets/images/places/Lekki Conservation Center/3.jpg";
+import lk4 from "@assets/images/places/Lekki Conservation Center/4.jpg";
+import lk5 from "@assets/images/places/Lekki Conservation Center/5.jpg";
+import lk6 from "@assets/images/places/Lekki Conservation Center/6.jpg";
+
+// Idanhre Hills
+import idh1 from "@assets/images/places/Idanhre Hills/1.jpg";
+import idh2 from "@assets/images/places/Idanhre Hills/2.jpg";
+import idh3 from "@assets/images/places/Idanhre Hills/3.jpg";
+
+// National Art Theatre
+import nat1 from "@assets/images/places/National Art Theatre/1.jpg";
+import nat2 from "@assets/images/places/National Art Theatre/2.jpg";
+import nat3 from "@assets/images/places/National Art Theatre/3.jpg";
+
 export const heroSlides = [
   {
     src: heroImg4,
@@ -48,10 +73,10 @@ export const featuredStats = [
 ];
 
 export const HomeTopDestinationsImage = [
-  "https://picsum.photos/900/500", // Image for the first attraction
+  na2, // Image for the first attraction
   "https://picsum.photos/900/755", // Image for the second attraction
-  "https://picsum.photos/950/900", // Image for the third attraction
-  "https://picsum.photos/900/560", // Image for the fourth attraction
+  nat1, // Image for the third attraction
+  idh2, // Image for the fourth attraction
 ];
 
 export const nigerianCities: City[] = [
@@ -77,11 +102,7 @@ export const nigerianCities: City[] = [
         },
         description: "A prominent art gallery showcasing Nigerian art.",
         type: "Museum",
-        images: [
-          "https://upload.wikimedia.org/wikipedia/commons/a/a0/Nike_Art_Gallery_Lagos.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/3/3a/Nike_Art_Gallery_Interior.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/c/c1/Nike_Art_Gallery_Lagos.jpg",
-        ],
+        images: [na1, na2, na3, na4],
       },
       {
         id: "l2",
@@ -94,11 +115,7 @@ export const nigerianCities: City[] = [
         },
         description: "Nature reserve with canopy walkway.",
         type: "Park",
-        images: [
-          "https://upload.wikimedia.org/wikipedia/commons/e/e7/Lekki_Conservation_Center_Canopy_Walkway.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/6/66/Lekki_Conservation_Center.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/4/4d/Lekki_Conservation_Center.jpg",
-        ],
+        images: [lk1, lk2, lk3, lk4, lk5, lk6],
       },
       {
         id: "l3",
@@ -106,11 +123,7 @@ export const nigerianCities: City[] = [
         location: { lat: 6.4929, lng: 3.3815, city: "Lagos", spot: "Iganmu" },
         description: "Iconic cultural center for music, theater, and art.",
         type: "Landmark",
-        images: [
-          "https://upload.wikimedia.org/wikipedia/commons/7/73/National_Theatre_Lagos.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/d/d9/National_Theatre_Lagos.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/5/5e/National_Theatre_Lagos_2.jpg",
-        ],
+        images: [nat1, nat2, nat3],
       },
       {
         id: "l4",
@@ -123,11 +136,7 @@ export const nigerianCities: City[] = [
         },
         description: "Ancient hills ideal for hiking with breathtaking views.",
         type: "Hiking",
-        images: [
-          "https://upload.wikimedia.org/wikipedia/commons/c/c9/Idanre_Hills.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/9/90/Idanre_Hills_Landscape.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/0/0a/Idanre_Hills_view.jpg",
-        ],
+        images: [idh1, idh2, idh3],
       },
     ],
   },

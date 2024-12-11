@@ -68,8 +68,8 @@ const Navbar: FC = () => {
       sx={{
         textAlign: "right",
         py: 2,
-        backgroundColor: "#1a1a1a",
-        color: "#fff",
+        backgroundColor: "#333333", // Darker background for mobile menu
+        color: "#ffffff",
       }}
     >
       <List>
@@ -98,9 +98,9 @@ const Navbar: FC = () => {
         position="fixed"
         sx={{
           bgcolor: isScrolled
-            ? "rgba(18, 18, 18, 0.98)"
-            : "rgba(23, 23, 23, 0.95)",
-          backdropFilter: "blur(10px)",
+            ? "linear-gradient(45deg, #333333, #444444)" // Dark gradient on scroll
+            : "linear-gradient(45deg, #1c1c1c, #2d3b39)", // Lighter gradient at the top
+          backdropFilter: "blur(8px)",
           boxShadow: isScrolled ? 3 : 0,
         }}
       >
@@ -117,10 +117,10 @@ const Navbar: FC = () => {
               style={{ display: "flex", alignItems: "center", flex: 1 }}
             >
               <img
-                src="app/assets/images/logo.png"
+                src="/app/assets/images/logoNew.png"
                 alt="Logo"
-                height={60}
-                width={60}
+                height={70}
+                width={70}
                 style={{ marginRight: "1rem" }}
               />
             </NavLink>
@@ -131,13 +131,21 @@ const Navbar: FC = () => {
                 component={NavLink}
                 to="/destinations"
                 sx={{
-                  color: "white",
+                  color: "#FFF",
                   display: "flex",
                   alignItems: "center",
                   gap: 1,
                   "&.active": {
-                    color: "primary.main",
+                    color: "#FFDD00", // Bright yellow for active link
                     fontWeight: "bold",
+                    textDecoration: "underline",
+                  },
+                  "&:hover": {
+                    color: "#FFDD00", // Same color on hover for consistency
+                  },
+                  "&:focus": {
+                    color: "#FFDD00", // Bright focus state
+                    outline: "3px solid #FFDD00", // Clear focus outline for accessibility
                   },
                 }}
               >
@@ -148,13 +156,21 @@ const Navbar: FC = () => {
                 component={NavLink}
                 to="/activities"
                 sx={{
-                  color: "white",
+                  color: "#FFF",
                   display: "flex",
                   alignItems: "center",
                   gap: 1,
                   "&.active": {
-                    color: "primary.main",
+                    color: "#FFDD00",
                     fontWeight: "bold",
+                    textDecoration: "underline",
+                  },
+                  "&:hover": {
+                    color: "#FFDD00",
+                  },
+                  "&:focus": {
+                    color: "#FFDD00",
+                    outline: "3px solid #FFDD00",
                   },
                 }}
               >
@@ -166,7 +182,7 @@ const Navbar: FC = () => {
             {/* Language Selector */}
             <IconButton
               onClick={handleLangMenuOpen}
-              sx={{ ml: 2, color: "white" }}
+              sx={{ ml: 2, color: "#FFF" }}
             >
               <LanguageIcon />
             </IconButton>
@@ -219,14 +235,14 @@ const Navbar: FC = () => {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { xs: "block", md: "none" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: 240,
-              bgcolor: "background.paper",
+              bgcolor: "#333333",
               height: "auto",
               top: "64px", // Height of MUI AppBar
               borderRadius: "0 0 0 8px",

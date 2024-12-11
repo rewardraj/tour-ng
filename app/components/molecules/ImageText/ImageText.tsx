@@ -48,6 +48,8 @@ const ImageText: FC<ImageTextProps> = ({
             width: width,
             maxWidth: maxWidth,
             cursor: "pointer",
+            objectFit: "cover",
+            overflow: "hidden",
           }}
           className={`${styles.Image} ${className}`}
         />

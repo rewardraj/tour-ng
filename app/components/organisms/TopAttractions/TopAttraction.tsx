@@ -18,7 +18,7 @@ import {
 
 const TopAttractions = () => {
   const allAttractions = nigerianCities.flatMap((city) => city.attractions);
-  const firstFiveAttractions = allAttractions.slice(0, 5);
+  const firstFourAttractions = allAttractions.slice(0, 4);
   const [selectedAttraction, setSelectedAttraction] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
@@ -63,7 +63,7 @@ const TopAttractions = () => {
           mobileColumns={1}
           align={AlignItems.CENTER}
         >
-          {firstFiveAttractions.map((attraction, index) => (
+          {firstFourAttractions.map((attraction, index) => (
             <Columns
               key={index}
               span={index % 3 === 0 ? 3 : 2} // Alternating column spans for layout
@@ -72,6 +72,7 @@ const TopAttractions = () => {
               <ImageText
                 src={HomeTopDestinationsImage[index]}
                 text={attraction.name}
+                height="350px"
                 subtext={attraction.location.city}
                 onClick={() => handleImageTextClick(attraction)}
               />

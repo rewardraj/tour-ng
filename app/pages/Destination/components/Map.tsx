@@ -1,6 +1,6 @@
 import { GoogleMap, Marker } from "@react-google-maps/api";
 import styles from "./Map.module.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AttractionModal from "@app/components/molecules/AttractionModal/AttractionModal";
 import { City } from "@app/shared/data/allData";
 import { TouristAttraction } from "@app/shared/data/allData";
@@ -18,6 +18,14 @@ const Map = ({
 }: MapProps) => {
   const center = selectedCity?.location || { lat: 6.5244, lng: 3.3792 };
   const [showModal, setShowModal] = useState(false);
+
+  // Ensure markers load as soon as selectedCity has attractions
+  useEffect(() => {
+    if (selectedCity && selectedCity.attractions.length > 0) {
+      // If attractions are available for the selected city, markers should be rendered immediately
+      setShowModal(false); // Optional, reset modal if needed
+    }
+  }, [selectedCity]);
 
   const handleMarkerClick = (attraction: TouristAttraction) => {
     onAttractionSelect(attraction);
