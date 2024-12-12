@@ -32,6 +32,22 @@ import nat1 from "@assets/images/places/National Art Theatre/1.jpg";
 import nat2 from "@assets/images/places/National Art Theatre/2.jpg";
 import nat3 from "@assets/images/places/National Art Theatre/3.jpg";
 
+// Obudu Ranch
+import obd1 from "@assets/images/places/Obudu/1.jpg";
+import obd2 from "@assets/images/places/Obudu/2.jpg";
+import obd3 from "@assets/images/places/Obudu/3.jpg";
+
+// Calabar Carnival
+import cal1 from "@assets/images/activities/calabar carnival/1.jpg";
+import cal2 from "@assets/images/activities/calabar carnival/2.jpg";
+import cal3 from "@assets/images/activities/calabar carnival/3.jpg";
+
+// Calabar National Park
+import cnp1 from "@assets/images/places/Calabar National Park/1.jpg";
+import cnp2 from "@assets/images/places/Calabar National Park/2.jpeg";
+import cnp3 from "@assets/images/places/Calabar National Park/3.jpeg";
+import cnp4 from "@assets/images/places/Calabar National Park/4.webp";
+
 export const heroSlides = [
   {
     src: heroImg4,
@@ -438,11 +454,7 @@ export const nigerianCities: City[] = [
         description:
           "A stunning mountain resort offering cable car rides and beautiful landscapes.",
         type: "Resort",
-        images: [
-          "https://upload.wikimedia.org/wikipedia/commons/7/74/Obudu_Mountain_Resort.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/f/f4/Obudu_Mountain_Resort_2.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/3/3d/Obudu_Mountain_Resort_View.jpg",
-        ],
+        images: [obd1, obd2, obd3],
       },
       {
         id: "c2",
@@ -456,11 +468,7 @@ export const nigerianCities: City[] = [
         description:
           "Africa’s biggest street party showcasing culture and music.",
         type: "Festival",
-        images: [
-          "https://upload.wikimedia.org/wikipedia/commons/0/05/Calabar_Carnival_2019.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/0/02/Calabar_Carnival_Float.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/6/65/Calabar_Carnival_Participants.jpg",
-        ],
+        images: [cal1, cal2, cal3],
       },
       {
         id: "c3",
@@ -473,11 +481,7 @@ export const nigerianCities: City[] = [
         },
         description: "A park rich in wildlife, home to rare species.",
         type: "Park",
-        images: [
-          "https://upload.wikimedia.org/wikipedia/commons/2/24/Cross_River_National_Park.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/1/13/Cross_River_National_Park_Scenery.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/e/ea/Cross_River_National_Park_Wildlife.jpg",
-        ],
+        images: [cnp1, cnp2, cnp3, cnp4],
       },
       {
         id: "c4",

@@ -24,6 +24,7 @@ import {
   LocalActivity as ActivityIcon,
 } from "@mui/icons-material";
 import styles from "./Navbar.module.scss";
+import logoImg from "@assets/images/logoNew.png";
 
 const Navbar: FC = () => {
   const { t, i18n } = useTranslation();
@@ -117,7 +118,7 @@ const Navbar: FC = () => {
               style={{ display: "flex", alignItems: "center", flex: 1 }}
             >
               <img
-                src="/app/assets/images/logoNew.png"
+                src={logoImg}
                 alt="Logo"
                 height={70}
                 width={70}
