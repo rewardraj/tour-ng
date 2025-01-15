@@ -1,7 +1,8 @@
 .container {
   display: flex;
-  height: calc(100dvh - 64px); /* Subtract navbar height */
+  height: calc(100dvh - 0px); /* Subtract navbar height */
   overflow: hidden;
+  padding-top: 4rem;
 }
 
 .pageContainer {
