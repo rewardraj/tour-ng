@@ -17,8 +17,12 @@ import {
 } from "@app/shared/data/allData";
 
 const TopAttractions = () => {
-  const allAttractions = nigerianCities.flatMap((city) => city.attractions);
-  const firstFourAttractions = allAttractions.slice(0, 4);
+  const firstFourAttractions = [
+    nigerianCities[0].attractions[0], // Lagos - Nike Art Gallery
+    nigerianCities[0].attractions[1], // Lagos - Lekki Conservation Centre
+    nigerianCities[1].attractions[0], // Abuja - Aso Rock
+    nigerianCities[1].attractions[2], // Abuja - Millenium Park
+  ];
   const [selectedAttraction, setSelectedAttraction] = useState(null);
   const [showModal, setShowModal] = useState(false);
 

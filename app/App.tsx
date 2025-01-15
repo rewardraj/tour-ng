@@ -11,7 +11,8 @@ import { Box } from "@mui/material";
 import LinearProgress from "@mui/material/LinearProgress";
 import { LoadScript } from "@react-google-maps/api";
 
-export function LinearDeterminate() {
+// Loading Progress Component
+const LinearDeterminate = () => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -35,7 +36,7 @@ export function LinearDeterminate() {
       <LinearProgress variant="determinate" value={progress} />
     </Box>
   );
-}
+};
 
 const App = () => {
   const { i18n } = useTranslation();
@@ -46,8 +47,9 @@ const App = () => {
       i18n.changeLanguage(savedLang);
     }
   }, [i18n]);
+
   return (
-    <Suspense fallback={LinearDeterminate()}>
+    <Suspense fallback={<LinearDeterminate />}>
       <Router>
         <LoadScript googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
           <Navbar />

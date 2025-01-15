@@ -1,7 +1,4 @@
 import { FC, useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import { GB, PL } from "country-flag-icons/react/3x2";
 import {
   AppBar,
   Box,
@@ -10,12 +7,10 @@ import {
   Menu,
   MenuItem,
   Button,
-  Container,
   Drawer,
   List,
   ListItem,
-  ListItemText,
-  ListItemIcon,
+  Container,
 } from "@mui/material";
 import {
   Menu as MenuIcon,
@@ -23,14 +18,25 @@ import {
   Map as MapIcon,
   LocalActivity as ActivityIcon,
 } from "@mui/icons-material";
-import styles from "./Navbar.module.scss";
+import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import logoImg from "@assets/images/logoNew.png";
 
 const Navbar: FC = () => {
   const { t, i18n } = useTranslation();
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langAnchorEl, setLangAnchorEl] = useState<null | HTMLElement>(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
 
   const handleLangMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setLangAnchorEl(event.currentTarget);
@@ -50,213 +56,124 @@ const Navbar: FC = () => {
     }
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
+  const navItems = [
+    { label: t("nav.destinations"), icon: <MapIcon />, path: "/destinations" },
+    { label: t("nav.activities"), icon: <ActivityIcon />, path: "/activities" },
+    { label: t("nav.blog"), icon: <ActivityIcon />, path: "/blog" },
+  ];
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
-  const drawer = (
-    <Box
-      onClick={handleDrawerToggle}
-      sx={{
-        textAlign: "right",
-        py: 2,
-        backgroundColor: "#333333", // Darker background for mobile menu
-        color: "#ffffff",
-      }}
-    >
+  const DrawerContent = (
+    <Box sx={{ textAlign: "center", py: 2 }}>
+      <img
+        src={logoImg}
+        alt="Logo"
+        height={50}
+        style={{ marginBottom: "1rem" }}
+      />
       <List>
-        <ListItem component={NavLink} to="/destinations" sx={{ color: "#FFF" }}>
-          <ListItemIcon sx={{ color: "#FFF" }}>
-            <MapIcon />
-          </ListItemIcon>
-          <ListItemText
-            primary={t("nav.destinations")}
-            sx={{ color: "#FFF" }}
-          />
-        </ListItem>
-        <ListItem component={NavLink} to="/activities" sx={{ color: "#FFF" }}>
-          <ListItemIcon sx={{ color: "#FFF" }}>
-            <ActivityIcon />
-          </ListItemIcon>
-          <ListItemText primary={t("nav.activities")} sx={{ color: "#FFF" }} />
-        </ListItem>
+        {navItems.map((item) => (
+          <ListItem
+            key={item.label}
+            component={NavLink}
+            to={item.path}
+            onClick={handleDrawerToggle}
+            sx={{ justifyContent: "center" }}
+          >
+            <Button
+              startIcon={item.icon}
+              sx={{
+                color: "inherit",
+                textTransform: "none",
+                "&.active": { color: "#FFD700", fontWeight: "bold" },
+              }}
+            >
+              {item.label}
+            </Button>
+          </ListItem>
+        ))}
       </List>
     </Box>
   );
 
   return (
-    <>
-      <AppBar
-        position="fixed"
-        sx={{
-          bgcolor: isScrolled
-            ? "linear-gradient(45deg, #333333, #444444)" // Dark gradient on scroll
-            : "linear-gradient(45deg, #1c1c1c, #2d3b39)", // Lighter gradient at the top
-          backdropFilter: "blur(8px)",
-          boxShadow: isScrolled ? 3 : 0,
-        }}
-      >
-        <Container
-          maxWidth="lg"
-          fixed
-          sx={{
-            padding: "0 !important",
-          }}
-        >
-          <Toolbar disableGutters>
-            <NavLink
-              to="/"
-              style={{ display: "flex", alignItems: "center", flex: 1 }}
-            >
-              <img
-                src={logoImg}
-                alt="Logo"
-                height={70}
-                width={70}
-                style={{ marginRight: "1rem" }}
-              />
-            </NavLink>
+    <AppBar
+      position="fixed"
+      sx={{
+        background: "linear-gradient(45deg, #1c1c1c, #2d3b39)",
+        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
+      }}
+    >
+      <Container maxWidth="lg">
+        <Toolbar sx={{ justifyContent: "space-between", px: 2 }}>
+          <NavLink to="/" style={{ display: "flex", alignItems: "center" }}>
+            <img
+              src={logoImg}
+              alt="Logo"
+              height={50}
+              style={{ marginRight: "0.5rem" }}
+            />
+          </NavLink>
 
-            {/* Desktop Navigation */}
-            <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
-              <Button
-                component={NavLink}
-                to="/destinations"
+          {isMobile ? (
+            <>
+              <IconButton color="inherit" onClick={handleDrawerToggle}>
+                <MenuIcon />
+              </IconButton>
+              <Drawer
+                anchor="right"
+                open={mobileOpen}
+                onClose={handleDrawerToggle}
                 sx={{
-                  color: "#FFF",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 1,
-                  "&.active": {
-                    color: "#FFDD00", // Bright yellow for active link
-                    fontWeight: "bold",
-                    textDecoration: "underline",
-                  },
-                  "&:hover": {
-                    color: "#FFDD00", // Same color on hover for consistency
-                  },
-                  "&:focus": {
-                    color: "#FFDD00", // Bright focus state
-                    outline: "3px solid #FFDD00", // Clear focus outline for accessibility
+                  "& .MuiDrawer-paper": {
+                    width: 240,
+                    backgroundColor: "#1c1c1c",
+                    color: "#fff",
                   },
                 }}
               >
-                <MapIcon />
-                {t("nav.destinations")}
-              </Button>
-              <Button
-                component={NavLink}
-                to="/activities"
-                sx={{
-                  color: "#FFF",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 1,
-                  "&.active": {
-                    color: "#FFDD00",
-                    fontWeight: "bold",
-                    textDecoration: "underline",
-                  },
-                  "&:hover": {
-                    color: "#FFDD00",
-                  },
-                  "&:focus": {
-                    color: "#FFDD00",
-                    outline: "3px solid #FFDD00",
-                  },
-                }}
+                {DrawerContent}
+              </Drawer>
+            </>
+          ) : (
+            <Box sx={{ display: "flex", gap: 2 }}>
+              {navItems.map((item) => (
+                <Button
+                  key={item.label}
+                  component={NavLink}
+                  to={item.path}
+                  startIcon={item.icon}
+                  sx={{
+                    color: "#fff",
+                    textTransform: "none",
+                    "&.active": {
+                      color: "#FFD700",
+                      fontWeight: "bold",
+                      textDecoration: "underline",
+                    },
+                    "&:hover": { color: "#FFD700" },
+                  }}
+                >
+                  {item.label}
+                </Button>
+              ))}
+              <IconButton color="inherit" onClick={handleLangMenuOpen}>
+                <LanguageIcon />
+              </IconButton>
+              <Menu
+                anchorEl={langAnchorEl}
+                open={Boolean(langAnchorEl)}
+                onClose={handleLangMenuClose}
               >
-                <ActivityIcon />
-                {t("nav.activities")}
-              </Button>
+                <MenuItem onClick={() => changeLanguage("en")}>
+                  English
+                </MenuItem>
+                <MenuItem onClick={() => changeLanguage("pl")}>Polski</MenuItem>
+              </Menu>
             </Box>
-
-            {/* Language Selector */}
-            <IconButton
-              onClick={handleLangMenuOpen}
-              sx={{ ml: 2, color: "#FFF" }}
-            >
-              <LanguageIcon />
-            </IconButton>
-            <Menu
-              anchorEl={langAnchorEl}
-              open={Boolean(langAnchorEl)}
-              onClose={handleLangMenuClose}
-              sx={{
-                "& .MuiPaper-root": {
-                  bgcolor: "background.paper",
-                  mt: 1,
-                },
-              }}
-            >
-              <MenuItem onClick={() => changeLanguage("en")}>
-                <GB
-                  className={styles.flag}
-                  style={{ marginRight: "8px", width: "20px" }}
-                />
-                English
-              </MenuItem>
-              <MenuItem onClick={() => changeLanguage("pl")}>
-                <PL
-                  className={styles.flag}
-                  style={{ marginRight: "8px", width: "20px" }}
-                />
-                Polski
-              </MenuItem>
-            </Menu>
-
-            {/* Mobile Menu Button */}
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-              sx={{ ml: 2, display: { md: "none" } }}
-            >
-              <MenuIcon />
-            </IconButton>
-          </Toolbar>
-        </Container>
-      </AppBar>
-
-      {/* Mobile Navigation Drawer */}
-      <Box component="nav">
-        <Drawer
-          variant="temporary"
-          anchor="right"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true,
-          }}
-          sx={{
-            display: { xs: "block", md: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: 240,
-              bgcolor: "#333333",
-              height: "auto",
-              top: "64px", // Height of MUI AppBar
-              borderRadius: "0 0 0 8px",
-            },
-          }}
-        >
-          {drawer}
-        </Drawer>
-      </Box>
-
-      {/* Toolbar spacer */}
-      <Toolbar />
-    </>
+          )}
+        </Toolbar>
+      </Container>
+    </AppBar>
   );
 };
 
