@@ -1,51 +1,51 @@
 import { useState } from "react";
-import ActivityModal from "./components/ActivityModal";
-import Container from "@app/components/layouts/Container/Container";
+import { useTranslation } from "react-i18next";
+import { useModal } from "@app/shared/contexts/ModalContext";
 import ActivityCard from "./components/ActivityCard";
 import styles from "./Activities.module.scss";
-import { Typography } from "@mui/material";
+import { Button, Container, Typography } from "@mui/material";
 import { nigerianActivities } from "@app/shared/data/allData";
-import { ActivityTypes } from "@app/shared/types/types";
 
 const Activities = () => {
+  const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
-  const [selectedActivity, setSelectedActivity] =
-    useState<ActivityTypes | null>(null);
+  const { openModal } = useModal();
 
   const categories = [
-    "all",
-    "Cultural",
-    "Adventure",
-    "Nature",
-    "Entertainment",
-    "Food",
+    { key: "all", label: t("activities.categories.all") },
+    { key: "cultural", label: t("activities.categories.cultural") },
+    { key: "adventure", label: t("activities.categories.adventure") },
+    { key: "nature", label: t("activities.categories.nature") },
+    { key: "entertainment", label: t("activities.categories.entertainment") },
+    { key: "food", label: t("activities.categories.food") },
   ];
 
   const filteredActivities =
     selectedCategory === "all"
       ? nigerianActivities
       : nigerianActivities.filter(
-          (activity) => activity.category === selectedCategory
+          (activity) => activity.category.toLowerCase() === selectedCategory
         );
 
   return (
-    <Container>
+    <Container maxWidth="lg" sx={{ pt: 8 }}>
       <div className={styles.activitiesPage}>
         <Typography variant="h4" textAlign="center" m={4}>
-          Explore Activities in Nigeria
+          {t("sectionHeadings.featuredActivities")}
         </Typography>
 
         <div className={styles.filters}>
           {categories.map((category) => (
-            <button
-              key={category}
+            <Button
+              key={category.key}
+              color="inherit"
               className={`${styles.filterButton} ${
-                selectedCategory === category ? styles.active : ""
+                selectedCategory === category.key ? styles.active : ""
               }`}
-              onClick={() => setSelectedCategory(category)}
+              onClick={() => setSelectedCategory(category.key)}
             >
-              {category.charAt(0).toUpperCase() + category.slice(1)}
-            </button>
+              {category.label}
+            </Button>
           ))}
         </div>
 
@@ -54,17 +54,13 @@ const Activities = () => {
             <ActivityCard
               key={activity.id}
               activity={activity}
-              onClick={setSelectedActivity}
+              onClick={(activity) =>
+                openModal({ type: "activity", data: activity })
+              }
             />
           ))}
         </div>
       </div>
-      {selectedActivity && (
-        <ActivityModal
-          activity={selectedActivity}
-          onClose={() => setSelectedActivity(null)}
-        />
-      )}
     </Container>
   );
 };

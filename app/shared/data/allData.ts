@@ -5,7 +5,6 @@ import heroImg3 from "@assets/images/hero/3.jpg";
 import heroImg4 from "@assets/images/hero/4.jpg";
 import heroImg5 from "@assets/images/hero/5.jpg";
 import heroImg6 from "@assets/images/hero/6.jpg";
-import { ActivityTypes } from "../types/types";
 
 // Nike Art Gallery
 import na1 from "@assets/images/places/Nike Art Gallery/1.jpg";
@@ -466,7 +465,7 @@ export const nigerianCities: City[] = [
           spot: "Calabar Cultural Center",
         },
         description:
-          "Africa’s biggest street party showcasing culture and music.",
+          "Africa's biggest street party showcasing culture and music.",
         type: "Festival",
         images: [cal1, cal2, cal3],
       },
@@ -575,7 +574,7 @@ export const nigerianActivities: ActivityTypes[] = [
     description:
       "Explore Nigeria's largest art gallery featuring contemporary Nigerian art across four floors.",
     detailedDescription:
-      "The Nike Art Gallery in Lagos is a four-story building housing an extensive collection of Nigerian art. Visitors can view and purchase works from prominent Nigerian artists while learning about the country’s rich cultural heritage.",
+      "The Nike Art Gallery in Lagos is a four-story building housing an extensive collection of Nigerian art. Visitors can view and purchase works from prominent Nigerian artists while learning about the country's rich cultural heritage.",
     city: "Lagos",
     image:
       "https://via.placeholder.com/800x600/FF9933/FFFFFF?text=Nike+Art+Gallery",
@@ -588,6 +587,13 @@ export const nigerianActivities: ActivityTypes[] = [
     duration: "2-3 hours",
     price: "₦5,000",
     rating: 4.8,
+    location: {
+      lat: 6.4698,
+      lng: 3.5852,
+      city: "Lagos",
+      spot: "Lekki Phase 1",
+    },
+    type: "Cultural",
   },
   {
     id: "2",
@@ -595,7 +601,7 @@ export const nigerianActivities: ActivityTypes[] = [
     description:
       "Experience Africa's longest canopy walkway surrounded by nature.",
     detailedDescription:
-      "The Lekki Conservation Centre offers a serene escape into nature. Its canopy walkway is the longest in Africa and provides stunning aerial views of the park’s flora and fauna.",
+      "The Lekki Conservation Centre offers a serene escape into nature. Its canopy walkway is the longest in Africa and provides stunning aerial views of the park's flora and fauna.",
     city: "Lagos",
     image:
       "https://via.placeholder.com/800x600/4CAF50/FFFFFF?text=Lekki+Conservation",
@@ -608,6 +614,13 @@ export const nigerianActivities: ActivityTypes[] = [
     duration: "3-4 hours",
     price: "₦2,000",
     rating: 4.5,
+    location: {
+      lat: 6.4418,
+      lng: 3.5347,
+      city: "Lagos",
+      spot: "Lekki Peninsula",
+    },
+    type: "Adventure",
   },
   {
     id: "3",
@@ -628,6 +641,13 @@ export const nigerianActivities: ActivityTypes[] = [
     duration: "Full day",
     price: "₦15,000",
     rating: 4.7,
+    location: {
+      lat: 9.3333,
+      lng: 7.8333,
+      city: "Gurara",
+      spot: "Niger State",
+    },
+    type: "Nature Reserve",
   },
   {
     id: "4",
@@ -648,6 +668,13 @@ export const nigerianActivities: ActivityTypes[] = [
     duration: "4 hours",
     price: "₦8,000",
     rating: 4.6,
+    location: {
+      lat: 4.9833,
+      lng: 8.3375,
+      city: "Calabar",
+      spot: "Calabar Cultural Center",
+    },
+    type: "Festival",
   },
   {
     id: "5",
@@ -667,6 +694,13 @@ export const nigerianActivities: ActivityTypes[] = [
     duration: "3 hours",
     price: "₦3,000",
     rating: 4.4,
+    location: {
+      lat: 9.1035,
+      lng: 7.222,
+      city: "Madalla",
+      spot: "Niger State",
+    },
+    type: "Mountain",
   },
   {
     id: "6",
@@ -687,6 +721,13 @@ export const nigerianActivities: ActivityTypes[] = [
     duration: "4-5 hours",
     price: "₦4,000",
     rating: 4.9,
+    location: {
+      lat: 6.5244,
+      lng: 3.3792,
+      city: "Lagos",
+      spot: "Lekki Phase 1",
+    },
+    type: "Entertainment",
   },
   {
     id: "7",
@@ -694,7 +735,7 @@ export const nigerianActivities: ActivityTypes[] = [
     description:
       "Visit the UNESCO World Heritage site and learn about Yoruba traditions.",
     detailedDescription:
-      "The Osun Sacred Grove is a tranquil sanctuary that showcases Yoruba religious and cultural traditions. Visitors can explore the site’s sculptures and learn about its history.",
+      "The Osun Sacred Grove is a tranquil sanctuary that showcases Yoruba religious and cultural traditions. Visitors can explore the site's sculptures and learn about its history.",
     city: "Osogbo",
     image: "https://via.placeholder.com/800x600/FFC107/FFFFFF?text=Osun+Grove",
     images: [
@@ -706,6 +747,13 @@ export const nigerianActivities: ActivityTypes[] = [
     duration: "5 hours",
     price: "₦6,000",
     rating: 4.7,
+    location: {
+      lat: 9.0527,
+      lng: 7.4931,
+      city: "Abuja",
+      spot: "Central District",
+    },
+    type: "Cultural",
   },
   {
     id: "8",
@@ -726,6 +774,13 @@ export const nigerianActivities: ActivityTypes[] = [
     duration: "Full day",
     price: "₦12,000",
     rating: 4.6,
+    location: {
+      lat: 5.2624,
+      lng: 8.4521,
+      city: "Akamkpa",
+      spot: "Cross River National Park",
+    },
+    type: "Park",
   },
 ];
 
@@ -747,7 +802,10 @@ export interface TouristAttraction {
     | "Wildlife"
     | "Beach"
     | "Golf Course"
-    | "Nature Reserve";
+    | "Nature Reserve"
+    | "Entertainment"
+    | "Cultural"
+    | "Adventure";
 }
 
 export interface Location {
@@ -763,4 +821,27 @@ export interface City {
   location: Location;
   description: string;
   attractions: TouristAttraction[];
+  photos?: string[];
+}
+
+export interface ActivityTypes extends TouristAttraction {
+  id: string;
+  name: string;
+  description: string;
+  detailedDescription: string;
+  city: string;
+  image: string;
+  images: string[];
+  category: "Cultural" | "Adventure" | "Nature" | "Entertainment" | "Food";
+  duration: string;
+  price: string;
+  rating: number;
+}
+
+export interface CityResponse {
+  geonames: City[];
+}
+
+export interface PhotoResponse {
+  results: { urls: { small: string } }[];
 }

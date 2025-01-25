@@ -1,8 +1,9 @@
 {
   "nav": {
-    "destinations": "Destinations",
-    "activities": "Activities",
-    "blog": "Blog"
+    "destinations": "Tourist Destinations",
+    "activities": "Tourist Activities",
+    "blog": "Travel Blog",
+    "about": "About Us"
   },
   "languages": {
     "en": "English",
@@ -96,7 +97,7 @@
   "sectionHeadings": {
     "topAttractions": "Top Attractions",
     "bestNature": "Best Nature Cities",
-    "activities": "Featured Activities"
+    "featuredActivities": "Featured Activities"
   },
   "guide": {
     "steps": {
@@ -108,6 +109,116 @@
       "meetPeopleDescription": "Safe and secure payment options for your peace of mind",
       "exploreNigeria": "Explore Nigeria!",
       "exploreNigeriaDescription": "Start your adventure and create unforgettable memories"
+    }
+  },
+  "activities": {
+    "categories": {
+      "all": "All",
+      "cultural": "Cultural",
+      "adventure": "Adventure", 
+      "nature": "Nature",
+      "entertainment": "Entertainment",
+      "food": "Food"
+    },
+    "list": {
+      "nikeArtGallery": {
+        "name": "Nike Art Gallery Tour",
+        "description": "Explore Nigeria's largest art gallery featuring contemporary Nigerian art across four floors.",
+        "detailedDescription": "The Nike Art Gallery in Lagos is a four-story building housing an extensive collection of Nigerian art. Visitors can view and purchase works from prominent Nigerian artists while learning about the country's rich cultural heritage."
+      },
+      "lekkiConservation": {
+        "name": "Lekki Conservation Centre Canopy Walk",
+        "description": "Experience Africa's longest canopy walkway surrounded by nature.",
+        "detailedDescription": "The Lekki Conservation Centre offers a serene escape into nature. Its canopy walkway is the longest in Africa and provides stunning aerial views of the park's flora and fauna."
+      },
+      "yankariSafari": {
+        "name": "Yankari Game Reserve Safari",
+        "description": "Discover wildlife and natural warm springs in Nigeria's most popular game reserve.",
+        "detailedDescription": "The Yankari Game Reserve is home to a variety of wildlife, including elephants and baboons. Visitors can also enjoy a swim in the Wikki Warm Spring, which maintains a constant temperature year-round."
+      }
+    }
+  },
+  "modal": {
+    "close": "Close",
+    "details": {
+      "attractionType": "Attraction Type",
+      "city": "City",
+      "place": "Place",
+      "category": "Category",
+      "duration": "Duration",
+      "noImages": "No images available for this attraction"
+    }
+  },
+  "footer": {
+    "mainTitle": "Tour Nigeria",
+    "tagline": "Discover the Beauty of Africa's Giant",
+    "sections": {
+      "company": {
+        "title": "Company",
+        "about": "About Us",
+        "story": "Our Story",
+        "careers": "Careers",
+        "press": "Press Room"
+      },
+      "support": {
+        "title": "Support",
+        "help": "Help Center",
+        "safety": "Safety Information",
+        "cancellation": "Cancellation Policy",
+        "contact": "Contact Us"
+      },
+      "legal": {
+        "title": "Legal",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service",
+        "trust": "Trust & Safety",
+        "accessibility": "Accessibility"
+      },
+      "newsletter": {
+        "title": "Stay Connected",
+        "description": "Join our newsletter for exclusive travel insights and special offers",
+        "placeholder": "Your email address",
+        "button": "Subscribe"
+      }
+    },
+    "copyright": "©2024 Tour Nigeria. All rights reserved.",
+    "social": {
+      "instagram": "Instagram",
+      "twitter": "Twitter",
+      "facebook": "Facebook"
+    }
+  },
+  "blog": {
+    "title": "Travel Stories & Tips",
+    "subtitle": "Discover Nigeria through our stories",
+    "categories": {
+      "all": "All Posts",
+      "culture": "Culture & Heritage",
+      "adventure": "Adventure",
+      "food": "Food & Cuisine",
+      "tips": "Travel Tips",
+      "wildlife": "Wildlife"
+    },
+    "readMore": "Read More",
+    "featured": "Featured Posts",
+    "latest": "Latest Stories",
+    "popular": "Popular Posts",
+    "posts": {
+      "lagosNightlife": {
+        "title": "Lagos Nightlife: A Vibrant Experience",
+        "excerpt": "Discover the pulsating energy of Lagos after dark, from live music venues to rooftop lounges.",
+        "readTime": "5 min read"
+      },
+      "traditionalCuisine": {
+        "title": "Nigerian Traditional Cuisine Guide",
+        "excerpt": "Explore the rich flavors and diverse dishes that make Nigerian cuisine unique.",
+        "readTime": "8 min read"
+      },
+      "wildlifeSafari": {
+        "title": "Ultimate Wildlife Safari Guide",
+        "excerpt": "Everything you need to know about experiencing Nigeria's amazing wildlife.",
+        "readTime": "6 min read"
+      }
     }
   }
 }

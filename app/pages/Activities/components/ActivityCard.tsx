@@ -1,4 +1,4 @@
-import { ActivityTypes } from "@app/shared/types/types";
+import { ActivityTypes } from "@app/shared/data/allData";
 import styles from "./ActivityCard.module.scss";
 
 interface ActivityCardProps {

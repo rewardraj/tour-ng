@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import Container from "@app/components/layouts/Container/Container";
 import { Flex } from "@app/components/layouts/Flex/Flex";
 import ImageText from "@app/components/molecules/ImageText/ImageText";
 import {
@@ -12,6 +11,7 @@ import {
 } from "@app/shared/Layout/Layout";
 import styles from "./Guide.module.scss";
 import { getStepsConfig } from "@app/shared/data/allData";
+import { Container } from "@mui/material";
 
 const Guide = () => {
   const { t } = useTranslation();
@@ -43,11 +43,18 @@ const Guide = () => {
   };
 
   return (
-    <Container>
+    <Container
+      maxWidth="lg"
+      sx={{
+        py: 8,
+        pt: 0,
+        px: { xs: 2, sm: 2, md: 0 }, // Remove padding on medium screens (600px) and above
+      }}
+    >
       <Flex
         align={AlignItems.END}
         className={styles.Guide__main}
-        margin="6rem 0"
+        margin="3rem 0"
         wrap={FlexWrap.NO_WRAP}
         justify={JustifyContent.CENTER}
       >

@@ -2,18 +2,18 @@ import Grid from "@app/components/layouts/Grid/Grid";
 import styles from "./Footer.module.scss";
 import { Flex } from "@app/components/layouts/Flex/Flex";
 import { AlignItems, JustifyContent } from "@app/shared/Layout/Layout";
-import Container from "@app/components/layouts/Container/Container";
 import { Link } from "react-router-dom";
+import { Container } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <footer className={styles.footer}>
-      <Container>
+      <Container maxWidth="lg" sx={{ py: 8, pt: 0 }}>
         <div className={styles.topSection}>
-          <h2 className={styles.mainTitle}>Tour Nigeria</h2>
-          <p className={styles.tagline}>
-            Discover the Beauty of Africa's Giant
-          </p>
+          <h2 className={styles.mainTitle}>{t("footer.mainTitle")}</h2>
+          <p className={styles.tagline}>{t("footer.tagline")}</p>
         </div>
 
         <Grid
@@ -23,52 +23,51 @@ const Footer = () => {
           gridGap="4rem"
         >
           <div className={styles.section}>
-            <h4 className={styles.sectionTitle}>Company</h4>
+            <h4 className={styles.sectionTitle}>{t("footer.sections.company.title")}</h4>
             <nav className={styles.links}>
-              <span>About Us</span>
-              <span>Our Story</span>
-              <span>Careers</span>
-              <span>Press Room</span>
+              <span>{t("footer.sections.company.about")}</span>
+              <span>{t("footer.sections.company.story")}</span>
+              <span>{t("footer.sections.company.careers")}</span>
+              <span>{t("footer.sections.company.press")}</span>
             </nav>
           </div>
 
           {/* Support Section */}
           <div className={styles.section}>
-            <h4 className={styles.sectionTitle}>Support</h4>
+            <h4 className={styles.sectionTitle}>{t("footer.sections.support.title")}</h4>
             <nav className={styles.links}>
-              <span>Help Center</span>
-              <span>Safety Information</span>
-              <span>Cancellation Policy</span>
-              <span>Contact Us</span>
+              <span>{t("footer.sections.support.help")}</span>
+              <span>{t("footer.sections.support.safety")}</span>
+              <span>{t("footer.sections.support.cancellation")}</span>
+              <span>{t("footer.sections.support.contact")}</span>
             </nav>
           </div>
 
           {/* Legal Section */}
           <div className={styles.section}>
-            <h4 className={styles.sectionTitle}>Legal</h4>
+            <h4 className={styles.sectionTitle}>{t("footer.sections.legal.title")}</h4>
             <nav className={styles.links}>
-              <span>Privacy Policy</span>
-              <span>Terms of Service</span>
-              <span>Trust & Safety</span>
-              <span>Accessibility</span>
+              <span>{t("footer.sections.legal.privacy")}</span>
+              <span>{t("footer.sections.legal.terms")}</span>
+              <span>{t("footer.sections.legal.trust")}</span>
+              <span>{t("footer.sections.legal.accessibility")}</span>
             </nav>
           </div>
 
           {/* Newsletter Section */}
           <div className={styles.section}>
-            <h4 className={styles.sectionTitle}>Stay Connected</h4>
+            <h4 className={styles.sectionTitle}>{t("footer.sections.newsletter.title")}</h4>
             <p className={styles.newsletterText}>
-              Join our newsletter for exclusive travel insights and special
-              offers.
+              {t("footer.sections.newsletter.description")}
             </p>
             <form className={styles.newsletterForm}>
               <input
                 type="email"
-                placeholder="Your email address"
+                placeholder={t("footer.sections.newsletter.placeholder")}
                 className={styles.input}
               />
               <button type="submit" className={styles.button}>
-                Subscribe
+                {t("footer.sections.newsletter.button")}
               </button>
             </form>
           </div>
@@ -81,12 +80,12 @@ const Footer = () => {
             className={styles.bottomContent}
           >
             <p className={styles.copyright}>
-              © {new Date().getFullYear()} Tour Nigeria. All rights reserved.
+              {t("footer.copyright", { year: new Date().getFullYear() })}
             </p>
             <nav className={styles.social}>
-              <Link to="/instagram">Instagram</Link>
-              <Link to="/twitter">Twitter</Link>
-              <Link to="/facebook">Facebook</Link>
+              <Link to="/instagram">{t("footer.social.instagram")}</Link>
+              <Link to="/twitter">{t("footer.social.twitter")}</Link>
+              <Link to="/facebook">{t("footer.social.facebook")}</Link>
             </nav>
           </Flex>
         </div>

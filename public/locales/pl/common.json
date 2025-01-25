@@ -1,8 +1,9 @@
 {
   "nav": {
-    "destinations": "Cele podróży",
-    "activities": "Aktywności",
-    "blog": "Blog"
+    "destinations": "Miejsca Turystyczne",
+    "activities": "Atrakcje Turystyczne",
+    "blog": "Blog Podróżniczy",
+    "about": "O Nas"
   },
   "languages": {
     "en": "Angielski",
@@ -96,7 +97,8 @@
   "sectionHeadings": {
     "topAttractions": "Najważniejsze Atrakcje",
     "bestNature": "Najlepsze miasta przyrodnicze",
-    "activities": "Polecane aktywności"
+    "featuredActivities": "Polecane Działania"
+
   },
   "guide": {
     "steps": {
@@ -108,6 +110,116 @@
       "meetPeopleDescription": "Bezpieczne i pewne opcje płatności dla Twojego spokoju ducha",
       "exploreNigeria": "Odkrywaj Nigerię!",
       "exploreNigeriaDescription": "Rozpocznij swoją przygodę i twórz niezapomniane wspomnienia"
+    }
+  },
+  "activities": {
+    "categories": {
+      "all": "Wszystkie",
+      "cultural": "Kulturalne",
+      "adventure": "Przygodowe",
+      "nature": "Przyrodnicze",
+      "entertainment": "Rozrywkowe",
+      "food": "Kulinarne"
+    },
+    "list": {
+      "nikeArtGallery": {
+        "name": "Zwiedzanie Galerii Nike Art",
+        "description": "Odkryj największą galerię sztuki w Nigerii prezentującą współczesną sztukę nigeryjską na czterech piętrach.",
+        "detailedDescription": "Galeria Nike Art w Lagos to czteropiętrowy budynek mieszczący obszerną kolekcję sztuki nigeryjskiej. Odwiedzający mogą oglądać i kupować dzieła znanych nigeryjskich artystów, poznając jednocześnie bogate dziedzictwo kulturowe kraju."
+      },
+      "lekkiConservation": {
+        "name": "Spacer po koronach drzew w Centrum Ochrony Przyrody Lekki",
+        "description": "Doświadcz najdłuższej w Afryce ścieżki w koronach drzew otoczonej przyrodą.",
+        "detailedDescription": "Centrum Ochrony Przyrody Lekki oferuje spokojną ucieczkę na łono natury. Jego ścieżka w koronach drzew jest najdłuższa w Afryce i zapewnia zapierające dech w piersiach widoki na florę i faunę parku."
+      },
+      "yankariSafari": {
+        "name": "Safari w Rezerwacie Yankari",
+        "description": "Odkryj dziką przyrodę i naturalne gorące źródła w najpopularniejszym rezerwacie Nigerii.",
+        "detailedDescription": "Rezerwat Yankari jest domem dla różnorodnej dzikiej przyrody, w tym słoni i pawianów. Odwiedzający mogą również cieszyć się kąpielą w gorącym źródle Wikki, które utrzymuje stałą temperaturę przez cały rok."
+      }
+    }
+  },
+  "modal": {
+    "close": "Zamknij",
+    "details": {
+      "attractionType": "Typ Atrakcji",
+      "city": "Miasto",
+      "place": "Miejsce",
+      "category": "Kategoria",
+      "duration": "Czas trwania",
+      "noImages": "Brak dostępnych zdjęć dla tej atrakcji"
+    }
+  },
+  "footer": {
+    "mainTitle": "Tour Nigeria",
+    "tagline": "Odkryj Piękno Giganta Afryki",
+    "sections": {
+      "company": {
+        "title": "Firma",
+        "about": "O Nas",
+        "story": "Nasza Historia",
+        "careers": "Kariera",
+        "press": "Sala Prasowa"
+      },
+      "support": {
+        "title": "Wsparcie",
+        "help": "Centrum Pomocy",
+        "safety": "Informacje o Bezpieczeństwie",
+        "cancellation": "Polityka Anulowania",
+        "contact": "Kontakt"
+      },
+      "legal": {
+        "title": "Prawne",
+        "privacy": "Polityka Prywatności",
+        "terms": "Warunki Użytkowania",
+        "trust": "Zaufanie i Bezpieczeństwo",
+        "accessibility": "Dostępność"
+      },
+      "newsletter": {
+        "title": "Bądź na Bieżąco",
+        "description": "Dołącz do naszego newslettera, aby otrzymywać ekskluzywne informacje i oferty specjalne",
+        "placeholder": "Twój adres email",
+        "button": "Subskrybuj"
+      }
+    },
+    "copyright": "©2024 Tour Nigeria. Wszelkie prawa zastrzeżone.",
+    "social": {
+      "instagram": "Instagram",
+      "twitter": "Twitter",
+      "facebook": "Facebook"
+    }
+  },
+  "blog": {
+    "title": "Historie i Porady Podróżnicze",
+    "subtitle": "Odkryj Nigerię przez nasze historie",
+    "categories": {
+      "all": "Wszystkie Posty",
+      "culture": "Kultura i Dziedzictwo",
+      "adventure": "Przygoda",
+      "food": "Kuchnia",
+      "tips": "Porady Podróżnicze",
+      "wildlife": "Dzika Przyroda"
+    },
+    "readMore": "Czytaj Więcej",
+    "featured": "Wyróżnione Posty",
+    "latest": "Najnowsze Historie",
+    "popular": "Popularne Posty",
+    "posts": {
+      "lagosNightlife": {
+        "title": "Życie Nocne w Lagos: Tętniące Energią Doświadczenie",
+        "excerpt": "Odkryj pulsującą energię Lagos po zmroku, od miejsc z muzyką na żywo po bary na dachu.",
+        "readTime": "5 min czytania"
+      },
+      "traditionalCuisine": {
+        "title": "Przewodnik po Tradycyjnej Kuchni Nigeryjskiej",
+        "excerpt": "Poznaj bogate smaki i różnorodne dania, które czynią kuchnię nigeryjską wyjątkową.",
+        "readTime": "8 min czytania"
+      },
+      "wildlifeSafari": {
+        "title": "Kompletny Przewodnik po Safari",
+        "excerpt": "Wszystko, co musisz wiedzieć o doświadczaniu niesamowitej dzikiej przyrody Nigerii.",
+        "readTime": "6 min czytania"
+      }
     }
   }
 }

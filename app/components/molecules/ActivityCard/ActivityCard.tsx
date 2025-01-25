@@ -2,7 +2,7 @@ import { Flex } from "@app/components/layouts/Flex/Flex";
 import { FlexDirection, JustifyContent } from "@app/shared/Layout/Layout";
 import { FC } from "react";
 import styles from "./ActivityCard.module.scss";
-import { ActivityTypes } from "@app/shared/types/types";
+import { ActivityTypes } from "@app/shared/data/allData";
 
 interface CardProps {
   days?: string;

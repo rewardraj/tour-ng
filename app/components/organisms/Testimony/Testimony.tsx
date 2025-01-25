@@ -1,4 +1,3 @@
-import Container from "@app/components/layouts/Container/Container";
 import { Flex } from "@app/components/layouts/Flex/Flex";
 import {
   AlignItems,
@@ -10,6 +9,7 @@ import { useEffect, useState } from "react";
 import styles from "./Testimony.module.scss";
 import Grid from "@app/components/layouts/Grid/Grid";
 import { ArrowButton } from "@app/components/atoms/IconButton/ArrowButton";
+import { Container } from "@mui/material";
 
 const Testimony = () => {
   const reviews = [
@@ -54,7 +54,7 @@ const Testimony = () => {
     return () => clearInterval(interval);
   }, [review]);
   return (
-    <Container>
+    <Container maxWidth="lg" sx={{ py: 8, pt: 0 }}>
       <Grid desktopColumns={1} tabletColumns={1} mobileColumns={1}>
         {reviews.map((currentReview, index) => {
           if (index !== review) return null;

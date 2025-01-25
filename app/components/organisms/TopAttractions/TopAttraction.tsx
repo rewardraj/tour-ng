@@ -1,20 +1,20 @@
 import Grid from "@app/components/layouts/Grid/Grid";
 import { Featured } from "@app/components/molecules/Featured/Featured";
+import { useTranslation } from "react-i18next";
 import { Flex } from "@app/components/layouts/Flex/Flex";
 import { AlignItems, JustifyContent } from "@app/shared/Layout/Layout";
 import ImageText from "@app/components/molecules/ImageText/ImageText";
 import { Columns } from "@app/components/layouts/Grid/Columns/Columns";
 import SectionHeading from "@app/components/molecules/SectionHeading/SectionHeading";
 import styles from "./Location.module.scss";
-import Container from "@app/components/layouts/Container/Container";
-import AttractionModal from "@app/components/molecules/AttractionModal/AttractionModal";
-import { useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useModal } from "@app/shared/contexts/ModalContext";
 import {
   featuredStats,
   HomeTopDestinationsImage,
   nigerianCities,
+  TouristAttraction,
 } from "@app/shared/data/allData";
+import { Container } from "@mui/material";
 
 const TopAttractions = () => {
   const firstFourAttractions = [
@@ -23,23 +23,16 @@ const TopAttractions = () => {
     nigerianCities[1].attractions[0], // Abuja - Aso Rock
     nigerianCities[1].attractions[2], // Abuja - Millenium Park
   ];
-  const [selectedAttraction, setSelectedAttraction] = useState(null);
-  const [showModal, setShowModal] = useState(false);
+  const { openModal } = useModal();
 
-  const handleImageTextClick = (attraction: any) => {
-    setSelectedAttraction(attraction);
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setSelectedAttraction(null);
-    setShowModal(false);
+  const handleImageTextClick = (attraction: TouristAttraction) => {
+    openModal({ type: "attraction", data: attraction });
   };
 
   const { t } = useTranslation();
 
   return (
-    <Container>
+    <Container maxWidth="lg" sx={{ py: 8, pt: 0 }}>
       <Grid
         desktopColumns={4}
         tabletColumns={2}
@@ -84,13 +77,6 @@ const TopAttractions = () => {
           ))}
         </Grid>
       </Flex>
-
-      {showModal && selectedAttraction && (
-        <AttractionModal
-          attraction={selectedAttraction}
-          onClose={handleCloseModal}
-        />
-      )}
     </Container>
   );
 };

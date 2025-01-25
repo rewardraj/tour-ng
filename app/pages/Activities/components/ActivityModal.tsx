@@ -1,7 +1,7 @@
 import styles from "./ActivityModal.module.scss";
 import { IoClose } from "react-icons/io5";
 import { useState } from "react";
-import { ActivityTypes } from "@app/shared/types/types";
+import { ActivityTypes } from "@app/shared/data/allData";
 
 interface ActivityModalProps {
   activity: ActivityTypes;

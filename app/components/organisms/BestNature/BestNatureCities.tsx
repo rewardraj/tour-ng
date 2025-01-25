@@ -1,13 +1,13 @@
 import { Flex } from "@app/components/layouts/Flex/Flex";
 import { AlignItems, FlexGap, JustifyContent } from "@app/shared/Layout/Layout";
 import SectionHeading from "@app/components/molecules/SectionHeading/SectionHeading";
-import Container from "@app/components/layouts/Container/Container";
 import Card from "@app/components/molecules/ActivityCard/ActivityCard";
 import Grid from "@app/components/layouts/Grid/Grid";
 import { useState } from "react";
 import { ArrowButton } from "@app/components/atoms/IconButton/ArrowButton";
 import { useTranslation } from "react-i18next";
 import { getBestNatureCities, nigerianCities } from "@app/shared/data/allData";
+import { Container } from "@mui/material";
 
 const BestNatureCities = () => {
   const [currentPlace, setCurrentPlace] = useState(0);
@@ -24,7 +24,7 @@ const BestNatureCities = () => {
   };
 
   return (
-    <Container>
+    <Container maxWidth="lg" sx={{ py: 8, pt: 0 }}>
       <Flex align={AlignItems.CENTER}>
         <SectionHeading mainText={t("sectionHeadings.bestNature")} />
       </Flex>

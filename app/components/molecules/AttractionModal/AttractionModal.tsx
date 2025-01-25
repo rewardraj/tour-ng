@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   Box,
   Modal,
@@ -10,14 +11,20 @@ import {
   alpha,
 } from "@mui/material";
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
-import { TouristAttraction } from "@app/shared/data/allData";
+import { ActivityTypes, TouristAttraction } from "@app/shared/data/allData";
 
 interface AttractionModalProps {
-  attraction: TouristAttraction;
+  data: TouristAttraction | ActivityTypes | null;
+  type: "attraction" | "activity";
   onClose: () => void;
 }
 
-const AttractionModal: FC<AttractionModalProps> = ({ attraction, onClose }) => {
+const AttractionModal: FC<AttractionModalProps> = ({ data, type, onClose }) => {
+  const { t } = useTranslation();
+  const attraction =
+    type === "attraction"
+      ? (data as TouristAttraction)
+      : (data as ActivityTypes);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const theme = useTheme();
 
@@ -57,24 +64,6 @@ const AttractionModal: FC<AttractionModalProps> = ({ attraction, onClose }) => {
           },
         }}
       >
-        {/* Close Button */}
-        {/* <IconButton
-          onClick={onClose}
-          sx={{
-            position: "absolute",
-            top: 16,
-            right: 16,
-            zIndex: 10,
-            bgcolor: alpha(theme.palette.grey[300], 0.5),
-            color: theme.palette.text.primary,
-            "&:hover": {
-              bgcolor: alpha(theme.palette.grey[400], 0.7),
-            },
-          }}
-        >
-          <Close />
-        </IconButton> */}
-
         {/* Image Carousel */}
         <Box sx={{ position: "relative", overflow: "hidden" }}>
           {images.length > 0 ? (
@@ -101,7 +90,9 @@ const AttractionModal: FC<AttractionModalProps> = ({ attraction, onClose }) => {
                       top: "50%",
                       left: 16,
                       transform: "translateY(-50%)",
-                      bgcolor: alpha(theme.palette.primary.main, 0.7),
+                      background: `var(--color-background-light)`,
+                      border: "1px solid #fff",
+                      borderRadius: `var(--border-radius-small)`,
                       color: "white",
                       "&:hover": {
                         bgcolor: theme.palette.primary.dark,
@@ -116,9 +107,11 @@ const AttractionModal: FC<AttractionModalProps> = ({ attraction, onClose }) => {
                     sx={{
                       position: "absolute",
                       top: "50%",
+                      background: `var(--color-background-light)`,
+                      borderRadius: `var(--border-radius-small)`,
+                      border: "1px solid #fff",
                       right: 16,
                       transform: "translateY(-50%)",
-                      bgcolor: alpha(theme.palette.primary.main, 0.7),
                       color: "white",
                       "&:hover": {
                         bgcolor: theme.palette.primary.dark,
@@ -136,10 +129,10 @@ const AttractionModal: FC<AttractionModalProps> = ({ attraction, onClose }) => {
               sx={{
                 textAlign: "center",
                 py: 4,
-                color: theme.palette.text.secondary,
+                color: theme.palette.text.primary,
               }}
             >
-              No images available for this attraction
+              {t("modal.details.noImages")}
             </Typography>
           )}
         </Box>
@@ -152,7 +145,7 @@ const AttractionModal: FC<AttractionModalProps> = ({ attraction, onClose }) => {
             sx={{
               mb: 2,
               fontWeight: 700,
-              color: theme.palette.primary.main,
+              color: theme.palette.common.black,
               letterSpacing: -0.5,
             }}
           >
@@ -169,15 +162,37 @@ const AttractionModal: FC<AttractionModalProps> = ({ attraction, onClose }) => {
           </Typography>
 
           <Grid container spacing={2} sx={{ mb: 3 }}>
-            {[
-              { label: "Attraction Type", value: attraction.type },
-              { label: "City", value: attraction.location.city },
-              { label: "Place", value: attraction.location.spot },
-            ].map(({ label, value }) => (
+            {(type === "attraction"
+              ? [
+                  {
+                    label: "Attraction Type",
+                    value: (attraction as TouristAttraction).type,
+                  },
+                  {
+                    label: "City",
+                    value: (attraction as TouristAttraction).location.city,
+                  },
+                  {
+                    label: "Place",
+                    value: (attraction as TouristAttraction).location.spot,
+                  },
+                ]
+              : [
+                  {
+                    label: "Category",
+                    value: (attraction as ActivityTypes).category,
+                  },
+                  { label: "City", value: (attraction as ActivityTypes).city },
+                  {
+                    label: "Duration",
+                    value: (attraction as ActivityTypes).duration,
+                  },
+                ]
+            ).map(({ label, value }) => (
               <Grid item xs={12} sm={4} key={label}>
                 <Typography
                   variant="subtitle2"
-                  color="primary"
+                  color="dark"
                   sx={{ mb: 0.5, fontWeight: 600 }}
                 >
                   {label}
@@ -196,8 +211,9 @@ const AttractionModal: FC<AttractionModalProps> = ({ attraction, onClose }) => {
             fullWidth
             sx={{
               py: 1.5,
-              borderRadius: 2,
               textTransform: "none",
+              background: `var(--color-background-light)`,
+              borderRadius: `var(--border-radius-small)`,
               width: "auto",
               fontWeight: 600,
               boxShadow: `0 8px 16px ${alpha(theme.palette.primary.main, 0.3)}`,
@@ -211,7 +227,7 @@ const AttractionModal: FC<AttractionModalProps> = ({ attraction, onClose }) => {
               },
             }}
           >
-            Close
+            {t("modal.close")}
           </Button>
         </Box>
       </Box>

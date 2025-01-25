@@ -1,9 +1,8 @@
 import { GoogleMap, Marker } from "@react-google-maps/api";
 import styles from "./Map.module.scss";
-import { useState, useEffect } from "react";
-import AttractionModal from "@app/components/molecules/AttractionModal/AttractionModal";
-import { City } from "@app/shared/data/allData";
-import { TouristAttraction } from "@app/shared/data/allData";
+import { useEffect } from "react";
+import { City, TouristAttraction } from "@app/shared/data/allData";
+import { useModal } from "@app/shared/contexts/ModalContext";
 
 interface MapProps {
   selectedCity: City | null;
@@ -11,30 +10,20 @@ interface MapProps {
   onAttractionSelect: (attraction: TouristAttraction | null) => void;
 }
 
-const Map = ({
-  selectedCity,
-  selectedAttraction,
-  onAttractionSelect,
-}: MapProps) => {
+const Map = ({ selectedCity, onAttractionSelect }: MapProps) => {
   const center = selectedCity?.location || { lat: 6.5244, lng: 3.3792 };
-  const [showModal, setShowModal] = useState(false);
+  const { openModal } = useModal();
 
-  // Ensure markers load as soon as selectedCity has attractions
   useEffect(() => {
     if (selectedCity && selectedCity.attractions.length > 0) {
-      // If attractions are available for the selected city, markers should be rendered immediately
-      setShowModal(false); // Optional, reset modal if needed
+      // Reset any selected attraction when city changes
+      onAttractionSelect(null);
     }
-  }, [selectedCity]);
+  }, [selectedCity, onAttractionSelect]);
 
   const handleMarkerClick = (attraction: TouristAttraction) => {
     onAttractionSelect(attraction);
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-    onAttractionSelect(null);
+    openModal({ type: "attraction", data: attraction });
   };
 
   return (
@@ -59,13 +48,6 @@ const Map = ({
           />
         ))}
       </GoogleMap>
-
-      {selectedAttraction && showModal && (
-        <AttractionModal
-          attraction={selectedAttraction}
-          onClose={handleCloseModal}
-        />
-      )}
     </div>
   );
 };

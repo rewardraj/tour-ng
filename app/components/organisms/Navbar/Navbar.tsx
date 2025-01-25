@@ -59,7 +59,6 @@ const Navbar: FC = () => {
   const navItems = [
     { label: t("nav.destinations"), icon: <MapIcon />, path: "/destinations" },
     { label: t("nav.activities"), icon: <ActivityIcon />, path: "/activities" },
-    { label: t("nav.blog"), icon: <ActivityIcon />, path: "/blog" },
   ];
 
   const DrawerContent = (
