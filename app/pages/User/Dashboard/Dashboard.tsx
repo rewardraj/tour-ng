@@ -1,12 +1,12 @@
 import { FC, useState } from "react";
-import { useAuth } from "@app/shared/contexts/AuthContext";
-import { useTranslation } from "react-i18next";
+// import { useAuth } from "@app/shared/contexts/AuthContext";
+// import { useTranslation } from "react-i18next";
 import styles from "./Dashboard.module.scss";
 import Tabs from "../Components/Tabs";
 
 const Dashboard: FC = () => {
-  const { t } = useTranslation();
-  const { currentUser } = useAuth();
+  // const { t } = useTranslation();
+  // const { currentUser } = useAuth();
   const [activeTab, setActiveTab] = useState("home");
 
   const renderTabContent = () => {

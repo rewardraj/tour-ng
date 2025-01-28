@@ -1,15 +1,15 @@
 // current data bank, move to firestore later
-import heroImg1 from "@assets/images/hero/1.jpg";
-import heroImg2 from "@assets/images/hero/2.jpg";
-import heroImg3 from "@assets/images/hero/3.jpg";
-import heroImg4 from "@assets/images/hero/4.jpg";
-import heroImg5 from "@assets/images/hero/5.jpg";
+// import heroImg1 from "@assets/images/hero/1.jpg";
+// import heroImg2 from "@assets/images/hero/2.jpg";
+// import heroImg3 from "@assets/images/hero/3.jpg";
+// import heroImg4 from "@assets/images/hero/4.jpg";
+// import heroImg5 from "@assets/images/hero/5.jpg";
 import heroImg6 from "@assets/images/hero/6.jpg";
 
-import h1 from "@assets/images/hero/h1.jpg";
-import h2 from "@assets/images/hero/h2.jpg";
-import h3 from "@assets/images/hero/h3.jpg";
-import h4 from "@assets/images/hero/h4.jpg";
+// import h1 from "@assets/images/hero/h1.jpg";
+// import h2 from "@assets/images/hero/h2.jpg";
+// import h3 from "@assets/images/hero/h3.jpg";
+// import h4 from "@assets/images/hero/h4.jpg";
 import h5 from "@assets/images/hero/h5.jpg";
 
 import fd from "@assets/images/find.jpg";
