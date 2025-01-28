@@ -3,7 +3,10 @@
     "destinations": "Tourist Destinations",
     "activities": "Tourist Activities",
     "blog": "Travel Blog",
-    "about": "About Us"
+    "about": "About Us",
+    "login": "Login",
+    "logout": "Logout",
+    "dashboard": "Dashboard"
   },
   "languages": {
     "en": "English",
@@ -186,6 +189,44 @@
       "instagram": "Instagram",
       "twitter": "Twitter",
       "facebook": "Facebook"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Login to Your Account",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign In",
+      "loading": "Signing in...",
+      "error": "Failed to sign in. Please try again.",
+      "popupClosed": "Sign in cancelled",
+      "or": "or continue with",
+      "googleSignIn": "Sign in with Google",
+      "testAccount": "Use Test Account"
+    }
+  },
+  "dashboard": {
+    "title": "My Dashboard",
+    "welcome": "Welcome back, {name}!",
+    "savedDestinations": "Saved Destinations",
+    "noSavedDestinations": "No saved destinations yet",
+    "remove": "Remove",
+    "save": "Save Destination",
+    "bookings": {
+      "title": "My Bookings",
+      "noBookings": "No bookings yet"
+    },
+    "profile": {
+      "title": "Profile",
+      "email": "Email Address",
+      "edit": "Edit Profile"
+    },
+    "settings": {
+      "title": "Settings",
+      "notifications": "Email Notifications",
+      "language": "Language Preference",
+      "enable": "Enable",
+      "disable": "Disable"
     }
   },
   "blog": {

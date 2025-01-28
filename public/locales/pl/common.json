@@ -3,7 +3,10 @@
     "destinations": "Miejsca Turystyczne",
     "activities": "Atrakcje Turystyczne",
     "blog": "Blog Podróżniczy",
-    "about": "O Nas"
+    "about": "O Nas",
+    "login": "Zaloguj się",
+    "logout": "Wyloguj się",
+    "dashboard": "Panel"
   },
   "languages": {
     "en": "Angielski",
@@ -187,6 +190,44 @@
       "instagram": "Instagram",
       "twitter": "Twitter",
       "facebook": "Facebook"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Zaloguj się do swojego konta",
+      "email": "Email",
+      "password": "Hasło",
+      "submit": "Zaloguj się",
+      "loading": "Logowanie...",
+      "error": "Nie udało się zalogować. Spróbuj ponownie.",
+      "popupClosed": "Logowanie anulowane",
+      "or": "lub kontynuuj przez",
+      "googleSignIn": "Zaloguj się przez Google",
+      "testAccount": "Użyj konta testowego"
+    }
+  },
+  "dashboard": {
+    "title": "Mój Panel",
+    "welcome": "Witaj z powrotem, {name}!",
+    "savedDestinations": "Zapisane Destynacje",
+    "noSavedDestinations": "Brak zapisanych destynacji",
+    "remove": "Usuń",
+    "save": "Zapisz Destynację",
+    "bookings": {
+      "title": "Moje Rezerwacje",
+      "noBookings": "Brak rezerwacji"
+    },
+    "profile": {
+      "title": "Profil",
+      "email": "Adres Email",
+      "edit": "Edytuj Profil"
+    },
+    "settings": {
+      "title": "Ustawienia",
+      "notifications": "Powiadomienia Email",
+      "language": "Preferowany Język",
+      "enable": "Włącz",
+      "disable": "Wyłącz"
     }
   },
   "blog": {

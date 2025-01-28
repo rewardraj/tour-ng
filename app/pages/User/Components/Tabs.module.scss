@@ -1,0 +1,29 @@
+.tabs {
+  display: flex;
+  border-bottom: 2px solid #ccc;
+  gap: 1rem;
+}
+
+.tab {
+  padding: 1rem 2rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+  color: #333;
+  border-bottom: 2px solid transparent;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+
+  &.active {
+    border-bottom: 2px solid #007bff; // Active tab underline
+    font-weight: bold;
+    color: #007bff; // Active tab color
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+  }
+}

@@ -11,6 +11,9 @@ import "./i18n/config";
 import { Box } from "@mui/material";
 import LinearProgress from "@mui/material/LinearProgress";
 import { LoadScript } from "@react-google-maps/api";
+import Login from "./pages/Auth/Login";
+import Dashboard from "./pages/User/Dashboard/Dashboard";
+import ProtectedRoute from "./shared/contexts/ProtectedRoute";
 
 // Loading Progress Component
 const LinearDeterminate = () => {
@@ -61,6 +64,15 @@ const App = () => {
                 <Route path="/destinations" element={<Destination />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/activities" element={<Activities />} />
+                <Route path="/login" element={<Login />} />
+                <Route
+                  path="/dashboard"
+                  element={
+                    <ProtectedRoute>
+                      <Dashboard />
+                    </ProtectedRoute>
+                  }
+                />
               </Routes>
             </main>
           </ModalProvider>

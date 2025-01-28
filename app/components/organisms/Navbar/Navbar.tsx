@@ -7,16 +7,18 @@ import {
   Menu,
   MenuItem,
   Button,
-  Drawer,
-  List,
-  ListItem,
   Container,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@app/shared/contexts/AuthContext";
+import styles from "./Navbar.module.scss";
 import {
   Menu as MenuIcon,
   Language as LanguageIcon,
   Map as MapIcon,
   LocalActivity as ActivityIcon,
+  Login as LoginIcon,
+  Dashboard as DashboardIcon,
 } from "@mui/icons-material";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -24,6 +26,8 @@ import logoImg from "@assets/images/logoNew.png";
 
 const Navbar: FC = () => {
   const { t, i18n } = useTranslation();
+  const { currentUser, logout } = useAuth();
+  const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langAnchorEl, setLangAnchorEl] = useState<null | HTMLElement>(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -38,7 +42,7 @@ const Navbar: FC = () => {
     setMobileOpen(!mobileOpen);
   };
 
-  const handleLangMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+  const handleLangMenuOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
     setLangAnchorEl(event.currentTarget);
   };
 
@@ -56,42 +60,98 @@ const Navbar: FC = () => {
     }
   };
 
-  const navItems = [
-    { label: t("nav.destinations"), icon: <MapIcon />, path: "/destinations" },
-    { label: t("nav.activities"), icon: <ActivityIcon />, path: "/activities" },
+  interface NavItem {
+    label: string;
+    icon: JSX.Element;
+    path?: string;
+    onClick?: () => Promise<void>;
+    isSpecial?: boolean;
+  }
+
+  const baseNavItems: NavItem[] = [
+    {
+      label: t("nav.destinations"),
+      icon: <MapIcon />,
+      path: "/destinations",
+      isSpecial: false,
+    },
+    {
+      label: t("nav.activities"),
+      icon: <ActivityIcon />,
+      path: "/activities",
+      isSpecial: false,
+    },
   ];
 
-  const DrawerContent = (
-    <Box sx={{ textAlign: "center", py: 2 }}>
-      <img
-        src={logoImg}
-        alt="Logo"
-        height={50}
-        style={{ marginBottom: "1rem" }}
-      />
-      <List>
-        {navItems.map((item) => (
-          <ListItem
-            key={item.label}
-            component={NavLink}
-            to={item.path}
-            onClick={handleDrawerToggle}
-            sx={{ justifyContent: "center" }}
-          >
-            <Button
-              startIcon={item.icon}
-              sx={{
-                color: "inherit",
-                textTransform: "none",
-                "&.active": { color: "#FFD700", fontWeight: "bold" },
+  const authNavItems = currentUser
+    ? [
+        {
+          label: t("nav.dashboard"),
+          icon: <DashboardIcon />,
+          path: "/dashboard",
+          isSpecial: false,
+        },
+        {
+          label: t("nav.logout"),
+          icon: <LoginIcon />,
+          onClick: async () => {
+            await logout();
+            navigate("/");
+          },
+          isSpecial: true,
+        },
+      ]
+    : [
+        {
+          label: t("nav.login"),
+          icon: <LoginIcon />,
+          path: "/login",
+          isSpecial: true,
+        },
+      ];
+
+  const navItems: NavItem[] = [...baseNavItems, ...authNavItems];
+
+  const MobileMenu = (
+    <div className={`${styles.mobileMenu} ${mobileOpen ? styles.show : ""}`}>
+      <nav className={styles.mobileNav}>
+        {navItems.map((item) =>
+          item.onClick ? (
+            <button
+              key={item.label}
+              className={styles.mobileNavLink}
+              onClick={() => {
+                item.onClick?.();
+                handleDrawerToggle();
               }}
             >
-              {item.label}
-            </Button>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
+              {item.icon}
+              <span>{item.label}</span>
+            </button>
+          ) : (
+            <NavLink
+              key={item.label}
+              to={item.path!}
+              className={styles.mobileNavLink}
+              onClick={handleDrawerToggle}
+            >
+              {item.icon}
+              <span>{item.label}</span>
+            </NavLink>
+          )
+        )}
+        <div className={styles.divider} />
+        <div className={styles.langSwitcher}>
+          <button
+            className={styles.langButton}
+            onClick={() => changeLanguage(i18n.language === "en" ? "pl" : "en")}
+          >
+            <LanguageIcon />
+            <span>{i18n.language === "en" ? "English" : "Polski"}</span>
+          </button>
+        </div>
+      </nav>
+    </div>
   );
 
   return (
@@ -115,46 +175,81 @@ const Navbar: FC = () => {
 
           {isMobile ? (
             <>
-              <IconButton color="inherit" onClick={handleDrawerToggle}>
-                <MenuIcon />
-              </IconButton>
-              <Drawer
-                anchor="right"
-                open={mobileOpen}
-                onClose={handleDrawerToggle}
+              <IconButton
+                color="inherit"
+                onClick={handleDrawerToggle}
                 sx={{
-                  "& .MuiDrawer-paper": {
-                    width: 240,
-                    backgroundColor: "#1c1c1c",
-                    color: "#fff",
+                  width: 40,
+                  height: 40,
+                  borderRadius: "8px",
+                  "&:hover": {
+                    backgroundColor: "rgba(255, 255, 255, 0.1)",
                   },
                 }}
               >
-                {DrawerContent}
-              </Drawer>
+                <MenuIcon />
+              </IconButton>
+              {MobileMenu}
             </>
           ) : (
-            <Box sx={{ display: "flex", gap: 2 }}>
-              {navItems.map((item) => (
-                <Button
-                  key={item.label}
-                  component={NavLink}
-                  to={item.path}
-                  startIcon={item.icon}
-                  sx={{
-                    color: "#fff",
-                    textTransform: "none",
-                    "&.active": {
-                      color: "#FFD700",
-                      fontWeight: "bold",
-                      textDecoration: "underline",
-                    },
-                    "&:hover": { color: "#FFD700" },
-                  }}
-                >
-                  {item.label}
-                </Button>
-              ))}
+            <Box sx={{ display: "flex", gap: "16px" }}>
+              {navItems.map((item) =>
+                item.onClick ? (
+                  <Button
+                    key={item.label}
+                    color="inherit"
+                    onClick={item.onClick}
+                    startIcon={item.icon}
+                    sx={{
+                      textTransform: "none",
+                      backgroundColor: "#FFD700",
+                      color: "#000",
+                      borderRadius: "8px",
+                      padding: "6px 20px",
+                      "&:hover": {
+                        backgroundColor: "#FFE44D",
+                      },
+                    }}
+                  >
+                    {item.label}
+                  </Button>
+                ) : (
+                  <NavLink
+                    key={item.label}
+                    to={item.path!}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <Button
+                      color="inherit"
+                      startIcon={item.icon}
+                      sx={{
+                        textTransform: "none",
+                        ...(item.isSpecial
+                          ? {
+                              backgroundColor: "#FFD700",
+                              color: "#000",
+                              borderRadius: "8px",
+                              padding: "6px 20px",
+                              "&:hover": {
+                                backgroundColor: "#FFE44D",
+                              },
+                            }
+                          : {
+                              color: "#fff",
+                              "&.active": {
+                                color: "#FFD700",
+                                fontWeight: "bold",
+                                textDecoration: "underline",
+                              },
+                              "&:hover": { color: "#FFD700" },
+                            }),
+                      }}
+                    >
+                      {item.label}
+                    </Button>
+                  </NavLink>
+                )
+              )}
               <IconButton color="inherit" onClick={handleLangMenuOpen}>
                 <LanguageIcon />
               </IconButton>

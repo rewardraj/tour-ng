@@ -1,6 +1,7 @@
 .ImageText {
   position: relative;
   width: 100%;
+  height: 100%;
   border-radius: 1.5rem;
   overflow: hidden;
 
@@ -25,14 +26,15 @@
   .subText {
     line-height: 1.5;
     text-align: left;
-    font-size: 16px;
+    font-size: 18px;
+    color: inherit;
   }
 }
 
 .Image {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 600px;
+  object-fit: contain;
   transition: transform 0.3s;
 }
 

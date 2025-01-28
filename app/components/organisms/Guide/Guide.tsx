@@ -48,13 +48,12 @@ const Guide = () => {
       sx={{
         py: 8,
         pt: 0,
-        px: { xs: 2, sm: 2, md: 0 }, // Remove padding on medium screens (600px) and above
+        px: { xs: 2, sm: 2, md: 0 },
       }}
     >
       <Flex
-        align={AlignItems.END}
+        align={AlignItems.START}
         className={styles.Guide__main}
-        margin="3rem 0"
         wrap={FlexWrap.NO_WRAP}
         justify={JustifyContent.CENTER}
       >
@@ -65,14 +64,13 @@ const Guide = () => {
           align={AlignItems.START}
           justify={JustifyContent.START}
           gap={FlexGap.MEDIUM}
-          margin="1rem 0"
         >
           {steps.map((step, index) => (
             <Flex
               key={index}
               justify={JustifyContent.START}
               gap={FlexGap.MEDIUM}
-              margin="1rem 0"
+              margin="0.5rem 0"
               className={`${styles.step} ${
                 activeStep === index ? styles.active : ""
               }`}
@@ -99,10 +97,10 @@ const Guide = () => {
             className={`${styles.imageWrapper} ${
               isTransitioning ? styles.fadeOut : ""
             }`}
+            style={{ width: "100%", height: "100%" }}
           >
             <ImageText
               src={steps[activeStep].image}
-              subtext={steps[activeStep].description}
               className={styles.imageGuide}
             />
           </div>

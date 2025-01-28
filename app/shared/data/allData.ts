@@ -6,11 +6,33 @@ import heroImg4 from "@assets/images/hero/4.jpg";
 import heroImg5 from "@assets/images/hero/5.jpg";
 import heroImg6 from "@assets/images/hero/6.jpg";
 
+import h1 from "@assets/images/hero/h1.jpg";
+import h2 from "@assets/images/hero/h2.jpg";
+import h3 from "@assets/images/hero/h3.jpg";
+import h4 from "@assets/images/hero/h4.jpg";
+import h5 from "@assets/images/hero/h5.jpg";
+
+import fd from "@assets/images/find.jpg";
+import bt from "@assets/images/bookticket.jpg";
+import mp from "@assets/images/meetpeople.jpg";
+import ex9 from "@assets/images/explore9ja.jpg";
+
 // Nike Art Gallery
 import na1 from "@assets/images/places/Nike Art Gallery/1.jpg";
 import na2 from "@assets/images/places/Nike Art Gallery/2.jpg";
 import na3 from "@assets/images/places/Nike Art Gallery/3.jpg";
 import na4 from "@assets/images/places/Nike Art Gallery/4.jpg";
+import na5 from "@assets/images/places/Nike Art Gallery/5.jpg";
+import na6 from "@assets/images/places/Nike Art Gallery/6.jpg";
+import na7 from "@assets/images/places/Nike Art Gallery/7.jpg";
+import na8 from "@assets/images/places/Nike Art Gallery/8.jpg";
+import na9 from "@assets/images/places/Nike Art Gallery/9.jpg";
+import na10 from "@assets/images/places/Nike Art Gallery/10.jpg";
+import na11 from "@assets/images/places/Nike Art Gallery/11.jpg";
+import na12 from "@assets/images/places/Nike Art Gallery/12.jpg";
+import na13 from "@assets/images/places/Nike Art Gallery/13.jpg";
+import na14 from "@assets/images/places/Nike Art Gallery/14.jpg";
+import na15 from "@assets/images/places/Nike Art Gallery/15.jpg";
 
 // Lekki Conservation Center
 
@@ -20,6 +42,13 @@ import lk3 from "@assets/images/places/Lekki Conservation Center/3.jpg";
 import lk4 from "@assets/images/places/Lekki Conservation Center/4.jpg";
 import lk5 from "@assets/images/places/Lekki Conservation Center/5.jpg";
 import lk6 from "@assets/images/places/Lekki Conservation Center/6.jpg";
+import lk7 from "@assets/images/places/Lekki Conservation Center/7.jpg";
+import lk8 from "@assets/images/places/Lekki Conservation Center/8.jpg";
+import lk9 from "@assets/images/places/Lekki Conservation Center/9.jpg";
+import lk10 from "@assets/images/places/Lekki Conservation Center/10.jpg";
+import lk11 from "@assets/images/places/Lekki Conservation Center/11.jpg";
+import lk12 from "@assets/images/places/Lekki Conservation Center/12.jpg";
+import lk13 from "@assets/images/places/Lekki Conservation Center/13.jpg";
 
 // Idanhre Hills
 import idh1 from "@assets/images/places/Idanhre Hills/1.jpg";
@@ -47,29 +76,83 @@ import cnp2 from "@assets/images/places/Calabar National Park/2.jpeg";
 import cnp3 from "@assets/images/places/Calabar National Park/3.jpeg";
 import cnp4 from "@assets/images/places/Calabar National Park/4.webp";
 
+import kcw1 from "@assets/images/places/Kano city wall/1.jpg";
+import kcw2 from "@assets/images/places/Kano city wall/2.jpg";
+import kcw3 from "@assets/images/places/Kano city wall/3.jpg";
+import kcw4 from "@assets/images/places/Kano city wall/4.jpg";
+
+import jwp1 from "@assets/images/places/Jos wildlife park/1.jpg";
+import jwp2 from "@assets/images/places/Jos wildlife park/2.jpg";
+import jwp3 from "@assets/images/places/Jos wildlife park/3.jpg";
+import jwp4 from "@assets/images/places/Jos wildlife park/4.jpg";
+
+import ibp1 from "@assets/images/places/Isaac Boro Pack/1.jpg";
+import ibp2 from "@assets/images/places/Isaac Boro Pack/2.jpg";
+import ibp3 from "@assets/images/places/Isaac Boro Pack/3.jpg";
+
+import tr1 from "@assets/images/places/Tinapa Resort/1.jpg";
+import tr2 from "@assets/images/places/Tinapa Resort/2.jpg";
+import tr3 from "@assets/images/places/Tinapa Resort/3.jpg";
+import tr4 from "@assets/images/places/Tinapa Resort/4.jpg";
+import tr5 from "@assets/images/places/Tinapa Resort/5.jpg";
+
+// Drill Ranch
+import dr1 from "@assets/images/places/Drill Ranch/1.jpg";
+import dr2 from "@assets/images/places/Drill Ranch/2.jpg";
+import dr3 from "@assets/images/places/Drill Ranch/3.jpg";
+import dr4 from "@assets/images/places/Drill Ranch/4.jpg";
+import dr5 from "@assets/images/places/Drill Ranch/5.jpg";
+import dr6 from "@assets/images/places/Drill Ranch/6.jpg";
+import dr7 from "@assets/images/places/Drill Ranch/7.jpg";
+import dr8 from "@assets/images/places/Drill Ranch/8.jpg";
+import dr9 from "@assets/images/places/Drill Ranch/9.jpg";
+
+// Enugu Golf Course
+import egc1 from "@assets/images/places/Enugu Golf course/1.jpg";
+import egc2 from "@assets/images/places/Enugu Golf course/2.jpg";
+import egc3 from "@assets/images/places/Enugu Golf course/3.jpg";
+
+// Awhum Waterfalls
+import ah1 from "@assets/images/places/Awhum Waterfall/1.webp";
+import ah2 from "@assets/images/places/Awhum Waterfall/2.webp";
+
+// Shere Hills
+import sh1 from "@assets/images/places/Shere hill/1.jpg";
+import sh2 from "@assets/images/places/Shere hill/2.jpg";
+import sh3 from "@assets/images/places/Shere hill/3.jpg";
+import sh4 from "@assets/images/places/Shere hill/4.jpg";
+
+import npf1 from "@assets/images/places/Ngwo Pine forest/1.jpg";
+import npf2 from "@assets/images/places/Ngwo Pine forest/2.jpg";
+import npf3 from "@assets/images/places/Ngwo Pine forest/3.jpg";
+import npf4 from "@assets/images/places/Ngwo Pine forest/4.jpg";
+import npf5 from "@assets/images/places/Ngwo Pine forest/5.jpg";
+import npf6 from "@assets/images/places/Ngwo Pine forest/6.jpg";
+import npf7 from "@assets/images/places/Ngwo Pine forest/7.jpg";
+
 export const heroSlides = [
   {
-    src: heroImg4,
+    src: dr7,
     headingKey: "hero.slides.1.heading",
     subHeadingKey: "hero.slides.1.subHeading",
   },
   {
-    src: heroImg2,
+    src: lk2,
     headingKey: "hero.slides.2.heading",
     subHeadingKey: "hero.slides.2.subHeading",
   },
   {
-    src: heroImg3,
+    src: lk13,
     headingKey: "hero.slides.3.heading",
     subHeadingKey: "hero.slides.3.subHeading",
   },
   {
-    src: heroImg1,
+    src: egc3,
     headingKey: "hero.slides.4.heading",
     subHeadingKey: "hero.slides.4.subHeading",
   },
   {
-    src: heroImg5,
+    src: h5,
     headingKey: "hero.slides.5.heading",
     subHeadingKey: "hero.slides.5.subHeading",
   },
@@ -89,7 +172,7 @@ export const featuredStats = [
 
 export const HomeTopDestinationsImage = [
   na2, // Image for the first attraction
-  "https://picsum.photos/900/755", // Image for the second attraction
+  dr6, // Image for the second attraction
   nat1, // Image for the third attraction
   idh2, // Image for the fourth attraction
 ];
@@ -117,7 +200,23 @@ export const nigerianCities: City[] = [
         },
         description: "A prominent art gallery showcasing Nigerian art.",
         type: "Museum",
-        images: [na1, na2, na3, na4],
+        images: [
+          na1,
+          na2,
+          na3,
+          na4,
+          na5,
+          na6,
+          na7,
+          na8,
+          na9,
+          na10,
+          na11,
+          na12,
+          na13,
+          na14,
+          na15,
+        ],
       },
       {
         id: "l2",
@@ -130,7 +229,21 @@ export const nigerianCities: City[] = [
         },
         description: "Nature reserve with canopy walkway.",
         type: "Park",
-        images: [lk1, lk2, lk3, lk4, lk5, lk6],
+        images: [
+          lk1,
+          lk2,
+          lk3,
+          lk4,
+          lk5,
+          lk6,
+          lk7,
+          lk8,
+          lk9,
+          lk10,
+          lk11,
+          lk12,
+          lk13,
+        ],
       },
       {
         id: "l3",
@@ -283,11 +396,7 @@ export const nigerianCities: City[] = [
         },
         description: "Ancient walls built to protect the old city.",
         type: "Landmark",
-        images: [
-          "https://upload.wikimedia.org/wikipedia/commons/1/13/Kano_City_Walls.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/2/2b/Kano_City_Walls_Historical.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/0/02/Kano_City_Walls_Sunset.jpg",
-        ],
+        images: [kcw1, kcw2, kcw3, kcw4],
       },
     ],
   },
@@ -308,11 +417,7 @@ export const nigerianCities: City[] = [
         },
         description: "Mountainous area great for hiking and adventure.",
         type: "Hiking",
-        images: [
-          "https://upload.wikimedia.org/wikipedia/commons/e/e2/Shere_Hills.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/d/df/Shere_Hills_Jos.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/f/f0/Shere_Hills_Jos_Plateau.jpg",
-        ],
+        images: [sh1, sh2, sh3, sh4],
       },
       {
         id: "j2",
@@ -320,11 +425,7 @@ export const nigerianCities: City[] = [
         location: { lat: 9.9333, lng: 8.9, city: "Jos", spot: "Plateau State" },
         description: "Nature park with diverse wildlife and picnic areas.",
         type: "Park",
-        images: [
-          "https://upload.wikimedia.org/wikipedia/commons/7/7e/Jos_Wildlife_Park.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/3/3a/Jos_Wildlife_Park_2.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/d/d2/Jos_Wildlife_Park_3.jpg",
-        ],
+        images: [jwp1, jwp2, jwp3, jwp4],
       },
     ],
   },
@@ -368,11 +469,7 @@ export const nigerianCities: City[] = [
         },
         description: "Park dedicated to Nigerian freedom fighter Isaac Boro.",
         type: "Park",
-        images: [
-          "https://upload.wikimedia.org/wikipedia/commons/f/f8/Isaac_Boro_Park.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/5/5d/Isaac_Boro_Park_Sculpture.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/0/05/Isaac_Boro_Park_View.jpg",
-        ],
+        images: [ibp1, ibp2, ibp3],
       },
     ],
   },
@@ -388,11 +485,7 @@ export const nigerianCities: City[] = [
         location: { lat: 6.7167, lng: 7.4333, city: "Enugu", spot: "Awhum" },
         description: "Spectacular waterfall located in Awhum.",
         type: "Park",
-        images: [
-          "https://upload.wikimedia.org/wikipedia/commons/4/4d/Awhum_Waterfall_Enugu.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/f/fd/Awhum_Waterfall_Enugu_2.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/e/ea/Awhum_Waterfall_Enugu_3.jpg",
-        ],
+        images: [ah1, ah2],
       },
       {
         id: "e2",
@@ -405,11 +498,7 @@ export const nigerianCities: City[] = [
         },
         description: "A well-maintained golf course in the heart of Enugu.",
         type: "Golf Course",
-        images: [
-          "https://upload.wikimedia.org/wikipedia/commons/6/6b/Enugu_Golf_Course.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/0/01/Enugu_Golf_Course_View.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/1/1e/Enugu_Golf_Course_1.jpg",
-        ],
+        images: [egc1, egc2, egc3],
       },
       {
         id: "e3",
@@ -422,11 +511,7 @@ export const nigerianCities: City[] = [
         },
         description: "A serene forest with pine trees and a cool atmosphere.",
         type: "Nature Reserve",
-        images: [
-          "https://upload.wikimedia.org/wikipedia/commons/7/7f/Ngwo_Pine_Forest.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/9/94/Ngwo_Pine_Forest_Enugu.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/2/2c/Ngwo_Pine_Forest_View.jpg",
-        ],
+        images: [npf1, npf2, npf3, npf4, npf5, npf6, npf7],
       },
     ],
   },
@@ -494,11 +579,7 @@ export const nigerianCities: City[] = [
         description:
           "Conservation center for endangered primates, especially drill monkeys.",
         type: "Wildlife",
-        images: [
-          "https://upload.wikimedia.org/wikipedia/commons/a/ab/Drill_Monkey_in_Cross_River_National_Park.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/5/5d/Drill_Monkey_Cross_River.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/8/81/Drill_Monkey_Sanctuary_Cross_River.jpg",
-        ],
+        images: [dr1, dr2, dr3, dr4, dr5, dr6, dr7, dr8, dr9],
       },
       {
         id: "c5",
@@ -512,11 +593,7 @@ export const nigerianCities: City[] = [
         description:
           "A commercial and leisure resort offering entertainment and shopping.",
         type: "Resort",
-        images: [
-          "https://upload.wikimedia.org/wikipedia/commons/5/50/Tinapa_Resort_Calabar.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/a/a9/Tinapa_Free_Zone_Resort.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/e/e0/Tinapa_Business_Resort_Calabar.jpg",
-        ],
+        images: [tr1, tr2, tr3, tr4, tr5],
       },
     ],
   },
@@ -527,45 +604,51 @@ export const getStepsConfig = (t: any) => [
     icon: "dripicons dripicons-search",
     main: t("guide.steps.findDestination"),
     description: t("guide.steps.findDestinationDescription"),
-    image: "https://picsum.photos/900/990",
+    image: fd,
   },
   {
     icon: "dripicons dripicons-message",
     main: t("guide.steps.bookTicket"),
     description: t("guide.steps.bookTicketDescription"),
-    image: "https://picsum.photos/900/991",
+    image: bt,
   },
   {
     icon: "dripicons dripicons-conversation",
     main: t("guide.steps.meetPeople"),
     description: t("guide.steps.meetPeopleDescription"),
-    image: "https://picsum.photos/900/992",
+    image: mp,
   },
   {
     icon: "dripicons dripicons-location",
     main: t("guide.steps.exploreNigeria"),
     description: t("guide.steps.exploreNigeriaDescription"),
-    image: "https://picsum.photos/900/993",
+    image: ex9,
   },
 ];
 
 export const bestNatureImages = {
-  Lagos: "https://picsum.photos/800/500?random=1",
-  Abuja: "https://picsum.photos/800/500?random=2",
-  Kano: "https://picsum.photos/800/500?random=3",
-  Jos: "https://picsum.photos/800/500?random=4",
-  "Port Harcourt": "https://picsum.photos/800/500?random=5",
-  Enugu: "https://picsum.photos/800/500?random=6",
+  Calabar: dr1,
+  Enugu: npf5,
+  Lagos: lk9,
 };
 
-export const getBestNatureCities = (
-  nigerianCities: { name: string; location: { city: string } }[]
-) =>
-  nigerianCities.slice(0, 6).map((city) => ({
-    image: bestNatureImages[city.name as keyof typeof bestNatureImages],
-    alt: city.name,
-    location: city.location.city,
-  }));
+export const getBestNatureCities = () => [
+  {
+    image: bestNatureImages["Calabar"],
+    alt: "Calabar",
+    location: "Calabar",
+  },
+  {
+    image: bestNatureImages["Enugu"],
+    alt: "Enugu",
+    location: "Enugu",
+  },
+  {
+    image: bestNatureImages["Lagos"],
+    alt: "Lagos",
+    location: "Lagos",
+  },
+];
 
 export const nigerianActivities: ActivityTypes[] = [
   {
@@ -576,10 +659,9 @@ export const nigerianActivities: ActivityTypes[] = [
     detailedDescription:
       "The Nike Art Gallery in Lagos is a four-story building housing an extensive collection of Nigerian art. Visitors can view and purchase works from prominent Nigerian artists while learning about the country's rich cultural heritage.",
     city: "Lagos",
-    image:
-      "https://via.placeholder.com/800x600/FF9933/FFFFFF?text=Nike+Art+Gallery",
+    image: na10,
     images: [
-      "https://via.placeholder.com/800x600/FF9933/FFFFFF?text=Nike+Art+Gallery+1",
+      na12,
       "https://via.placeholder.com/800x600/FF9933/FFFFFF?text=Nike+Art+Gallery+2",
       "https://via.placeholder.com/800x600/FF9933/FFFFFF?text=Nike+Art+Gallery+3",
     ],
