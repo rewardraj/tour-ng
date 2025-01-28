@@ -1,5 +1,5 @@
 .heroContainer {
-  height: 90vh;
+  height: 90dvh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -78,7 +78,7 @@
 @media (max-width: 768px) {
   .heroContainer {
     height: 50vh;
-    background-size: contain;
+    background-size: cover;
   }
 
   .heroContent {
