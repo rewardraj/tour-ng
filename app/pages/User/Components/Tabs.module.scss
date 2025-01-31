@@ -1,29 +1,31 @@
 .tabs {
+  background: rgba(23, 23, 23, 0.95);
   display: flex;
-  border-bottom: 2px solid #ccc;
   gap: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .tab {
   padding: 1rem 2rem;
   cursor: pointer;
   text-align: center;
-  transition: background-color 0.3s, color 0.3s;
-  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  color: #fff;
   border-bottom: 2px solid transparent;
 
   &:hover {
-    background-color: #f0f0f0;
+    background-color: rgba(255, 255, 255, 0.1);
   }
 
   &.active {
-    border-bottom: 2px solid #007bff; // Active tab underline
-    font-weight: bold;
-    color: #007bff; // Active tab color
+    border-bottom: 2px solid #ffd700;
+    font-weight: 600;
+    color: #ffd700;
   }
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
   }
 }

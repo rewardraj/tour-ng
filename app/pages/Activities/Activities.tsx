@@ -1,15 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useModal } from "@app/shared/contexts/ModalContext";
 import ActivityCard from "./components/ActivityCard";
 import styles from "./Activities.module.scss";
 import { Button, Container, Typography } from "@mui/material";
-import { nigerianActivities } from "@app/shared/data/allData";
+import { ActivityTypes, getNigerianActivites } from "@app/shared/data/allData";
 
 const Activities = () => {
-  const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const { openModal } = useModal();
+  const { t } = useTranslation();
+  const [nigerianActivities, setNigerianActivities] = useState<ActivityTypes[]>(
+    []
+  );
+
+  useEffect(() => {
+    const fetchActivities = async () => {
+      const activities = getNigerianActivites(t);
+      setNigerianActivities(activities);
+    };
+    fetchActivities();
+  }, []);
 
   const categories = [
     { key: "all", label: t("activities.categories.all") },

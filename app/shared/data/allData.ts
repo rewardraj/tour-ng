@@ -1,15 +1,7 @@
-// current data bank, move to firestore later
-// import heroImg1 from "@assets/images/hero/1.jpg";
-// import heroImg2 from "@assets/images/hero/2.jpg";
-// import heroImg3 from "@assets/images/hero/3.jpg";
-// import heroImg4 from "@assets/images/hero/4.jpg";
-// import heroImg5 from "@assets/images/hero/5.jpg";
-import heroImg6 from "@assets/images/hero/6.jpg";
+import { TFunction } from "i18next";
 
-// import h1 from "@assets/images/hero/h1.jpg";
-// import h2 from "@assets/images/hero/h2.jpg";
-// import h3 from "@assets/images/hero/h3.jpg";
-// import h4 from "@assets/images/hero/h4.jpg";
+// current data bank, move to firestore later
+import heroImg6 from "@assets/images/hero/6.jpg";
 import h5 from "@assets/images/hero/h5.jpg";
 
 import fd from "@assets/images/find.jpg";
@@ -69,17 +61,13 @@ import obd3 from "@assets/images/places/Obudu/3.jpg";
 import cal1 from "@assets/images/activities/calabar carnival/1.jpg";
 import cal2 from "@assets/images/activities/calabar carnival/2.jpg";
 import cal3 from "@assets/images/activities/calabar carnival/3.jpg";
+import cal4 from "@assets/images/activities/calabar carnival/4.webp";
 
 // Calabar National Park
 import cnp1 from "@assets/images/places/Calabar National Park/1.jpg";
 import cnp2 from "@assets/images/places/Calabar National Park/2.jpeg";
 import cnp3 from "@assets/images/places/Calabar National Park/3.jpeg";
 import cnp4 from "@assets/images/places/Calabar National Park/4.webp";
-
-import kcw1 from "@assets/images/places/Kano city wall/1.jpg";
-import kcw2 from "@assets/images/places/Kano city wall/2.jpg";
-import kcw3 from "@assets/images/places/Kano city wall/3.jpg";
-import kcw4 from "@assets/images/places/Kano city wall/4.jpg";
 
 import jwp1 from "@assets/images/places/Jos wildlife park/1.jpg";
 import jwp2 from "@assets/images/places/Jos wildlife park/2.jpg";
@@ -130,6 +118,52 @@ import npf5 from "@assets/images/places/Ngwo Pine forest/5.jpg";
 import npf6 from "@assets/images/places/Ngwo Pine forest/6.jpg";
 import npf7 from "@assets/images/places/Ngwo Pine forest/7.jpg";
 
+// Millennium Park
+import mp1 from "@assets/images/places/Millenium Park/1.jpg";
+import mp2 from "@assets/images/places/Millenium Park/2.jpg";
+
+// National mosque
+import nm1 from "@assets/images/places/National Mosque/1.jpg";
+import nm2 from "@assets/images/places/National Mosque/2.jpg";
+import nm3 from "@assets/images/places/National Mosque/3.jpg";
+
+// Gurara Falls
+import gf1 from "@assets/images/places/Gurara Falls/1.jpg";
+import gf2 from "@assets/images/places/Gurara Falls/2.jpg";
+import gf3 from "@assets/images/places/Gurara Falls/3.jpg";
+
+// Aso Rock
+import ar1 from "@assets/images/places/Aso Rock Abuja/1.jpg";
+import ar2 from "@assets/images/places/Aso Rock Abuja/2.jpg";
+import ar3 from "@assets/images/places/Aso Rock Abuja/3.webp";
+import ar4 from "@assets/images/places/Aso Rock Abuja/4.jpg";
+
+// Zuma Rock
+import zr1 from "@assets/images/places/Zuma Rock/1.jpg";
+import zr2 from "@assets/images/places/Zuma Rock/2.jpg";
+import zr3 from "@assets/images/places/Zuma Rock/3.jpg";
+
+// Tourism Beach Road
+import tbr1 from "@assets/images/places/Tourism Beach Road/1.jpg";
+import tbr2 from "@assets/images/places/Tourism Beach Road/2.jpg";
+import tbr3 from "@assets/images/places/Tourism Beach Road/3.jpg";
+import tbr4 from "@assets/images/places/Tourism Beach Road/4.webp";
+import tbr5 from "@assets/images/places/Tourism Beach Road/6.jpg";
+
+// Yankari Reserve
+import yk1 from "@assets/images/activities/yankari game reserve/1.jpg";
+import yk2 from "@assets/images/activities/yankari game reserve/2.jpg";
+import yk3 from "@assets/images/activities/yankari game reserve/3.jpg";
+
+// Africa Shrine
+import as1 from "@assets/images/activities/Afrika Shrine/1.jpg";
+import as2 from "@assets/images/activities/Afrika Shrine/2.jpeg";
+
+// Olumo Rock Climbing
+import orc1 from "@assets/images/activities/Olumo Rock Climbing/1.jpg";
+import orc2 from "@assets/images/activities/Olumo Rock Climbing/2.jpg";
+import orc3 from "@assets/images/activities/Olumo Rock Climbing/3.jpg";
+
 export const heroSlides = [
   {
     src: dr7,
@@ -177,429 +211,385 @@ export const HomeTopDestinationsImage = [
   idh2, // Image for the fourth attraction
 ];
 
-export const nigerianCities: City[] = [
-  {
-    id: "1",
-    name: "Lagos",
-    location: {
-      lat: 6.5244,
-      lng: 3.3792,
-      city: "Lagos",
-      spot: "Lekki Phase 1",
+export const getNigerianCities = (t: TFunction): City[] => {
+  return [
+    {
+      id: "1",
+      name: "Lagos",
+      location: {
+        lat: 6.5244,
+        lng: 3.3792,
+        city: "Lagos",
+        spot: "Lekki Phase 1",
+      },
+      description: t("destination.cities.1.description"),
+      attractions: [
+        {
+          id: "l1",
+          name: "Nike Art Gallery",
+          location: {
+            lat: 6.4698,
+            lng: 3.5852,
+            city: "Lagos",
+            spot: "Lekki Phase 1",
+          },
+          description: "A prominent art gallery showcasing Nigerian art.",
+          type: "Museum",
+          images: [
+            na1,
+            na2,
+            na3,
+            na4,
+            na5,
+            na6,
+            na7,
+            na8,
+            na9,
+            na10,
+            na11,
+            na12,
+            na13,
+            na14,
+            na15,
+          ],
+        },
+        {
+          id: "l2",
+          name: "Lekki Conservation Centre",
+          location: {
+            lat: 6.4418,
+            lng: 3.5347,
+            city: "Lagos",
+            spot: "Lekki Peninsula",
+          },
+          description: "Nature reserve with canopy walkway.",
+          type: "Park",
+          images: [
+            lk1,
+            lk2,
+            lk3,
+            lk4,
+            lk5,
+            lk6,
+            lk7,
+            lk8,
+            lk9,
+            lk10,
+            lk11,
+            lk12,
+            lk13,
+          ],
+        },
+        {
+          id: "l3",
+          name: "National Theatre",
+          location: { lat: 6.4929, lng: 3.3815, city: "Lagos", spot: "Iganmu" },
+          description: "Iconic cultural center for music, theater, and art.",
+          type: "Landmark",
+          images: [nat1, nat2, nat3],
+        },
+        {
+          id: "l4",
+          name: "Idanre Hills",
+          location: {
+            lat: 7.1155,
+            lng: 5.1274,
+            city: "Idanre",
+            spot: "Idanre Town",
+          },
+          description:
+            "Ancient hills ideal for hiking with breathtaking views.",
+          type: "Hiking",
+          images: [idh1, idh2, idh3],
+        },
+      ],
     },
-    description: "The largest city in Nigeria and a major financial center.",
-    attractions: [
-      {
-        id: "l1",
-        name: "Nike Art Gallery",
-        location: {
-          lat: 6.4698,
-          lng: 3.5852,
-          city: "Lagos",
-          spot: "Lekki Phase 1",
+    {
+      id: "2",
+      name: "Abuja",
+      location: {
+        lat: 9.0765,
+        lng: 7.3986,
+        city: "Abuja",
+        spot: "Three Arms Zone",
+      },
+      description: "The capital city of Nigeria.",
+      attractions: [
+        {
+          id: "a1",
+          name: "Aso Rock",
+          location: {
+            lat: 9.0579,
+            lng: 7.4951,
+            city: "Abuja",
+            spot: "Three Arms Zone",
+          },
+          description: "Iconic rock formation and seat of government.",
+          type: "Landmark",
+          images: [ar1, ar2, ar3, ar4],
         },
-        description: "A prominent art gallery showcasing Nigerian art.",
-        type: "Museum",
-        images: [
-          na1,
-          na2,
-          na3,
-          na4,
-          na5,
-          na6,
-          na7,
-          na8,
-          na9,
-          na10,
-          na11,
-          na12,
-          na13,
-          na14,
-          na15,
-        ],
-      },
-      {
-        id: "l2",
-        name: "Lekki Conservation Centre",
-        location: {
-          lat: 6.4418,
-          lng: 3.5347,
-          city: "Lagos",
-          spot: "Lekki Peninsula",
+        {
+          id: "a2",
+          name: "National Mosque",
+          location: {
+            lat: 9.0527,
+            lng: 7.4931,
+            city: "Abuja",
+            spot: "Central District",
+          },
+          description: "Principal mosque of Nigeria.",
+          type: "Monument",
+          images: [nm1, nm2, nm3],
         },
-        description: "Nature reserve with canopy walkway.",
-        type: "Park",
-        images: [
-          lk1,
-          lk2,
-          lk3,
-          lk4,
-          lk5,
-          lk6,
-          lk7,
-          lk8,
-          lk9,
-          lk10,
-          lk11,
-          lk12,
-          lk13,
-        ],
-      },
-      {
-        id: "l3",
-        name: "National Theatre",
-        location: { lat: 6.4929, lng: 3.3815, city: "Lagos", spot: "Iganmu" },
-        description: "Iconic cultural center for music, theater, and art.",
-        type: "Landmark",
-        images: [nat1, nat2, nat3],
-      },
-      {
-        id: "l4",
-        name: "Idanre Hills",
-        location: {
-          lat: 7.1155,
-          lng: 5.1274,
-          city: "Idanre",
-          spot: "Idanre Town",
+        {
+          id: "a3",
+          name: "Millennium Park",
+          location: {
+            lat: 9.0768,
+            lng: 7.4985,
+            city: "Abuja",
+            spot: "Maitama District",
+          },
+          description: "Large park with lush greenery and walking paths.",
+          type: "Park",
+          images: [mp1, mp2],
         },
-        description: "Ancient hills ideal for hiking with breathtaking views.",
-        type: "Hiking",
-        images: [idh1, idh2, idh3],
-      },
-    ],
-  },
-  {
-    id: "2",
-    name: "Abuja",
-    location: {
-      lat: 9.0765,
-      lng: 7.3986,
-      city: "Abuja",
-      spot: "Three Arms Zone",
+        {
+          id: "a4",
+          name: "Gurara Falls",
+          location: {
+            lat: 9.3333,
+            lng: 7.8333,
+            city: "Gurara",
+            spot: "Abuja",
+          },
+          description: "Waterfalls popular for picnics and scenic views.",
+          type: "Park",
+          images: [gf1, gf2, gf3],
+        },
+        {
+          id: "a5",
+          name: "Zuma Rock",
+          location: {
+            lat: 9.1035,
+            lng: 7.222,
+            city: "Madalla",
+            spot: "Niger State",
+          },
+          description: "A large monolithic rock and major natural landmark.",
+          type: "Mountain",
+          images: [zr1, zr2, zr3],
+        },
+      ],
     },
-    description: "The capital city of Nigeria.",
-    attractions: [
-      {
-        id: "a1",
-        name: "Aso Rock",
-        location: {
-          lat: 9.0579,
-          lng: 7.4951,
-          city: "Abuja",
-          spot: "Three Arms Zone",
-        },
-        description: "Iconic rock formation and seat of government.",
-        type: "Landmark",
-        images: [
-          "https://upload.wikimedia.org/wikipedia/commons/6/68/Aso_Rock_-_Abuja%2C_Nigeria.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/2/29/Aso_Rock_Abuja.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/d/d3/Aso_Rock_Abuja_Nigeria.jpg",
-        ],
-      },
-      {
-        id: "a2",
-        name: "National Mosque",
-        location: {
-          lat: 9.0527,
-          lng: 7.4931,
-          city: "Abuja",
-          spot: "Central District",
-        },
-        description: "Principal mosque of Nigeria.",
-        type: "Monument",
-        images: [
-          "https://upload.wikimedia.org/wikipedia/commons/3/33/National_Mosque%2C_Abuja.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/5/59/National_Mosque_Abuja.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/a/a9/National_Mosque_Abuja.jpg",
-        ],
-      },
-      {
-        id: "a3",
-        name: "Millennium Park",
-        location: {
-          lat: 9.0768,
-          lng: 7.4985,
-          city: "Abuja",
-          spot: "Maitama District",
-        },
-        description: "Large park with lush greenery and walking paths.",
-        type: "Park",
-        images: [
-          "https://upload.wikimedia.org/wikipedia/commons/d/d6/Millennium_Park_Abuja.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/2/2e/Millennium_Park%2C_Abuja.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/c/c1/Millennium_Park_Abuja.jpg",
-        ],
-      },
-      {
-        id: "a4",
-        name: "Gurara Falls",
-        location: {
-          lat: 9.3333,
-          lng: 7.8333,
-          city: "Gurara",
-          spot: "Niger State",
-        },
-        description: "Waterfalls popular for picnics and scenic views.",
-        type: "Park",
-        images: [
-          "https://upload.wikimedia.org/wikipedia/commons/1/17/Gurara_Falls_Abuja.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/f/f1/Gurara_Falls_Niger.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/2/24/Gurara_Falls.jpg",
-        ],
-      },
-      {
-        id: "a5",
-        name: "Zuma Rock",
-        location: {
-          lat: 9.1035,
-          lng: 7.222,
-          city: "Madalla",
-          spot: "Niger State",
-        },
-        description: "A large monolithic rock and major natural landmark.",
-        type: "Mountain",
-        images: [
-          "https://upload.wikimedia.org/wikipedia/commons/5/5c/Zuma_Rock.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/4/43/Zuma_Rock_Abuja.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/0/0c/Zuma_Rock_Abuja_1.jpg",
-        ],
-      },
-    ],
-  },
-  {
-    id: "3",
-    name: "Kano",
-    location: { lat: 12.0022, lng: 8.5919, city: "Kano", spot: "Old City" },
-    description:
-      "One of the oldest cities in Nigeria, known for its historical sites.",
-    attractions: [
-      {
-        id: "k1",
-        name: "Gidan Makama Museum",
-        location: { lat: 12.0059, lng: 8.5181, city: "Kano", spot: "Old City" },
-        description: "Museum with artifacts of Kano's rich history.",
-        type: "Museum",
-        images: [
-          "https://upload.wikimedia.org/wikipedia/commons/7/7b/Gidan_Makama_Museum.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/d/d6/Gidan_Makama_Museum_Kano.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/3/31/Gidan_Makama_Museum_Interior.jpg",
-        ],
-      },
-      {
-        id: "k2",
-        name: "Kano City Walls",
-        location: {
-          lat: 12.0022,
-          lng: 8.5919,
-          city: "Kano",
-          spot: "Ancient City",
-        },
-        description: "Ancient walls built to protect the old city.",
-        type: "Landmark",
-        images: [kcw1, kcw2, kcw3, kcw4],
-      },
-    ],
-  },
-  {
-    id: "4",
-    name: "Jos",
-    location: { lat: 9.8965, lng: 8.8583, city: "Jos", spot: "Plateau State" },
-    description: "Known for its scenic plateau and cooler climate.",
-    attractions: [
-      {
-        id: "j1",
-        name: "Shere Hills",
-        location: {
-          lat: 9.8667,
-          lng: 8.95,
-          city: "Jos",
-          spot: "Plateau State",
-        },
-        description: "Mountainous area great for hiking and adventure.",
-        type: "Hiking",
-        images: [sh1, sh2, sh3, sh4],
-      },
-      {
-        id: "j2",
-        name: "Jos Wildlife Park",
-        location: { lat: 9.9333, lng: 8.9, city: "Jos", spot: "Plateau State" },
-        description: "Nature park with diverse wildlife and picnic areas.",
-        type: "Park",
-        images: [jwp1, jwp2, jwp3, jwp4],
-      },
-    ],
-  },
-  {
-    id: "5",
-    name: "Port Harcourt",
-    location: {
-      lat: 4.8156,
-      lng: 7.0498,
-      city: "Port Harcourt",
-      spot: "Tourist Beach Road",
-    },
-    description:
-      "A port city known for its oil industry and beautiful scenery.",
-    attractions: [
-      {
-        id: "p1",
-        name: "Port Harcourt Tourist Beach",
-        location: {
-          lat: 4.7896,
-          lng: 7.0081,
-          city: "Port Harcourt",
-          spot: "Tourist Beach Road",
-        },
-        description: "Beach with scenic views and tourist facilities.",
-        type: "Park",
-        images: [
-          "https://upload.wikimedia.org/wikipedia/commons/f/fd/Port_Harcourt_Tourist_Beach.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/9/92/Port_Harcourt_Beach.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/3/36/Port_Harcourt_Tourist_Beach_View.jpg",
-        ],
-      },
-      {
-        id: "p2",
-        name: "Isaac Boro Park",
-        location: {
-          lat: 4.8119,
-          lng: 7.0498,
-          city: "Port Harcourt",
-          spot: "City Center",
-        },
-        description: "Park dedicated to Nigerian freedom fighter Isaac Boro.",
-        type: "Park",
-        images: [ibp1, ibp2, ibp3],
-      },
-    ],
-  },
-  {
-    id: "6",
-    name: "Enugu",
-    location: { lat: 6.5244, lng: 7.5086, city: "Enugu", spot: "Awhum" },
-    description: "Known for its coal mining industry and vibrant culture.",
-    attractions: [
-      {
-        id: "e1",
-        name: "Awhum Waterfall",
-        location: { lat: 6.7167, lng: 7.4333, city: "Enugu", spot: "Awhum" },
-        description: "Spectacular waterfall located in Awhum.",
-        type: "Park",
-        images: [ah1, ah2],
-      },
-      {
-        id: "e2",
-        name: "Enugu Golf Course",
-        location: {
-          lat: 6.5073,
-          lng: 7.5127,
-          city: "Enugu",
-          spot: "Independence Layout",
-        },
-        description: "A well-maintained golf course in the heart of Enugu.",
-        type: "Golf Course",
-        images: [egc1, egc2, egc3],
-      },
-      {
-        id: "e3",
-        name: "Ngwo Pine Forest",
-        location: {
-          lat: 6.5175,
-          lng: 7.4331,
-          city: "Enugu",
-          spot: "Ngwo",
-        },
-        description: "A serene forest with pine trees and a cool atmosphere.",
-        type: "Nature Reserve",
-        images: [npf1, npf2, npf3, npf4, npf5, npf6, npf7],
-      },
-    ],
-  },
-  {
-    id: "7",
-    name: "Cross River",
-    location: {
-      lat: 5.45,
-      lng: 8.0,
-      city: "Cross River",
-      spot: "Cross River State",
-    },
-    description: "A state known for its natural beauty and diverse wildlife.",
-    attractions: [
-      {
-        id: "c1",
-        name: "Obudu Mountain Resort",
-        location: {
-          lat: 5.6895,
-          lng: 9.4934,
-          city: "Obudu",
-          spot: "Obudu Mountain Resort",
-        },
-        description:
-          "A stunning mountain resort offering cable car rides and beautiful landscapes.",
-        type: "Resort",
-        images: [obd1, obd2, obd3],
-      },
-      {
-        id: "c2",
-        name: "Calabar Carnival",
-        location: {
-          lat: 4.9833,
-          lng: 8.3375,
-          city: "Calabar",
-          spot: "Calabar Cultural Center",
-        },
-        description:
-          "Africa's biggest street party showcasing culture and music.",
-        type: "Festival",
-        images: [cal1, cal2, cal3],
-      },
-      {
-        id: "c3",
-        name: "Cross River National Park",
-        location: {
-          lat: 5.2624,
-          lng: 8.4521,
-          city: "Akamkpa",
-          spot: "Cross River National Park",
-        },
-        description: "A park rich in wildlife, home to rare species.",
-        type: "Park",
-        images: [cnp1, cnp2, cnp3, cnp4],
-      },
-      {
-        id: "c4",
-        name: "Drill Ranch",
-        location: {
-          lat: 5.2725,
-          lng: 8.3328,
-          city: "Calabar",
-          spot: "Drill Ranch Sanctuary",
-        },
-        description:
-          "Conservation center for endangered primates, especially drill monkeys.",
-        type: "Wildlife",
-        images: [dr1, dr2, dr3, dr4, dr5, dr6, dr7, dr8, dr9],
-      },
-      {
-        id: "c5",
-        name: "Tinapa Free Zone and Resort",
-        location: {
-          lat: 4.99,
-          lng: 8.3,
-          city: "Calabar",
-          spot: "Tinapa Business Resort",
-        },
-        description:
-          "A commercial and leisure resort offering entertainment and shopping.",
-        type: "Resort",
-        images: [tr1, tr2, tr3, tr4, tr5],
-      },
-    ],
-  },
-];
 
-export const getStepsConfig = (t: any) => [
+    {
+      id: "4",
+      name: "Jos",
+      location: {
+        lat: 9.8965,
+        lng: 8.8583,
+        city: "Jos",
+        spot: "Plateau State",
+      },
+      description: "Known for its scenic plateau and cooler climate.",
+      attractions: [
+        {
+          id: "j1",
+          name: "Shere Hills",
+          location: {
+            lat: 9.8667,
+            lng: 8.95,
+            city: "Jos",
+            spot: "Plateau State",
+          },
+          description: "Mountainous area great for hiking and adventure.",
+          type: "Hiking",
+          images: [sh1, sh2, sh3, sh4],
+        },
+        {
+          id: "j2",
+          name: "Jos Wildlife Park",
+          location: {
+            lat: 9.9333,
+            lng: 8.9,
+            city: "Jos",
+            spot: "Plateau State",
+          },
+          description: "Nature park with diverse wildlife and picnic areas.",
+          type: "Park",
+          images: [jwp1, jwp2, jwp3, jwp4],
+        },
+      ],
+    },
+    {
+      id: "5",
+      name: "Port Harcourt",
+      location: {
+        lat: 4.8156,
+        lng: 7.0498,
+        city: "Port Harcourt",
+        spot: "Tourist Beach Road",
+      },
+      description:
+        "A port city known for its oil industry and beautiful scenery.",
+      attractions: [
+        {
+          id: "p1",
+          name: "Port Harcourt Tourist Beach",
+          location: {
+            lat: 4.7896,
+            lng: 7.0081,
+            city: "Port Harcourt",
+            spot: "Tourist Beach Road",
+          },
+          description: "Beach with scenic views and tourist facilities.",
+          type: "Park",
+          images: [tbr1, tbr2, tbr3, tbr4, tbr5],
+        },
+        {
+          id: "p2",
+          name: "Isaac Boro Park",
+          location: {
+            lat: 4.8119,
+            lng: 7.0498,
+            city: "Port Harcourt",
+            spot: "City Center",
+          },
+          description: "Park dedicated to Nigerian freedom fighter Isaac Boro.",
+          type: "Park",
+          images: [ibp1, ibp2, ibp3],
+        },
+      ],
+    },
+    {
+      id: "6",
+      name: "Enugu",
+      location: { lat: 6.5244, lng: 7.5086, city: "Enugu", spot: "Awhum" },
+      description: "Known for its coal mining industry and vibrant culture.",
+      attractions: [
+        {
+          id: "e1",
+          name: "Awhum Waterfall",
+          location: { lat: 6.7167, lng: 7.4333, city: "Enugu", spot: "Awhum" },
+          description: "Spectacular waterfall located in Awhum.",
+          type: "Park",
+          images: [ah1, ah2],
+        },
+        {
+          id: "e2",
+          name: "Enugu Golf Course",
+          location: {
+            lat: 6.5073,
+            lng: 7.5127,
+            city: "Enugu",
+            spot: "Independence Layout",
+          },
+          description: "A well-maintained golf course in the heart of Enugu.",
+          type: "Golf Course",
+          images: [egc1, egc2, egc3],
+        },
+        {
+          id: "e3",
+          name: "Ngwo Pine Forest",
+          location: {
+            lat: 6.5175,
+            lng: 7.4331,
+            city: "Enugu",
+            spot: "Ngwo",
+          },
+          description: "A serene forest with pine trees and a cool atmosphere.",
+          type: "Nature Reserve",
+          images: [npf1, npf2, npf3, npf4, npf5, npf6, npf7],
+        },
+      ],
+    },
+    {
+      id: "7",
+      name: "Cross River",
+      location: {
+        lat: 5.45,
+        lng: 8.0,
+        city: "Cross River",
+        spot: "Cross River State",
+      },
+      description: "A state known for its natural beauty and diverse wildlife.",
+      attractions: [
+        {
+          id: "c1",
+          name: "Obudu Mountain Resort",
+          location: {
+            lat: 5.6895,
+            lng: 9.4934,
+            city: "Obudu",
+            spot: "Obudu Mountain Resort",
+          },
+          description:
+            "A stunning mountain resort offering cable car rides and beautiful landscapes.",
+          type: "Resort",
+          images: [obd1, obd2, obd3],
+        },
+        {
+          id: "c2",
+          name: "Calabar Carnival",
+          location: {
+            lat: 4.9833,
+            lng: 8.3375,
+            city: "Calabar",
+            spot: "Calabar Cultural Center",
+          },
+          description:
+            "Africa's biggest street party showcasing culture and music.",
+          type: "Festival",
+          images: [cal1, cal2, cal3],
+        },
+        {
+          id: "c3",
+          name: "Cross River National Park",
+          location: {
+            lat: 5.2624,
+            lng: 8.4521,
+            city: "Akamkpa",
+            spot: "Cross River National Park",
+          },
+          description: "A park rich in wildlife, home to rare species.",
+          type: "Park",
+          images: [cnp1, cnp2, cnp3, cnp4],
+        },
+        {
+          id: "c4",
+          name: "Drill Ranch",
+          location: {
+            lat: 5.2725,
+            lng: 8.3328,
+            city: "Calabar",
+            spot: "Drill Ranch Sanctuary",
+          },
+          description:
+            "Conservation center for endangered primates, especially drill monkeys.",
+          type: "Wildlife",
+          images: [dr1, dr2, dr3, dr4, dr5, dr6, dr7, dr8, dr9],
+        },
+        {
+          id: "c5",
+          name: "Tinapa Free Zone and Resort",
+          location: {
+            lat: 4.99,
+            lng: 8.3,
+            city: "Calabar",
+            spot: "Tinapa Business Resort",
+          },
+          description:
+            "A commercial and leisure resort offering entertainment and shopping.",
+          type: "Resort",
+          images: [tr1, tr2, tr3, tr4, tr5],
+        },
+      ],
+    },
+  ];
+};
+
+export const getStepsConfig = (t: TFunction) => [
   {
     icon: "dripicons dripicons-search",
     main: t("guide.steps.findDestination"),
@@ -650,221 +640,142 @@ export const getBestNatureCities = () => [
   },
 ];
 
-export const nigerianActivities: ActivityTypes[] = [
-  {
-    id: "1",
-    name: "Nike Art Gallery Tour",
-    description:
-      "Explore Nigeria's largest art gallery featuring contemporary Nigerian art across four floors.",
-    detailedDescription:
-      "The Nike Art Gallery in Lagos is a four-story building housing an extensive collection of Nigerian art. Visitors can view and purchase works from prominent Nigerian artists while learning about the country's rich cultural heritage.",
-    city: "Lagos",
-    image: na10,
-    images: [
-      na12,
-      "https://via.placeholder.com/800x600/FF9933/FFFFFF?text=Nike+Art+Gallery+2",
-      "https://via.placeholder.com/800x600/FF9933/FFFFFF?text=Nike+Art+Gallery+3",
-    ],
-    category: "Cultural",
-    duration: "2-3 hours",
-    price: "₦5,000",
-    rating: 4.8,
-    location: {
-      lat: 6.4698,
-      lng: 3.5852,
+export const getNigerianActivites = (t: TFunction): ActivityTypes[] => {
+  return [
+    {
+      id: "1",
+      name: "Nike Art Gallery Tour",
+      description: t("activities.list.nikeArtGallery.description"),
+      detailedDescription: t(
+        "activities.list.nikeArtGallery.detailedDescription"
+      ),
       city: "Lagos",
-      spot: "Lekki Phase 1",
+      image: na10,
+      images: [na10, na15, na13],
+      category: "Cultural",
+      duration: "2-3 hours",
+      price: "₦5,000",
+      rating: 4.8,
+      location: {
+        lat: 6.4698,
+        lng: 3.5852,
+        city: "Lagos",
+        spot: "Lekki Phase 1",
+      },
+      type: "Cultural",
     },
-    type: "Cultural",
-  },
-  {
-    id: "2",
-    name: "Lekki Conservation Centre Canopy Walk",
-    description:
-      "Experience Africa's longest canopy walkway surrounded by nature.",
-    detailedDescription:
-      "The Lekki Conservation Centre offers a serene escape into nature. Its canopy walkway is the longest in Africa and provides stunning aerial views of the park's flora and fauna.",
-    city: "Lagos",
-    image:
-      "https://via.placeholder.com/800x600/4CAF50/FFFFFF?text=Lekki+Conservation",
-    images: [
-      "https://via.placeholder.com/800x600/4CAF50/FFFFFF?text=Lekki+Conservation+1",
-      "https://via.placeholder.com/800x600/4CAF50/FFFFFF?text=Lekki+Conservation+2",
-      "https://via.placeholder.com/800x600/4CAF50/FFFFFF?text=Lekki+Conservation+3",
-    ],
-    category: "Adventure",
-    duration: "3-4 hours",
-    price: "₦2,000",
-    rating: 4.5,
-    location: {
-      lat: 6.4418,
-      lng: 3.5347,
+    {
+      id: "2",
+      name: "Lekki Conservation Centre Canopy Walk",
+      description:
+        "Experience Africa's longest canopy walkway surrounded by nature.",
+      detailedDescription:
+        "The Lekki Conservation Centre offers a serene escape into nature. Its canopy walkway is the longest in Africa and provides stunning aerial views of the park's flora and fauna.",
       city: "Lagos",
-      spot: "Lekki Peninsula",
+      image: lk11,
+      images: [lk4, lk3, lk8],
+      category: "Adventure",
+      duration: "3-4 hours",
+      price: "₦2,000",
+      rating: 4.5,
+      location: {
+        lat: 6.4418,
+        lng: 3.5347,
+        city: "Lagos",
+        spot: "Lekki Peninsula",
+      },
+      type: "Adventure",
     },
-    type: "Adventure",
-  },
-  {
-    id: "3",
-    name: "Yankari Game Reserve Safari",
-    description:
-      "Discover wildlife and natural warm springs in Nigeria's most popular game reserve.",
-    detailedDescription:
-      "The Yankari Game Reserve is home to a variety of wildlife, including elephants and baboons. Visitors can also enjoy a swim in the Wikki Warm Spring, which maintains a constant temperature year-round.",
-    city: "Bauchi",
-    image:
-      "https://via.placeholder.com/800x600/795548/FFFFFF?text=Yankari+Safari",
-    images: [
-      "https://via.placeholder.com/800x600/795548/FFFFFF?text=Yankari+Safari+1",
-      "https://via.placeholder.com/800x600/795548/FFFFFF?text=Yankari+Safari+2",
-      "https://via.placeholder.com/800x600/795548/FFFFFF?text=Yankari+Safari+3",
-    ],
-    category: "Nature",
-    duration: "Full day",
-    price: "₦15,000",
-    rating: 4.7,
-    location: {
-      lat: 9.3333,
-      lng: 7.8333,
-      city: "Gurara",
-      spot: "Niger State",
+    {
+      id: "3",
+      name: "Yankari Game Reserve Safari",
+      description:
+        "Discover wildlife and natural warm springs in Nigeria's most popular game reserve.",
+      detailedDescription:
+        "The Yankari Game Reserve is home to a variety of wildlife, including elephants and baboons. Visitors can also enjoy a swim in the Wikki Warm Spring, which maintains a constant temperature year-round.",
+      city: "Bauchi",
+      image: yk2,
+      images: [yk2, yk3, yk1],
+      category: "Nature",
+      duration: "Full day",
+      price: "₦15,000",
+      rating: 4.7,
+      location: {
+        lat: 9.3333,
+        lng: 7.8333,
+        city: "Gurara",
+        spot: "Niger State",
+      },
+      type: "Nature Reserve",
     },
-    type: "Nature Reserve",
-  },
-  {
-    id: "4",
-    name: "Calabar Food Festival Tour",
-    description:
-      "Taste authentic Nigerian cuisine and learn about traditional cooking methods.",
-    detailedDescription:
-      "The Calabar Food Festival is a culinary journey through Nigerian cuisine. Guests can savor a wide variety of dishes while learning about their preparation and cultural significance.",
-    city: "Calabar",
-    image:
-      "https://via.placeholder.com/800x600/E91E63/FFFFFF?text=Calabar+Food",
-    images: [
-      "https://via.placeholder.com/800x600/E91E63/FFFFFF?text=Calabar+Food+1",
-      "https://via.placeholder.com/800x600/E91E63/FFFFFF?text=Calabar+Food+2",
-      "https://via.placeholder.com/800x600/E91E63/FFFFFF?text=Calabar+Food+3",
-    ],
-    category: "Food",
-    duration: "4 hours",
-    price: "₦8,000",
-    rating: 4.6,
-    location: {
-      lat: 4.9833,
-      lng: 8.3375,
+    {
+      id: "5",
+      name: "Olumo Rock Climbing",
+      description:
+        "Climb the historic Olumo Rock and learn about its cultural significance.",
+      detailedDescription:
+        "Olumo Rock is a historical site in Abeokuta with stunning views and rich Yoruba heritage. Guides offer insight into its significance in local culture.",
+      city: "Abeokuta",
+      image: orc2,
+      images: [orc1, orc2, orc3],
+      category: "Adventure",
+      duration: "3 hours",
+      price: "₦3,000",
+      rating: 4.4,
+      location: {
+        lat: 9.1035,
+        lng: 7.222,
+        city: "Madalla",
+        spot: "Niger State",
+      },
+      type: "Mountain",
+    },
+    {
+      id: "6",
+      name: "New Afrika Shrine Experience",
+      description:
+        "Enjoy live Afrobeat music and cultural performances at the legendary venue.",
+      detailedDescription:
+        "The New Afrika Shrine is a vibrant venue celebrating Afrobeat music and Nigerian culture. Visitors can enjoy live performances and immerse themselves in a lively atmosphere.",
+      city: "Lagos",
+      image: as1,
+      images: [as2, as1],
+      category: "Entertainment",
+      duration: "4-5 hours",
+      price: "₦4,000",
+      rating: 4.9,
+      location: {
+        lat: 6.5244,
+        lng: 3.3792,
+        city: "Lagos",
+        spot: "Lekki Phase 1",
+      },
+      type: "Entertainment",
+    },
+    {
+      id: "8",
+      name: "Cross River National Park Trek",
+      description:
+        "Explore Nigeria's biodiversity in one of the richest rainforest regions.",
+      detailedDescription:
+        "The Cross River National Park is a haven for biodiversity. Visitors can enjoy guided treks through its lush rainforest and discover rare plant and animal species.",
       city: "Calabar",
-      spot: "Calabar Cultural Center",
+      image: cal4,
+      images: [cal1, cal3, cal2],
+      category: "Nature",
+      duration: "Full day",
+      price: "₦12,000",
+      rating: 4.6,
+      location: {
+        lat: 5.2624,
+        lng: 8.4521,
+        city: "Akamkpa",
+        spot: "Cross River National Park",
+      },
+      type: "Park",
     },
-    type: "Festival",
-  },
-  {
-    id: "5",
-    name: "Olumo Rock Climbing",
-    description:
-      "Climb the historic Olumo Rock and learn about its cultural significance.",
-    detailedDescription:
-      "Olumo Rock is a historical site in Abeokuta with stunning views and rich Yoruba heritage. Guides offer insight into its significance in local culture.",
-    city: "Abeokuta",
-    image: "https://via.placeholder.com/800x600/9C27B0/FFFFFF?text=Olumo+Rock",
-    images: [
-      "https://via.placeholder.com/800x600/9C27B0/FFFFFF?text=Olumo+Rock+1",
-      "https://via.placeholder.com/800x600/9C27B0/FFFFFF?text=Olumo+Rock+2",
-      "https://via.placeholder.com/800x600/9C27B0/FFFFFF?text=Olumo+Rock+3",
-    ],
-    category: "Adventure",
-    duration: "3 hours",
-    price: "₦3,000",
-    rating: 4.4,
-    location: {
-      lat: 9.1035,
-      lng: 7.222,
-      city: "Madalla",
-      spot: "Niger State",
-    },
-    type: "Mountain",
-  },
-  {
-    id: "6",
-    name: "New Afrika Shrine Experience",
-    description:
-      "Enjoy live Afrobeat music and cultural performances at the legendary venue.",
-    detailedDescription:
-      "The New Afrika Shrine is a vibrant venue celebrating Afrobeat music and Nigerian culture. Visitors can enjoy live performances and immerse themselves in a lively atmosphere.",
-    city: "Lagos",
-    image:
-      "https://via.placeholder.com/800x600/2196F3/FFFFFF?text=Afrika+Shrine",
-    images: [
-      "https://via.placeholder.com/800x600/2196F3/FFFFFF?text=Afrika+Shrine+1",
-      "https://via.placeholder.com/800x600/2196F3/FFFFFF?text=Afrika+Shrine+2",
-      "https://via.placeholder.com/800x600/2196F3/FFFFFF?text=Afrika+Shrine+3",
-    ],
-    category: "Entertainment",
-    duration: "4-5 hours",
-    price: "₦4,000",
-    rating: 4.9,
-    location: {
-      lat: 6.5244,
-      lng: 3.3792,
-      city: "Lagos",
-      spot: "Lekki Phase 1",
-    },
-    type: "Entertainment",
-  },
-  {
-    id: "7",
-    name: "Osun Sacred Grove Tour",
-    description:
-      "Visit the UNESCO World Heritage site and learn about Yoruba traditions.",
-    detailedDescription:
-      "The Osun Sacred Grove is a tranquil sanctuary that showcases Yoruba religious and cultural traditions. Visitors can explore the site's sculptures and learn about its history.",
-    city: "Osogbo",
-    image: "https://via.placeholder.com/800x600/FFC107/FFFFFF?text=Osun+Grove",
-    images: [
-      "https://via.placeholder.com/800x600/FFC107/FFFFFF?text=Osun+Grove+1",
-      "https://via.placeholder.com/800x600/FFC107/FFFFFF?text=Osun+Grove+2",
-      "https://via.placeholder.com/800x600/FFC107/FFFFFF?text=Osun+Grove+3",
-    ],
-    category: "Cultural",
-    duration: "5 hours",
-    price: "₦6,000",
-    rating: 4.7,
-    location: {
-      lat: 9.0527,
-      lng: 7.4931,
-      city: "Abuja",
-      spot: "Central District",
-    },
-    type: "Cultural",
-  },
-  {
-    id: "8",
-    name: "Cross River National Park Trek",
-    description:
-      "Explore Nigeria's biodiversity in one of the richest rainforest regions.",
-    detailedDescription:
-      "The Cross River National Park is a haven for biodiversity. Visitors can enjoy guided treks through its lush rainforest and discover rare plant and animal species.",
-    city: "Calabar",
-    image:
-      "https://via.placeholder.com/800x600/009688/FFFFFF?text=Cross+River+Park",
-    images: [
-      "https://via.placeholder.com/800x600/009688/FFFFFF?text=Cross+River+Park+1",
-      "https://via.placeholder.com/800x600/009688/FFFFFF?text=Cross+River+Park+2",
-      "https://via.placeholder.com/800x600/009688/FFFFFF?text=Cross+River+Park+3",
-    ],
-    category: "Nature",
-    duration: "Full day",
-    price: "₦12,000",
-    rating: 4.6,
-    location: {
-      lat: 5.2624,
-      lng: 8.4521,
-      city: "Akamkpa",
-      spot: "Cross River National Park",
-    },
-    type: "Park",
-  },
-];
+  ];
+};
 
 export interface TouristAttraction {
   id: string;

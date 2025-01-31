@@ -1,12 +1,11 @@
 import { User } from "firebase/auth";
-import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import styles from "./Profile.module.scss";
 
 interface ProfileProps {
   currentUser: User | null;
 }
-export const Profile: FC<ProfileProps> = ({ currentUser }) => {
+export default function Profile({ currentUser }: ProfileProps) {
   const { t } = useTranslation();
   return (
     <section className={styles.section}>
@@ -22,4 +21,4 @@ export const Profile: FC<ProfileProps> = ({ currentUser }) => {
       </div>
     </section>
   );
-};
+}

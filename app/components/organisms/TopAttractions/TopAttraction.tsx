@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import Grid from "@app/components/layouts/Grid/Grid";
 import { Featured } from "@app/components/molecules/Featured/Featured";
 import { useTranslation } from "react-i18next";
@@ -11,25 +12,31 @@ import { useModal } from "@app/shared/contexts/ModalContext";
 import {
   featuredStats,
   HomeTopDestinationsImage,
-  nigerianCities,
+  getNigerianCities,
   TouristAttraction,
+  City,
 } from "@app/shared/data/allData";
 import { Container } from "@mui/material";
 
 const TopAttractions = () => {
-  const firstFourAttractions = [
-    nigerianCities[0].attractions[0], // Lagos - Nike Art Gallery
-    nigerianCities[0].attractions[1], // Lagos - Lekki Conservation Centre
-    nigerianCities[1].attractions[0], // Abuja - Aso Rock
-    nigerianCities[1].attractions[2], // Abuja - Millenium Park
-  ];
   const { openModal } = useModal();
+  const { t } = useTranslation();
+  const nigerianCities: City[] = useMemo(() => getNigerianCities(t), [t]);
+
+  // Ensure there are cities before accessing their attractions
+  const firstFourAttractions: TouristAttraction[] =
+    nigerianCities.length >= 2
+      ? [
+          nigerianCities[0]?.attractions[0],
+          nigerianCities[0]?.attractions[1],
+          nigerianCities[1]?.attractions[0],
+          nigerianCities[1]?.attractions[2],
+        ]
+      : [];
 
   const handleImageTextClick = (attraction: TouristAttraction) => {
     openModal({ type: "attraction", data: attraction });
   };
-
-  const { t } = useTranslation();
 
   return (
     <Container maxWidth="lg" sx={{ py: 8, pt: 0 }}>
@@ -61,16 +68,12 @@ const TopAttractions = () => {
           align={AlignItems.CENTER}
         >
           {firstFourAttractions.map((attraction, index) => (
-            <Columns
-              key={index}
-              span={index % 3 === 0 ? 3 : 2} // Alternating column spans for layout
-              mobileSpan={1}
-            >
+            <Columns key={index} span={index % 3 === 0 ? 3 : 2} mobileSpan={1}>
               <ImageText
                 src={HomeTopDestinationsImage[index]}
-                text={attraction.name}
+                text={attraction?.name || ""}
                 height="350px"
-                subtext={attraction.location.city}
+                subtext={attraction?.location?.city || ""}
                 onClick={() => handleImageTextClick(attraction)}
               />
             </Columns>

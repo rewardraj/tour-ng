@@ -1,50 +1,24 @@
-import { FC, useState } from "react";
-// import { useAuth } from "@app/shared/contexts/AuthContext";
-// import { useTranslation } from "react-i18next";
+import { useState } from "react";
 import styles from "./Dashboard.module.scss";
 import Tabs from "../Components/Tabs";
+import DashboardHome from "../DashboardHome/DashboardHome";
+import UpcomingTrips from "../UpcomingTrips/UpcomingTrips";
+import SavedDestinations from "../SavedDestination/SavedDestination";
+import Settings from "../Settings/Settings";
 
-const Dashboard: FC = () => {
-  // const { t } = useTranslation();
-  // const { currentUser } = useAuth();
+export default function Dashboard() {
   const [activeTab, setActiveTab] = useState("home");
 
   const renderTabContent = () => {
     switch (activeTab) {
       case "home":
-        return (
-          <section>
-            <h2>Home</h2>
-            <p>
-              Welcome to the tourism dashboard! Explore destinations and manage
-              your trips easily.
-            </p>
-          </section>
-        );
+        return <DashboardHome />;
       case "upcoming":
-        return (
-          <section>
-            <h2>Upcoming Trips</h2>
-            <p>
-              Plan your next adventure and stay updated with upcoming travel
-              schedules.
-            </p>
-          </section>
-        );
+        return <UpcomingTrips />;
       case "saved":
-        return (
-          <section>
-            <h2>Saved Destinations</h2>
-            <p>Review and manage your favorite tourist spots.</p>
-          </section>
-        );
+        return <SavedDestinations />;
       case "settings":
-        return (
-          <section>
-            <h2>Settings</h2>
-            <p>Customize your preferences and account settings here.</p>
-          </section>
-        );
+        return <Settings />;
       default:
         return null;
     }
@@ -56,6 +30,4 @@ const Dashboard: FC = () => {
       <main className={styles.contentWrapper}>{renderTabContent()}</main>
     </div>
   );
-};
-
-export default Dashboard;
+}
