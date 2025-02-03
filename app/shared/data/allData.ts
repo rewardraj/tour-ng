@@ -198,9 +198,9 @@ export const heroSlides = [
 ];
 
 export const featuredStats = [
-  { number: "10M+", descriptionKey: "featured.visitors" },
-  { number: "50+", descriptionKey: "featured.beaches" },
-  { number: "12K", descriptionKey: "featured.destinations" },
+  { number: "4M+", descriptionKey: "featured.visitors" },
+  { number: "30+", descriptionKey: "featured.beaches" },
+  { number: "30K", descriptionKey: "featured.destinations" },
   { number: "5.0", descriptionKey: "featured.rating" },
 ];
 
